@@ -110,7 +110,7 @@ def imprimir_texto_personalizado(frase, codigo_cor):
 
     while True:
         print("\n\n\tPressione \'s\' + \'ENTER\' para sair ou apenas \'ENTER\' para personalizar outra frase.")
-        op_temp = input("  >>>\t")
+        op_temp = input("  >>>\t").lower().strip()
 
         if op_temp == 's':
             encerramento()
@@ -167,7 +167,7 @@ def imprimir_texto_rgb(frase):
 
     while True:
         print("\n\nPressione \'s\' + \'ENTER\' para sair ou apenas \'ENTER\' para personalizar outra frase.\n")
-        op_temp = input("  >>>\t")
+        op_temp = input("  >>>\t").lower().strip()
 
         if op_temp == 's':
             encerramento()
