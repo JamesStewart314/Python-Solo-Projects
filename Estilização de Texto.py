@@ -45,6 +45,7 @@ cores = [f"{clr.Fore.RED}", f"{clr.Fore.LIGHTYELLOW_EX}", f"{clr.Fore.YELLOW}", 
 
 frase = None
 
+
 def limpar():
     os.system("cls")
 
@@ -117,7 +118,7 @@ def imprimir_texto_personalizado(frase, codigo_cor):
             limpar()
             main()
         else:
-            input("Opção Inválida, escolha uma das alternativas disponíveis !!! (tecle \'ENTER\')")
+            input("\tOpção Inválida, escolha uma das alternativas disponíveis !!! (tecle \'ENTER\')")
             limpar()
             imprimir_texto_personalizado(frase, codigo_cor)
 
@@ -165,7 +166,7 @@ def imprimir_texto_rgb(frase):
     print('\\' + "_" * (tamanho_linha - 2) + '/')
 
     while True:
-        print("\n\n\tPressione \'s\' + \'ENTER\' para sair ou apenas \'ENTER\' para personalizar outra frase.")
+        print("\n\nPressione \'s\' + \'ENTER\' para sair ou apenas \'ENTER\' para personalizar outra frase.\n")
         op_temp = input("  >>>\t")
 
         if op_temp == 's':
@@ -174,7 +175,8 @@ def imprimir_texto_rgb(frase):
             limpar()
             main()
         else:
-            input("Opção Inválida, escolha uma das alternativas disponíveis !!! (tecle \'ENTER\')")
+            print("\nOpção Inválida, escolha uma das alternativas disponíveis !!! (tecle \'ENTER\')")
+            input()
             limpar()
             imprimir_texto_rgb(frase)
 
@@ -264,7 +266,7 @@ def main():
                 encerramento()
             case _:
                 limpar()
-                op_temp = input("Opção Inválida, tecle \'Enter\' para selecionar uma opção ou digite"
+                op_temp = input("\tOpção Inválida, tecle \'Enter\' para selecionar uma opção ou digite"
                                 " \'sair\' e pressione \'ENTER\' para encerrar o programa.").lower().strip()
                 limpar()
                 if op_temp == "sair":
