@@ -30,9 +30,9 @@ dicionario_letras = {'a': ["  ****  ", "**    **", "********", "**    **", "**  
                      'v': ["**     **", "**     **", "**     **", " **   ** ", "  ** **  ", "    *    "],
                      'w': [" **          ** ", "**            **", "**     **     **", " **   *  *   ** ",
                            "  ** *    * **  ", "   ***    ***   "],
-                     'y': ["**      **", " *     ** ", "  ******  ", "     **   ", "   **     ", " **       "],
                      'x': ["**        **", "  **    **  ", "     **     ", "  **    **  ", " **      ** ",
                            "**        **"],
+                     'y': ["**      **", " *     ** ", "  ******  ", "     **   ", "   **     ", " **       "],
                      'z': ["*********** ", "      ****  ", "    ***     ", "  ***       ", "****        ",
                            "*********** "],
                      ' ': ["    ", "    ", "    ", "    ", "    ", "    "]}
@@ -147,12 +147,19 @@ def imprimir_texto_rgb(frase):
         rainbow_text_temp = itertools.cycle(cores)
         primeita_tabulacao_lateral = True
         for letra in frase:
-            cor_temp = next(rainbow_text_temp)
-            if primeita_tabulacao_lateral is False:
-                print(cor_temp + dicionario_letras.__getitem__(letra)[indice] + reset_c, end="   ")
+            if not letra == ' ':
+                cor_temp = next(rainbow_text_temp)
+                if primeita_tabulacao_lateral is False:
+                    print(cor_temp + dicionario_letras.__getitem__(letra)[indice] + reset_c, end="   ")
+                else:
+                    print("| " + cor_temp + dicionario_letras.__getitem__(letra)[indice] + reset_c, end="   ")
+                    primeita_tabulacao_lateral = False
             else:
-                print("| " + cor_temp + dicionario_letras.__getitem__(letra)[indice] + reset_c, end="   ")
-                primeita_tabulacao_lateral = False
+                if primeita_tabulacao_lateral is False:
+                    print(dicionario_letras.__getitem__(letra)[indice], end="   ")
+                else:
+                    print("| " + dicionario_letras.__getitem__(letra)[indice], end="   ")
+                    primeita_tabulacao_lateral = False
         print(" |")
 
     print('\\' + "_" * (tamanho_linha - 2) + '/')
