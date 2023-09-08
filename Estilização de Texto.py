@@ -52,7 +52,9 @@ def limpar():
 def encerramento():
     print(f"\n{clr.Fore.LIGHTBLUE_EX}Obrigado por utilizar este Programa !!!{reset_c}"
           f"\n\n{clr.Fore.YELLOW}Até logo, saindo . . .{reset_c}")
-    time.sleep(3)
+    for x in range(3, 0, -1):
+        print(x, end="\r")
+        time.sleep(1.5)
     exit()
 
 
