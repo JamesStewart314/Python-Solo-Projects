@@ -43,9 +43,6 @@ cores = [f"{clr.Fore.RED}", f"{clr.Fore.LIGHTYELLOW_EX}", f"{clr.Fore.YELLOW}", 
          f"{clr.Fore.CYAN}", f"{clr.Fore.MAGENTA}"]
 
 
-frase = None
-
-
 def limpar():
     os.system("cls")
 
@@ -54,7 +51,7 @@ def encerramento():
     print(f"\n{clr.Fore.LIGHTBLUE_EX}Obrigado por utilizar este Programa !!!{reset_c}"
           f"\n\n{clr.Fore.YELLOW}Até logo, saindo . . .{reset_c}")
     for x in range(3, 0, -1):
-        print(x, end="\r")
+        print(x, end="\r", flush=True)
         time.sleep(1.5)
     exit()
 
