@@ -178,9 +178,6 @@ def imprimir_texto_rgb(frase):
             imprimir_texto_rgb(frase)
 
 
-
-
-
 def main():
     global frase
     while True:
