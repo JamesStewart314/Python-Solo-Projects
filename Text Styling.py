@@ -48,8 +48,8 @@ def limpar():
 
 
 def encerramento():
-    print(f"\n{clr.Fore.LIGHTBLUE_EX}Obrigado por utilizar este Programa !!!{reset_c}"
-          f"\n\n{clr.Fore.YELLOW}Até logo, saindo . . .{reset_c}")
+    print(f"\n{clr.Fore.LIGHTBLUE_EX}Thank you for using this Program !!!{reset_c}"
+          f"\n\n{clr.Fore.YELLOW}See you later, leaving . . .{reset_c}")
     for x in range(3, 0, -1):
         print(x, end="\r", flush=True)
         time.sleep(1.5)
@@ -57,25 +57,25 @@ def encerramento():
 
 
 def op_cores():
-    print(f"● {clr.Fore.YELLOW}Amarelo{reset_c} : \'a\' + \'ENTER\'")
-    print(f"● {clr.Fore.BLUE}Azul{reset_c} : \'b\' + \'ENTER\'")
-    print(f"● {clr.Fore.LIGHTBLUE_EX}Azul Claro{reset_c} : \'lb\' + \'ENTER\'")
-    print(f"● {clr.Fore.WHITE}Branco{reset_c} : \'w\' + \'ENTER\'")
-    print(f"● {clr.Fore.CYAN}Ciano{reset_c} : \'c\' + \'ENTER\'")
-    print(f"● {clr.Fore.GREEN}Verde{reset_c} : \'g\' + \'ENTER\'")
-    print(f"● {clr.Fore.LIGHTGREEN_EX}Verde Claro{reset_c} : \'lg\' + \'ENTER\'")
-    print(f"● {clr.Fore.RED}Vermelho{reset_c} : \'r\' + \'ENTER\'")
+    print(f"● {clr.Fore.YELLOW}Yellow{reset_c} : \'a\' + \'ENTER\'")
+    print(f"● {clr.Fore.BLUE}Blue{reset_c} : \'b\' + \'ENTER\'")
+    print(f"● {clr.Fore.LIGHTBLUE_EX}Light Blue{reset_c} : \'lb\' + \'ENTER\'")
+    print(f"● {clr.Fore.WHITE}White{reset_c} : \'w\' + \'ENTER\'")
+    print(f"● {clr.Fore.CYAN}Cyan{reset_c} : \'c\' + \'ENTER\'")
+    print(f"● {clr.Fore.GREEN}Green{reset_c} : \'g\' + \'ENTER\'")
+    print(f"● {clr.Fore.LIGHTGREEN_EX}Light Green{reset_c} : \'lg\' + \'ENTER\'")
+    print(f"● {clr.Fore.RED}Red{reset_c} : \'r\' + \'ENTER\'")
     print(f"● {clr.Fore.MAGENTA}Magenta{reset_c} : \'m\' + \'ENTER\'")
-    print(f"● {clr.Fore.LIGHTBLACK_EX}Preto{reset_c} : \'bl\' + \'ENTER\'")
+    print(f"● {clr.Fore.LIGHTBLACK_EX}Black{reset_c} : \'bl\' + \'ENTER\'")
     print(f"● {clr.Fore.RED}R{reset_c}{clr.Fore.GREEN}G{clr.Fore.BLUE}B{reset_c} . . . ? : \'rgb\' + \'ENTER\'")
-    print(f"\n● {clr.Back.WHITE}{clr.Fore.BLACK}Voltar{reset_c}{clr.Back.RESET} : \'back\' + \'ENTER\'")
-    print(f"● {clr.Back.WHITE}{clr.Fore.BLACK}Sair{reset_c}{clr.Back.RESET} : \'sair\' + \'ENTER\'")
+    print(f"\n● {clr.Back.WHITE}{clr.Fore.BLACK}Back{reset_c}{clr.Back.RESET} : \'back\' + \'ENTER\'")
+    print(f"● {clr.Back.WHITE}{clr.Fore.BLACK}Exit{reset_c}{clr.Back.RESET} : \'exit\' + \'ENTER\'")
 
 
 def imprimir_texto_personalizado(frase, codigo_cor):
     rainbow_text = itertools.cycle(cores)
     print("\t", end="")
-    for letra in "SEU TEXTO ESTILIZADO FICOU ASSIM":
+    for letra in "YOUR STYLIZED TEXT LOOKS LIKE THIS":
         if letra == " ":
             print(" ", end="")
         else:
@@ -106,7 +106,7 @@ def imprimir_texto_personalizado(frase, codigo_cor):
     print('\\' + "_" * (tamanho_linha - 2) + '/')
 
     while True:
-        print("\n\n\tPressione \'s\' + \'ENTER\' para sair ou apenas \'ENTER\' para personalizar outra frase.")
+        print("\n\n\tPress \'s\' + \'ENTER\' to exit or just \'ENTER\' to customize another phrase.")
         op_temp = input("  >>>\t").lower().strip()
 
         if op_temp == 's':
@@ -115,7 +115,7 @@ def imprimir_texto_personalizado(frase, codigo_cor):
             limpar()
             main()
         else:
-            input("\tOpção Inválida, escolha uma das alternativas disponíveis !!! (tecle \'ENTER\')")
+            input("\tInvalid option, choose one of the available alternatives !!! (press \'ENTER\')")
             limpar()
             imprimir_texto_personalizado(frase, codigo_cor)
 
@@ -123,7 +123,7 @@ def imprimir_texto_personalizado(frase, codigo_cor):
 def imprimir_texto_rgb(frase):
     rainbow_text = itertools.cycle(cores)
     print("\t", end="")
-    for letra in "SEU TEXTO ESTILIZADO FICOU ASSIM":
+    for letra in "YOUR STYLIZED TEXT LOOKS LIKE THIS":
         if letra == " ":
             print(" ", end="")
         else:
@@ -163,7 +163,7 @@ def imprimir_texto_rgb(frase):
     print('\\' + "_" * (tamanho_linha - 2) + '/')
 
     while True:
-        print("\n\nPressione \'s\' + \'ENTER\' para sair ou apenas \'ENTER\' para personalizar outra frase.\n")
+        print("\n\n\tPress \'s\' + \'ENTER\' to exit or just \'ENTER\' to customize another phrase.")
         op_temp = input("  >>>\t").lower().strip()
 
         if op_temp == 's':
@@ -172,49 +172,51 @@ def imprimir_texto_rgb(frase):
             limpar()
             main()
         else:
-            print("\nOpção Inválida, escolha uma das alternativas disponíveis !!! (tecle \'ENTER\')")
+            print("\nInvalid option, choose one of the available alternatives !!! (press \'ENTER\')")
             input()
             limpar()
             imprimir_texto_rgb(frase)
 
 
 def main():
+
     global frase
+    
     while True:
 
-        print("\t" * 4 + f"{clr.Back.BLUE}{clr.Fore.LIGHTYELLOW_EX}~~~ !!! SEJA MUITO BEM-VINDO(A) !!! ~~~"
+        print("\t" * 4 + f"{clr.Back.LIGHTWHITE_EX}{clr.Fore.RED}~~~ !!! YOU ARE VERY WELCOME !!! ~~~"
                          f"{reset_c}{clr.Back.RESET}\n\n\n")
 
-        print(f"Este programa {clr.Style.BRIGHT}{clr.Fore.RED}estiliza{reset_c}{clr.Style.RESET_ALL} sua frase "
-              f"utilizando {clr.Fore.BLUE}cores{reset_c} e {clr.Style.BRIGHT}{clr.Fore.GREEN}asteríscos{reset_c}"
+        print(f"This program {clr.Style.BRIGHT}{clr.Fore.RED}style{reset_c}{clr.Style.RESET_ALL} your phrase "
+              f"using {clr.Fore.BLUE}colors{reset_c} and {clr.Style.BRIGHT}{clr.Fore.GREEN}asterisks{reset_c}"
               f" {clr.Style.RESET_ALL} !!!\n")
 
         try:
             frase = input(f"{clr.Fore.MAGENTA}●{reset_c} {clr.Fore.WHITE}"
-                          f" D i g i t e  u m a  F r a s e :{reset_c} ").lower().strip()
+                          f" E n t e r  a  P h r a s e :{reset_c} ").lower().strip()
             for caracter in frase:
                 if caracter not in dicionario_letras.keys():
-                    raise Exception("Ainda não é possível utilizar símbolos (',', '.', '!' e etc.),"
-                                    " numerais ou textos vazios, perdão...")
+                    raise Exception("It is not yet possible to use symbols (',', '.', '!' and etc.),"
+                                    " numerals or empty texts, sorry...")
             if frase.isspace() or frase == "":
                 limpar()
-                raise NameError("Não é possível estilizar uma frase vazia.")
+                raise NameError("You cannot style an empty sentence.")
             else:
                 break
         except Exception as e:
             limpar()
             print(e)
-            error_inp = input("\nPressione \'Enter\' para tentar novamente ou digite \"sair\" e pressione \'Enter\'"
-                              " para encerrar o programa . . .\n  >>>>\t").lower()
-            if error_inp == "sair":
+            error_inp = input("\nPress \'Enter\' to try again or type \"exit\" and press \'Enter\'"
+                              " to close the program . . .\n  >>>>\t").lower()
+            if error_inp == "close":
                 encerramento()
             limpar()
 
     limpar()
 
     while True:
-        print("\t / " + "-" * 41 + f"\\\n\t| {clr.Fore.YELLOW}Informe como deseja"
-                                           f" personalizar seu texto{reset_c} |\n\t \\ " + "-" * 41 + "/\n\n")
+        print("\t / " + "-" * 44 + f"\\\n\t| {clr.Fore.YELLOW}Tell us how you want"
+                                           f" to personalize your text{reset_c} |\n\t \\ " + "-" * 44 + "/\n\n")
 
         op_cores()
         opcao = input("\n >>>\t").lower().strip()
@@ -260,10 +262,10 @@ def main():
                 encerramento()
             case _:
                 limpar()
-                op_temp = input("\tOpção Inválida, tecle \'Enter\' para selecionar uma opção ou digite"
-                                " \'sair\' e pressione \'ENTER\' para encerrar o programa.").lower().strip()
+                op_temp = input("\tInvalid Option, press \'Enter\' to select an option or type"
+                                " \'close\' and press \'ENTER\' to close the program.").lower().strip()
                 limpar()
-                if op_temp == "sair":
+                if op_temp == "close":
                     limpar()
                     encerramento()
 
