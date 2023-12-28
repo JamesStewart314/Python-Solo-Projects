@@ -53,6 +53,7 @@ def encerramento():
     for x in range(3, 0, -1):
         print(x, end="\r", flush=True)
         time.sleep(1.5)
+    limpar()
     exit()
 
 
@@ -181,7 +182,7 @@ def imprimir_texto_rgb(frase):
 def main():
 
     global frase
-    
+
     while True:
 
         print("\t" * 4 + f"{clr.Back.LIGHTWHITE_EX}{clr.Fore.RED}~~~ !!! YOU ARE VERY WELCOME !!! ~~~"
@@ -257,7 +258,7 @@ def main():
             case 'back':
                 limpar()
                 main()
-            case 'sair':
+            case 'exit':
                 limpar()
                 encerramento()
             case _:
