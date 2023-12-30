@@ -58,7 +58,7 @@ def encerramento():
 
 
 def op_cores():
-    print(f"● {clr.Fore.YELLOW}Yellow{reset_c} : \'a\' + \'ENTER\'")
+    print(f"● {clr.Fore.YELLOW}Yellow{reset_c} : \'y\' + \'ENTER\'")
     print(f"● {clr.Fore.BLUE}Blue{reset_c} : \'b\' + \'ENTER\'")
     print(f"● {clr.Fore.LIGHTBLUE_EX}Light Blue{reset_c} : \'lb\' + \'ENTER\'")
     print(f"● {clr.Fore.WHITE}White{reset_c} : \'w\' + \'ENTER\'")
@@ -222,7 +222,7 @@ def main():
         op_cores()
         opcao = input("\n >>>\t").lower().strip()
         match opcao:
-            case 'a':
+            case 'y':
                 limpar()
                 imprimir_texto_personalizado(frase, clr.Fore.YELLOW)
             case 'b':
