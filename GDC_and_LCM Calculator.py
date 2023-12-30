@@ -1,0 +1,54 @@
+import functools
+
+
+def GDC(iterable: tuple | list) -> None | int:
+
+    for element in iterable:
+        if not isinstance(element, int):
+            if element:
+                print("Iterable must  only contain non-zero positive integers.")
+                return None
+
+    # Euclid Algorithm :
+    if len(iterable) >= 2:
+
+        def GDC_2_numbers(number_1: int, number_2: int) -> int:
+
+            aux_number_1 = max(number_1, number_2)
+            aux_number_2 = min(number_1, number_2)
+
+            remainder = aux_number_1 % aux_number_2
+
+            while remainder:  # Remainder != 0
+                aux_number_1 = aux_number_2
+                aux_number_2 = remainder
+                remainder = aux_number_1 % aux_number_2
+
+            return aux_number_2
+
+        return functools.reduce(GDC_2_numbers, iterable)
+
+    else:
+        print("To calculate GDC, we need to have at least two numbers.")
+        return None
+
+
+def LCM(iterable: tuple | list) -> None | int:
+    for element in iterable:
+        if not isinstance(element, int):
+            if element:
+                print("Iterable must  only contain non-zero positive integers.")
+                return None
+
+    # Euclid Algorithm :
+    if len(iterable) >= 2:
+
+        def LCM_2_numbers(number_1: int, number_2: int) -> int:
+
+            return number_1 * number_2 // GDC((number_1, number_2))
+
+        return functools.reduce(LCM_2_numbers, iterable)
+
+    else:
+        print("To calculate GDC, we need to have at least two numbers.")
+        return None
