@@ -58,6 +58,3 @@ def LCM(iterable: tuple | list) -> None | int:
     else:
         print("To calculate GDC, we need to have at least two numbers.")
         return None
-
-
-print(LCM((15, 21, 45, 0)))
