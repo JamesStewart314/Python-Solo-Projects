@@ -4,10 +4,13 @@ import functools
 def GDC(iterable: tuple | list) -> None | int:
 
     for element in iterable:
-        if not isinstance(element, int):
-            if element:
+        if isinstance(element, int):
+            if not element:  # If number is != 0
                 print("Iterable must  only contain non-zero positive integers.")
                 return None
+        else:
+            print("Iterable must  only contain non-zero positive integers.")
+            return None
 
     # Euclid Algorithm :
     if len(iterable) >= 2:
@@ -35,10 +38,13 @@ def GDC(iterable: tuple | list) -> None | int:
 
 def LCM(iterable: tuple | list) -> None | int:
     for element in iterable:
-        if not isinstance(element, int):
-            if element:
+        if isinstance(element, int):
+            if not element:  # If number is != 0
                 print("Iterable must  only contain non-zero positive integers.")
                 return None
+        else:
+            print("Iterable must  only contain non-zero positive integers.")
+            return None
 
     # Euclid Algorithm :
     if len(iterable) >= 2:
@@ -52,3 +58,6 @@ def LCM(iterable: tuple | list) -> None | int:
     else:
         print("To calculate GDC, we need to have at least two numbers.")
         return None
+
+
+print(LCM((15, 21, 45, 0)))
