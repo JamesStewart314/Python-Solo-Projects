@@ -31,6 +31,7 @@ def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
             return aux_number_2
 
         return functools.reduce(GDC_2_numbers, iterable)
+        
     else:
         if __name__ == "__main__":
             print("To calculate GDC, we need to have at least two numbers.")
