@@ -1,7 +1,8 @@
 import functools
 
 
-def GDC(iterable: tuple[int, ...] | list[int]) -> None | int:
+def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
+    
     if len(iterable) >= 2:
         for element in iterable:
             if isinstance(element, int):
@@ -34,7 +35,7 @@ def GDC(iterable: tuple[int, ...] | list[int]) -> None | int:
         return None
 
 
-def LCM(iterable: tuple[int, ...] | list[int]) -> None | int:
+def LCM(iterable: tuple[int, ...] | list[int]) -> int | None:
     if len(iterable) >= 2:
         for element in iterable:
             if isinstance(element, int):
