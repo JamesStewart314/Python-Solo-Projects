@@ -2,15 +2,16 @@ import functools
 
 
 def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
-    
-    if len(iterable) >= 2:
+    if not isinstance(iterable, int) and len(iterable) >= 2:
         for element in iterable:
             if isinstance(element, int):
-                if not element:  # If number is != 0
-                    print("Iterable must only contain non-zero positive integers.")
+                if element <= 0:
+                    if __name__ == "__main__":
+                        print("Iterable must only contain non-zero positive integers.")
                     return None
             else:
-                print("Iterable must only contain non-zero positive integers.")
+                if __name__ == "__main__":
+                    print("Iterable must only contain non-zero positive integers.")
                 return None
 
             # Euclid Algorithm :
@@ -31,19 +32,22 @@ def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
             return functools.reduce(GDC_2_numbers, iterable)
 
     else:
-        print("To calculate GDC, we need to have at least two numbers.")
+        if __name__ == "__main__":
+            print("To calculate GDC, we need to have at least two numbers.")
         return None
 
 
 def LCM(iterable: tuple[int, ...] | list[int]) -> int | None:
-    if len(iterable) >= 2:
+    if not isinstance(iterable, int) and len(iterable) >= 2:
         for element in iterable:
             if isinstance(element, int):
-                if not element:  # If number is != 0
-                    print("Iterable must only contain non-zero positive integers.")
+                if element <= 0:
+                    if __name__ == "__main__":
+                        print("Iterable must only contain non-zero positive integers.")
                     return None
             else:
-                print("Iterable must only contain non-zero positive integers.")
+                if __name__ == "__main__":
+                    print("Iterable must only contain non-zero positive integers.")
                 return None
 
             # Euclid Algorithm :
@@ -54,7 +58,6 @@ def LCM(iterable: tuple[int, ...] | list[int]) -> int | None:
             return functools.reduce(LCM_2_numbers, iterable)
 
     else:
-        print("To calculate GDC, we need to have at least two numbers.")
+        if __name__ == "__main__":
+            print("To calculate GDC, we need to have at least two numbers.")
         return None
-
-
