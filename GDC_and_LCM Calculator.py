@@ -7,10 +7,10 @@ def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
         for element in iterable:
             if isinstance(element, int):
                 if not element:  # If number is != 0
-                    print("Iterable must  only contain non-zero positive integers.")
+                    print("Iterable must only contain non-zero positive integers.")
                     return None
             else:
-                print("Iterable must  only contain non-zero positive integers.")
+                print("Iterable must only contain non-zero positive integers.")
                 return None
 
             # Euclid Algorithm :
@@ -40,10 +40,10 @@ def LCM(iterable: tuple[int, ...] | list[int]) -> int | None:
         for element in iterable:
             if isinstance(element, int):
                 if not element:  # If number is != 0
-                    print("Iterable must  only contain non-zero positive integers.")
+                    print("Iterable must only contain non-zero positive integers.")
                     return None
             else:
-                print("Iterable must  only contain non-zero positive integers.")
+                print("Iterable must only contain non-zero positive integers.")
                 return None
 
             # Euclid Algorithm :
