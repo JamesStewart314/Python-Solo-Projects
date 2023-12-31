@@ -5,7 +5,7 @@ def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
     
     if not isinstance(iterable, int) and len(iterable) >= 2:
         for element in iterable:
-            if isinstance(element, int) or element <= 0:
+            if isinstance(element, int):
                 if element <= 0:
                     if __name__ == "__main__":
                         print("Iterable must only contain non-zero positive integers.")
