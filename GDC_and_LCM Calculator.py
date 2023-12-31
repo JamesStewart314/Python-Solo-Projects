@@ -51,8 +51,7 @@ def LCM(iterable: tuple[int, ...] | list[int]) -> int | None:
                 if __name__ == "__main__":
                     print("Iterable must only contain non-zero positive integers.")
                 return None
-
-        # Euclid Algorithm :
+
         def LCM_2_numbers(number_1: int, number_2: int) -> int:
 
             return number_1 * number_2 // GDC((number_1, number_2))
