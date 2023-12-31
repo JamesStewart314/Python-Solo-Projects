@@ -15,7 +15,7 @@ def GDC(iterable: tuple[int, ...] | list[int]) -> int | None:
                     print("Iterable must only contain non-zero positive integers.")
                 return None
 
-        # Euclid Algorithm :
+        # Euclid's Algorithm :
         def GDC_2_numbers(number_1: int, number_2: int) -> int:
 
             aux_number_1 = max(number_1, number_2)
