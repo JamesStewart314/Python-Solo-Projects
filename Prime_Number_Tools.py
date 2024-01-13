@@ -3,11 +3,11 @@ from typing import Generator
 
 def check_primality(number: int, /) -> bool:
     
-    if not isinstance(number, int) or number <= 0:
+        if not isinstance(number, int) or number <= 0:
         raise ValueError('To check primality, the number must be an positive integer.')
-    elif number in (1, 4):
+    elif number == 1:
         return False
-    elif number in (2, 3):
+    elif number == 2:
         return True
 
     for i in range(2, int(number ** (1 / 2)) + 1):
