@@ -3,7 +3,7 @@ from typing import Generator
 
 def check_primality(number: int, /) -> bool:
     
-        if not isinstance(number, int) or number <= 0:
+    if not isinstance(number, int) or number <= 0:
         raise ValueError('To check primality, the number must be an positive integer.')
     elif number == 1:
         return False
