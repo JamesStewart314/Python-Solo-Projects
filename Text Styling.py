@@ -1,4 +1,8 @@
-import colorama as clr, os, itertools, time
+import os
+import itertools
+import time
+
+import colorama as clr
 
 clr.init(autoreset=True)
 
