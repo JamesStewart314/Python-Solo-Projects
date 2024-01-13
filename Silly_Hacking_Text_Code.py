@@ -4,6 +4,9 @@ import time
 
 symbols: set[str] = set(string.ascii_letters + string.digits + string.punctuation + string.whitespace)
 
+os.system('color a')
+os.system('cls')
+
 word: str = input("What Message do You Want to Write? \n>>> ")
 os.system('cls')
 
