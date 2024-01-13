@@ -2,6 +2,7 @@ from typing import Generator
 
 
 def check_primality(number: int, /) -> bool:
+    
     if not isinstance(number, int) or number <= 0:
         raise ValueError('To check primality, the number must be an positive integer.')
     elif number in (1, 4):
@@ -16,7 +17,7 @@ def check_primality(number: int, /) -> bool:
 
 
 def prime_generator() -> Generator[int, None, None]:
-    counter: int = 1
+    counter: int = 2
 
     while True:
         if check_primality(counter):
@@ -39,4 +40,3 @@ def first_n_primes(quantity: int, /) -> list[int]:
         size += 1
 
     return primes
-
