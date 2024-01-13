@@ -21,7 +21,7 @@ while current_word != word:
         print(current_word, end='\r')
 
         if current_word[letter_index] != word[letter_index]:
-            current_word = current_word[:-1]
+            current_word: str = current_word[:-1]
             continue
         else:
             letter_index += 1
