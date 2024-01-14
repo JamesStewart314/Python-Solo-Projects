@@ -2,10 +2,10 @@ import random
 import os
 import time
 
-from typing import Literal, TypeAlias
+from typing import Literal
 
-YesOrNo: TypeAlias = Literal['Y', 'N']
-Colors: TypeAlias = Literal['Yellow', 'Blue', 'Red', 'Green', 'Normal']
+type YesOrNo = Literal['Y', 'N']
+type Colors = Literal['Yellow', 'Blue', 'Red', 'Green', 'Normal']
 
 colors_dict: dict[str, str] = dict(Yellow='\033[33m', Blue='\033[34m', Red='\033[31m', Green='\033[32m',
                                    White='\033[37m', Normal='\033[0m')
