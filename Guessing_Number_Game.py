@@ -45,7 +45,7 @@ def get_yes_or_no(optional_message: str | None = None, /) -> YesOrNo:
         if optional_message:
             print(optional_message)
 
-        user_answer: str = input('>>> ').upper()
+        user_answer = input('>>> ').upper()
 
     return user_answer
 
@@ -60,7 +60,7 @@ def get_user_integer_number(input_text: str = '', input_color: Colors = 'Normal'
         print("\nNope, invalid choice, try some integer number. (Ex.: \"-23\", \"89\", ...)\n")
         pause()
         print()
-        new_number: str = get_user_input(input_text, input_color)
+        new_number = get_user_input(input_text, input_color)
 
     if int(new_number) < 0:
         new_number: int = int(new_number)
@@ -70,7 +70,7 @@ def get_user_integer_number(input_text: str = '', input_color: Colors = 'Normal'
           f" Are you sure about that? [Y]es / [N]o\n")
 
     if new_number[0] == '(':
-        new_number: str = new_number[1:-1]
+        new_number = new_number[1:-1]
 
     user_answer: YesOrNo = get_yes_or_no(f"\nYour selected number is "
                                          f"{colors_dict.get(input_color)}{new_number}{colors_dict.get('Normal')}."
@@ -91,7 +91,7 @@ def number_guess() -> int:
         print("\nNope, invalid choice, try some integer number. (Ex.: \"-23\", \"89\", ...)\n")
         pause()
         print()
-        new_number: str = input("● \033[3mChoose an Integer Number\033[0m >>> ")
+        new_number = input("● \033[3mChoose an Integer Number\033[0m >>> ")
 
     return int(new_number)
 
@@ -110,7 +110,7 @@ def game() -> None:
 
     clean()
 
-    user_answer: str = 'N'
+    user_answer: YesOrNo = 'N'
 
     while boundary > 1000 and user_answer == 'N':
 
@@ -125,7 +125,7 @@ def game() -> None:
               f" is \033[1mtoo big\033[0m ({colors_dict['Red']}over 1000{colors_dict['Normal']})."
               f"\nAre you sure you want to play with these limits? [Y]es / [N]o\n")
 
-        user_answer: YesOrNo = get_yes_or_no()
+        user_answer = get_yes_or_no()
 
         if user_answer == 'N':
             print(f"What number you want to change?"
@@ -142,9 +142,9 @@ def game() -> None:
 
             match user_answer:
                 case 'F':
-                    first_number: int = int(get_user_integer_number("First", 'Yellow'))
+                    first_number = int(get_user_integer_number("First", 'Yellow'))
                 case 'S':
-                    second_number: int = int(get_user_integer_number("Second", 'Blue'))
+                    second_number = int(get_user_integer_number("Second", 'Blue'))
 
     # __________________________________________________ THE GAME __________________________________________________ #
 
@@ -152,11 +152,11 @@ def game() -> None:
 
     guessed_number: int = drawn_number - 100
 
-    minimum_number: int = min(first_number, second_number)
-    maximum_number: int = max(first_number, second_number)
+    minimum_number = min(first_number, second_number)
+    maximum_number = max(first_number, second_number)
 
-    aux_number_1: str = str(minimum_number) if minimum_number >= 0 else '(' + str(minimum_number) + ')'
-    aux_number_2: str = str(maximum_number) if maximum_number >= 0 else '(' + str(maximum_number) + ')'
+    aux_number_1 = str(minimum_number) if minimum_number >= 0 else '(' + str(minimum_number) + ')'
+    aux_number_2 = str(maximum_number) if maximum_number >= 0 else '(' + str(maximum_number) + ')'
 
     last_guess: int | None = None
 
@@ -178,19 +178,19 @@ def game() -> None:
         else:
             print('\n')
 
-        guessed_number: int = number_guess()
+        guessed_number = number_guess()
 
         if guessed_number != drawn_number:
             estimate: str = "\033[1mGreater\033[0m" if drawn_number > guessed_number else "\033[1mLower\033[0m"
             print("\nWrong Guess! The unknown number is", estimate, "than your guess...")
             pause()
 
-        last_guess: int = guessed_number
+        last_guess = guessed_number
 
     print(f"\n\033[1mYou {colors_dict['Yellow']}W{colors_dict['Blue']}o{colors_dict['Red']}n{colors_dict['Normal']}!!!"
           f"\n\nThe unknown number was {drawn_number}. Wanna play again? [Y]es / [N]o")
 
-    user_answer: YesOrNo = get_yes_or_no()
+    user_answer = get_yes_or_no()
 
     if user_answer == "Y":
         game()
