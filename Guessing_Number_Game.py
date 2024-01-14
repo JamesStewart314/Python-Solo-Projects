@@ -125,7 +125,7 @@ def game() -> None:
               f" is \033[1mtoo big\033[0m ({colors_dict['Red']}over 1000{colors_dict['Normal']})."
               f"\nAre you sure you want to play with these limits? [Y]es / [N]o\n")
 
-        user_answer: str = get_yes_or_no()
+        user_answer: YesOrNo = get_yes_or_no()
 
         if user_answer == 'N':
             print(f"What number you want to change?"
@@ -190,7 +190,7 @@ def game() -> None:
     print(f"\n\033[1mYou {colors_dict['Yellow']}W{colors_dict['Blue']}o{colors_dict['Red']}n{colors_dict['Normal']}!!!"
           f"\n\nThe unknown number was {drawn_number}. Wanna play again? [Y]es / [N]o")
 
-    user_answer: str = get_yes_or_no()
+    user_answer: YesOrNo = get_yes_or_no()
 
     if user_answer == "Y":
         game()
