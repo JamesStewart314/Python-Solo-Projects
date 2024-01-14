@@ -4,11 +4,10 @@
 
 
 type OptionalNumber = int | float | None
-type Matrix = list[list[int | float]]
+type MatrixType = list[list[int | float]]
 
 
-def determinant(matrix: Matrix, /) -> OptionalNumber:
-
+def determinant(matrix: MatrixType, /) -> OptionalNumber:
     if matrix:  # if the Matrix is not empty
         if len(matrix) > 1:
 
@@ -41,7 +40,8 @@ def determinant(matrix: Matrix, /) -> OptionalNumber:
                 else:
                     # Laplace's Theorem :
 
-                    line: list[int] = max(matrix, key=lambda x: x.count(0))  # Getting the Horizontal Line with More Zeros.
+                    line: list[int] = max(matrix,
+                                          key=lambda x: x.count(0))  # Getting the Horizontal Line with More Zeros.
                     indexes: list[tuple[int, int]] = [(matrix.index(line), i) for i in range(len(line))]
 
                     # Auxiliary Variables to Check Vertical Lines on the Matrix to apply Laplace's Theorem :
@@ -52,7 +52,6 @@ def determinant(matrix: Matrix, /) -> OptionalNumber:
 
                     for idx_1 in range(order):
                         for idx_2 in range(order):
-
                             # Traversing the Vertical Lines of the Matrix :
                             aux_vertical_line.append(matrix[idx_2][idx_1])
                             temp_indexes.append((idx_2, idx_1))
@@ -68,7 +67,7 @@ def determinant(matrix: Matrix, /) -> OptionalNumber:
                     final_results: list[int] = []  # Variable to Store the Result of Minor Determinants.
 
                     for index in indexes:
-                        new_temp_matrix: list[list[int]] = []
+                        new_temp_matrix: MatrixType = []
 
                         for idx_1 in range(order):
                             temp_line: list[int] = []
@@ -82,7 +81,8 @@ def determinant(matrix: Matrix, /) -> OptionalNumber:
                                 new_temp_matrix.append(temp_line)
 
                         if matrix[index[0]][index[1]]:
-                            final_results.append((-1) ** (sum(index)) * matrix[index[0]][index[1]] * determinant(new_temp_matrix))
+                            final_results.append(
+                                (-1) ** (sum(index)) * matrix[index[0]][index[1]] * determinant(new_temp_matrix))
 
                     return sum(final_results)
 
@@ -103,6 +103,6 @@ def determinant(matrix: Matrix, /) -> OptionalNumber:
                         if __name__ == '__main__':
                             print("This is not an Matrix.")
                         return None
-                
+
                 if __name__ == '__main__':
                     print("Cannot evaluate a determinant of a matrix", len(matrix), "x", len(matrix[0]))
