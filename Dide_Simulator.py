@@ -14,11 +14,13 @@ dices_available: tuple[str, ...] = ('d4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100
 
 
 def get_rolls(dice_faces: DiceType, quantity: int = 1, /) -> int | tuple[int, ...]:
-    return tuple(random.randint(1, int(dice_faces[1:])) for _ in range(quantity)) if quantity != 1 else\
-        random.randint(1, int(dice_faces[1:]))
+    return tuple(random.randint(1, int(dice_faces[1:])) for _ in range(quantity)) if quantity > 1 else\
+        (random.randint(1, int(dice_faces[1:])) if quantity == 1 else 0)
 
 
 if __name__ == '__main__':
+
+    os.system('cls')
     
     while True:
 
