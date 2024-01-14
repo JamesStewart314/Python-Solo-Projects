@@ -24,7 +24,9 @@ if __name__ == '__main__':
 
         print("Enter the number of times the dice will be rotated and the type of dice desired,"
               " separated by a space. (Ex.: \"5 d20\", \"2 d4\", \"d10\", etc ...)\n")
-        print("Types of Dices Available: (d4, d6, d8, d10, d12, d20, d100)")
+        print(f"Types of Dices Available: (", end='')
+        print(*dices_available, sep=', ', end='')
+        print(")")
         print("Type \"exit\" to close the program.\n")
 
         dice_and_rolls: str = input(">>> ").strip().lower()
