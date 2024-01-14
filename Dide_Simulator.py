@@ -54,6 +54,7 @@ if __name__ == '__main__':
                 os.system('pause')
                 os.system('cls')
                 continue
+                
         else:
             dice: DiceType
             rolls: int
