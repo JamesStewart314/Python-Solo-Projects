@@ -19,6 +19,7 @@ def get_rolls(dice_faces: DiceType, quantity: int = 1, /) -> tuple[int, ...]:
 
 
 if __name__ == '__main__':
+    
     while True:
 
         print("Enter the number of times the dice will be rotated and the type of dice desired,"
