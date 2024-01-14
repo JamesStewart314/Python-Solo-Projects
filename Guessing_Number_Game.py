@@ -31,12 +31,12 @@ def presentation() -> None:
 
 
 def get_user_input(input_text: str, input_color: Colors) -> str:
-    return input(f"● \033[4m{colors_dict.get(input_color, colors_dict['Normal'])}{input_text}{colors_dict['Normal']} Number >>> ")
+    return input(f"● \033[4m{colors_dict.get(input_color, colors_dict['Normal'])}{input_text}{colors_dict['Normal']} Number >>> ").strip()
 
 
 def get_yes_or_no(optional_message: str | None = None, /) -> YesOrNo:
 
-    user_answer: str = input('>>> ').upper()
+    user_answer: str = input('>>> ').strip().upper()
 
     while user_answer not in ('Y', 'N'):
         clean()
@@ -45,7 +45,7 @@ def get_yes_or_no(optional_message: str | None = None, /) -> YesOrNo:
         if optional_message:
             print(optional_message)
 
-        user_answer = input('>>> ').upper()
+        user_answer = input('>>> ').strip().upper()
 
     return user_answer
 
@@ -85,13 +85,13 @@ def get_user_integer_number(input_text: str = '', input_color: Colors = 'Normal'
 
 def number_guess() -> int:
 
-    new_number: str = input("● \033[3mChoose an Integer Number\033[0m >>> ")
+    new_number: str = input("● \033[3mChoose an Integer Number\033[0m >>> ").strip()
 
     while not (new_number.isnumeric() or (new_number[0] == '-' and new_number[1:].isnumeric())):
         print("\nNope, invalid choice, try some integer number. (Ex.: \"-23\", \"89\", ...)\n")
         pause()
         print()
-        new_number = input("● \033[3mChoose an Integer Number\033[0m >>> ")
+        new_number = input("● \033[3mChoose an Integer Number\033[0m >>> ").strip()
 
     return int(new_number)
 
@@ -132,13 +132,13 @@ def game() -> None:
                   f" {colors_dict['Yellow']}[F]irst Number{colors_dict['Normal']} /"
                   f" {colors_dict['Blue']}[S]econd Number{colors_dict['Normal']}")
 
-            user_answer: str = input(">>> ").upper()
+            user_answer: str = input(">>> ").strip().upper()
 
             while user_answer not in ('F', 'S'):
 
                 print("Invalid Choice! Please select between \"F\" of \"S\":")
 
-                user_answer: str = input(">>> ").upper()
+                user_answer: str = input(">>> ").strip().upper()
 
             match user_answer:
                 case 'F':
