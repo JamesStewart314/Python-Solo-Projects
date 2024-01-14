@@ -13,7 +13,7 @@ type DiceType = Literal['d4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100']
 dices_available: tuple[str, ...] = ('d4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100')
 
 
-def get_rolls(dice_faces: DiceType, quantity: int = 1, /) -> tuple[int, ...]:
+def get_rolls(dice_faces: DiceType, quantity: int = 1, /) -> int | tuple[int, ...]:
     return tuple(random.randint(1, int(dice_faces[1:])) for _ in range(quantity)) if quantity != 1 else\
         random.randint(1, int(dice_faces[1:]))
 
