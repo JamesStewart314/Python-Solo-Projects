@@ -4,9 +4,10 @@
 
 
 type OptionalNumber = int | float | None
+type Matrix = list[list[int | float]]
 
 
-def determinant(matrix: list[list[int | float]], /) -> OptionalNumber:
+def determinant(matrix: Matrix, /) -> OptionalNumber:
 
     if matrix:  # if the Matrix is not empty
         if len(matrix) > 1:
