@@ -69,9 +69,11 @@ def play_hangman() -> None:
     
         if user_pressed_key == b'\x08' and len(game_lan) > 0:
             game_lan = game_lan[:-1]
-    
-        if user_pressed_key.decode().lower() in lower_characters and len(game_lan) < 2:
-            game_lan += user_pressed_key.decode().lower()
+        try:
+            if user_pressed_key.decode().lower() in lower_characters and len(game_lan) < 2:
+                game_lan += user_pressed_key.decode().lower()
+        except UnicodeDecodeError as error:
+            pass
     
         if user_pressed_key == b'\x0d' and game_lan in ('en', 'pt'):  # User pressed Enter
             break
@@ -282,9 +284,12 @@ def play_hangman() -> None:
             
                 
                 temp_user_answer: bytes = getchar()
-                
-                if temp_user_answer.decode().lower() in lower_characters:
-                    user_answer = temp_user_answer.decode().lower()
+
+                try:
+                    if temp_user_answer.decode().lower() in lower_characters:
+                        user_answer = temp_user_answer.decode().lower()
+                except UnicodeDecodeError as error:
+                    pass
                 
                 if user_answer in ('v', 'x') and temp_user_answer == b'\x0d':
                     match user_answer:
@@ -314,8 +319,11 @@ def play_hangman() -> None:
         
             temp_user_answer: bytes = getchar()
             
-            if temp_user_answer.decode().lower() in lower_characters:
-                user_answer = temp_user_answer.decode().lower()
+            try:
+                if temp_user_answer.decode().lower() in lower_characters:
+                    user_answer = temp_user_answer.decode().lower()
+            except UnicodeDecodeError as error:
+                pass
             
             if user_answer in lower_characters and temp_user_answer == b'\x0d' and user_answer not in letters_guessed:
                 letters_guessed.append(user_answer)
@@ -366,9 +374,12 @@ def play_hangman() -> None:
             print(user_answer, '\033[0m', sep='')
             
             temp_user_answer: bytes = getchar()
-                
-            if temp_user_answer.decode().lower() in lower_characters:
-                user_answer = temp_user_answer.decode().lower()
+
+            try:    
+                if temp_user_answer.decode().lower() in lower_characters:
+                    user_answer = temp_user_answer.decode().lower()
+            except UnicodeDecodeError as error:
+                pass
                 
             if user_answer in ('v', 'x') and temp_user_answer == b'\x0d':
                 match user_answer:
