@@ -311,8 +311,6 @@ def play_hangman() -> None:
             
 
             print(">>> \033[1m", user_answer, '\033[0m', sep='')
-
-            print(drawn_word)
         
             temp_user_answer: bytes = getchar()
             
