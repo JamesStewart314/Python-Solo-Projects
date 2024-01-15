@@ -1,3 +1,9 @@
+# /---------------------------------------------------------------------------------------------------------------------------------------------\
+#  This code is a hangman game created in Python language - version 3.12 or higher - with dependencies on the "faker" and "translate" libraries.
+#                      To run it properly, make sure you have these frameworks in your virtual environment.
+#  I emphasize that this script was created for Windows, meaning it will not work correctly on other operating systems such as Linux or MacOS.
+# \---------------------------------------------------------------------------------------------------------------------------------------------/
+
 import os
 import msvcrt
 import string
