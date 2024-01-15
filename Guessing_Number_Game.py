@@ -68,7 +68,7 @@ def play_hangman() -> None:
     
         user_pressed_key = getchar()
     
-        if user_pressed_key == b'\x08' and len(game_lan) > 0:
+        if user_pressed_key == b'\x08' and len(game_lan) > 0:  # User pressed Backspace
             game_lan = game_lan[:-1]
         try:
             if user_pressed_key.decode().lower() in lower_characters and len(game_lan) < 2:
@@ -76,8 +76,11 @@ def play_hangman() -> None:
         except UnicodeDecodeError as error:
             pass
     
-        if user_pressed_key == b'\x0d' and game_lan in ('en', 'pt'):  # User pressed Enter
-            break
+        if user_pressed_key == b'\x0d':  # User pressed Enter
+            if game_lan in ('en', 'pt'):
+                break
+            else:
+                print("\a")  # Sound alert
     
     # ----------------------------------------------------THE GAME---------------------------------------------------- #
     
