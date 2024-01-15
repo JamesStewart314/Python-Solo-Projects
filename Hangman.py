@@ -50,7 +50,7 @@ def play_hangman() -> None:
               " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
         print('‾' * 114)
         print(' ' * 40,
-              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese\033[37m \033[0m//",
+              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
               sep='')
         print(' ' * 56, ' \\/')
     
@@ -106,7 +106,7 @@ def play_hangman() -> None:
               " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
         print('‾' * 114)
         print(' ' * 40,
-              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese\033[37m \033[0m//",
+              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
               sep='')
         print(' ' * 56, ' \\/')
     
@@ -216,7 +216,7 @@ def play_hangman() -> None:
                       " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
                 print('‾' * 114)
                 print(' ' * 40,
-              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese\033[37m \033[0m//",
+              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
               sep='')
                 print(' ' * 56, ' \\/')
     
