@@ -377,7 +377,3 @@ def play_hangman() -> None:
 
 if __name__ == '__main__':
     play_hangman()
-
-
-
-
