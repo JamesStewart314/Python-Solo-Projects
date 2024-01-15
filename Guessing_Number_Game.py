@@ -64,7 +64,7 @@ def play_hangman() -> None:
                 print('\033[32m', end='')
     
         print(f"{game_lan:^4}", end='')
-        print('\033[0m |')
+        print('\033[0m |')  # or "print('\033[0m |', end='\b' * 4)" ... ? idk...
     
         user_pressed_key = getchar()
     
