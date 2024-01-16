@@ -18,13 +18,13 @@ def play_the_game() -> None:
     
     print(' ' * 30, "!!! Lets Play Rock, Paper and Scissors !!!\n")
 
-    user_name: str = input("What's your Name?  >>> ").strip().lower()[:10].capitalize()  # Name of 10 characters
+    user_name: str = input("What's your Name?  >>> ").strip().lower()[:9].capitalize()  # Name of 10 characters
 
     while not user_name.isalpha():
         clear()
         print(' ' * 30, "!!! Lets Play Rock, Paper and Scissors !!!\n")
         print("Invalid Name! Please, input a name just of letters.")
-        user_name: str = input("What's your Name?  >>> ").strip().lower()[:10].capitalize()  # Name of 10 characters
+        user_name: str = input("What's your Name?  >>> ").strip().lower()[:9].capitalize()  # Name of 10 characters
 
 
     def rock_paper_scissors() -> None:
