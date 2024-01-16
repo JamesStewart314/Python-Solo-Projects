@@ -46,7 +46,7 @@ def play_the_game() -> None:
 
         ai_current_option: str = ""
 
-        players_played: list(bool, bool) = [False, False]
+        players_played: list[bool] = [False, False]
 
         option_change: bytes
 
