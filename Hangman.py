@@ -308,9 +308,8 @@ def play_hangman() -> None:
                                     print('\r', end='')
                             else:  # game_lan == 'pt'
                                 for i in range(3, -1, -1):
-                                    print("Obrigado por Jogar!!! Fechando em", i, '...', end='')
+                                    print("Obrigado por Jogar!!! Fechando em", i, '...', end='\r')
                                     time.sleep(1)
-                                    print('\r', end='')
                             os.system('cls')
                             return None
                         
@@ -409,9 +408,8 @@ def play_hangman() -> None:
                                 print('\r', end='')
                         else:  # game_lan == 'pt'
                             for i in range(3, -1, -1):
-                                print("Obrigado por Jogar!!! Fechando em", i, '...', end='')
+                                print("Obrigado por Jogar!!! Fechando em", i, '...', end='\r')
                                 time.sleep(1)
-                                print('\r', end='')
                         os.system('cls')
                         return None
     
