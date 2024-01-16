@@ -201,9 +201,8 @@ def game() -> None:
         game()
 
     for i in range(3, -1, -1):
-        print("Thanks for Coming!!! Closing in", i, '...', end='')
+        print("Thanks for Coming!!! Closing in", i, '...', end='\r')
         time.sleep(1)
-        print('\r', end='')
 
     clean()
 
