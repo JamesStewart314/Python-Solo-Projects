@@ -3,10 +3,6 @@ import time
 import os
 import random
 
-option_change_cooldown_time: float = 0.5
-ai_play_cooldown: float = 2.0
-
-
 
 def getchar() -> bytes:
     return msvcrt.getch()
@@ -183,6 +179,7 @@ def play_the_game() -> None:
                     pass
 
     return rock_paper_scissors()
+
 
 
 if __name__ == "__main__":
