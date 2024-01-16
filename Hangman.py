@@ -7,6 +7,7 @@
 import os
 import msvcrt
 import string
+import time
 
 import faker
 from translate import Translator
@@ -49,8 +50,8 @@ def play_hangman() -> None:
         print("|| Please, select an language to play the Hangman ||"
               " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
         print('‾' * 114)
-        print(' ' * 40,
-              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
+        print(' ' * 40, r'\\',
+              "\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
               sep='')
         print(' ' * 56, ' \\/')
     
@@ -63,11 +64,11 @@ def play_hangman() -> None:
                 print('\033[32m', end='')
     
         print(f"{game_lan:^4}", end='')
-        print('\033[0m |')
+        print('\033[0m |')  # or "print('\033[0m |', end='\b' * 4)" is better ... ? idk...
     
         user_pressed_key = getchar()
     
-        if user_pressed_key == b'\x08' and len(game_lan) > 0:
+        if user_pressed_key == b'\x08' and len(game_lan) > 0:  # User pressed Backspace
             game_lan = game_lan[:-1]
         try:
             if user_pressed_key.decode().lower() in lower_characters and len(game_lan) < 2:
@@ -75,8 +76,11 @@ def play_hangman() -> None:
         except UnicodeDecodeError as error:
             pass
     
-        if user_pressed_key == b'\x0d' and game_lan in ('en', 'pt'):  # User pressed Enter
-            break
+        if user_pressed_key == b'\x0d':  # User pressed Enter
+            if game_lan in ('en', 'pt'):
+                break
+            else:
+                print("\a")  # Sound alert
     
     # ----------------------------------------------------THE GAME---------------------------------------------------- #
     
@@ -107,8 +111,8 @@ def play_hangman() -> None:
         print("|| Please, select an language to play the Hangman ||"
               " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
         print('‾' * 114)
-        print(' ' * 40,
-              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
+        print(' ' * 40, r'\\',
+              "\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
               sep='')
         print(' ' * 56, ' \\/')
     
@@ -217,8 +221,8 @@ def play_hangman() -> None:
                 print("|| Please, select an language to play the Hangman ||"
                       " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
                 print('‾' * 114)
-                print(' ' * 40,
-              "\\\\\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
+                print(' ' * 40, r'\\',
+              "\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
               sep='')
                 print(' ' * 56, ' \\/')
     
@@ -296,6 +300,17 @@ def play_hangman() -> None:
                         case 'v':
                             return play_hangman()
                         case 'x':
+                            print()
+                            if game_lan == 'en':
+                                for i in range(3, -1, -1):
+                                    print("Thanks for Playing!!! Closing in", i, '...', end='')
+                                    time.sleep(1)
+                                    print('\r', end='')
+                            else:  # game_lan == 'pt'
+                                for i in range(3, -1, -1):
+                                    print("Obrigado por Jogar!!! Fechando em", i, '...', end='')
+                                    time.sleep(1)
+                                    print('\r', end='')
                             os.system('cls')
                             return None
                         
@@ -386,6 +401,17 @@ def play_hangman() -> None:
                     case 'v':
                         return play_hangman()
                     case 'x':
+                        print()
+                        if game_lan == 'en':
+                            for i in range(3, -1, -1):
+                                print("Thanks for Playing!!! Closing in", i, '...', end='')
+                                time.sleep(1)
+                                print('\r', end='')
+                        else:  # game_lan == 'pt'
+                            for i in range(3, -1, -1):
+                                print("Obrigado por Jogar!!! Fechando em", i, '...', end='')
+                                time.sleep(1)
+                                print('\r', end='')
                         os.system('cls')
                         return None
     
