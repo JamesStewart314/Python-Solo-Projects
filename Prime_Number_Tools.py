@@ -74,11 +74,13 @@ def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
     :param order: Represents the nth desired prime number.
     :param quantity: Expresses the number of prime numbers desired from the position specified by the "order" parameter.
     :return: Returns the prime number corresponding to the position specified by the "order"
-             parameter or a list containing the quantity of prime numbers requested by the "quantity" parameter.
+      parameter or a list containing the quantity of prime numbers requested by the "quantity" parameter.
     """
 
     if order <= 0 or quantity <= 0:
         raise ValueError("cannot provide a null/negative order or quantity of prime numbers.")
+    if not (isinstance(order, int) and isinstance(quantity, int)):
+        raise TypeError("\"Order\" and \"quantity\" parameters must be integers type.")
 
     primes_generator: Generator[int, None, None] = prime_generator()
 
