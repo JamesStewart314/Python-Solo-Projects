@@ -64,3 +64,45 @@ def first_n_primes(quantity: int, /) -> list[int]:
         size += 1
 
     return primes
+
+
+def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
+
+    """
+    The function returns the nth prime number, where the position is specified by the "order" parameter.
+
+    :param order: Represents the nth desired prime number.
+    :param quantity: Expresses the number of prime numbers desired from the position specified by the "order" parameter.
+    :return: Returns the prime number corresponding to the position specified by the "order"
+      parameter or a list containing the quantity of prime numbers requested by the "quantity" parameter.
+    """
+
+    if order <= 0 or quantity <= 0:
+        raise ValueError("cannot provide a null/negative order or quantity of prime numbers.")
+
+    primes_generator: Generator[int, None, None] = prime_generator()
+
+    if quantity == 1:
+        
+        order_counter: int = 0
+        desired_prime: int = 0
+
+        while order_counter < order:
+            desired_prime = next(primes_generator)
+            order_counter += 1
+        
+        return desired_prime
+
+    else:
+
+        order_counter: int = 0
+        desired_primes: list[int] = []
+
+        while order_counter < order - 1:
+            next(primes_generator)
+            order_counter += 1
+        
+        for _ in range(quantity):
+            desired_primes.append(next(primes_generator))
+        
+        return desired_primes
