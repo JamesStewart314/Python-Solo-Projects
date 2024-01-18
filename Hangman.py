@@ -143,9 +143,12 @@ def play_hangman() -> None:
             f"\n● tente adivinhar a palavra antes que a forca seja concluída, você tem {number_of_attempts} tentativa(s):"
     
         print(game_start_message)
-    
-        if attempts == 6:
-            print(
+
+        match attempts:
+
+            case 6:
+
+                print(
                 """        ______|
        /    ||
        |     
@@ -155,9 +158,10 @@ def play_hangman() -> None:
       / \\
      /___\\
                 """)
-    
-        elif attempts == 5:
-            print("""        ______|
+            
+            case 5:
+
+                print("""        ______|
        /    ||
        |    ◯ 
        |   
@@ -166,9 +170,10 @@ def play_hangman() -> None:
       / \\
      /___\\
     """)
-    
-        elif attempts == 4:
-            print("""        ______|
+
+            case 4:
+
+                print("""        ______|
        /    ||
        |    ◯ 
        |   /
@@ -177,9 +182,9 @@ def play_hangman() -> None:
       / \\
      /___\\
     """)
-    
-        elif attempts == 3:
-            print("""        ______|
+            case 3:
+
+                print("""        ______|
        /    ||
        |    ◯ 
        |   /|
@@ -188,9 +193,9 @@ def play_hangman() -> None:
       / \\
      /___\\
     """)
-    
-        elif attempts == 2:
-            print("""        ______|
+            case 2:
+
+                print("""        ______|
        /    ||
        |    ◯ 
        |   /|\\
@@ -199,9 +204,9 @@ def play_hangman() -> None:
       / \\
      /___\\
     """)
-    
-        elif attempts == 1:
-            print("""        ______|
+            case 1:
+
+                print("""        ______|
        /    ||
        |    ◯ 
        |   /|\\
@@ -210,108 +215,107 @@ def play_hangman() -> None:
       / \\
      /___\\
     """)
-    
-        elif attempts == 0:  # User Lost :
-            
-            while True:
                 
-                os.system('cls')
-    
-                print('\033[1m', '_' * 114, '\033[0m', sep='')
-                print("|| Please, select an language to play the Hangman ||"
-                      " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
-                print('‾' * 114)
-                print(' ' * 40, r'\\',
-              "\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
-              sep='')
-                print(' ' * 56, ' \\/')
-    
-                print(' ' * 54, '| ', end='')
-    
-                if game_lan in ('en', 'pt'):
+            case 0:
+            
+                while True:
+                    
+                    os.system('cls')
+        
+                    print('\033[1m', '_' * 114, '\033[0m', sep='')
+                    print("|| Please, select an language to play the Hangman ||"
+                        " Por favor, selecione um idioma para jogar o Jogo da Forca  ||")
+                    print('‾' * 114)
+                    print(' ' * 40, r'\\',
+                "\033[4m\033[34m [en] - English\033[37m\033[0m || \033[4m\033[32m[pt] - Portuguese \033[37m\033[0m//",
+                sep='')
+                    print(' ' * 56, ' \\/')
+        
+                    print(' ' * 54, '| ', end='')
+        
+                    if game_lan in ('en', 'pt'):
+                        if game_lan == 'en':
+                            print('\033[34m', end='')
+                        else:
+                            print('\033[32m', end='')
+        
+                    print(f"{game_lan:^4}", end='')
+                    print('\033[0m |')
+        
+                    print(f"{presentation_message_1:^138}")
+        
+                    number_of_attempts: str = en_numbers_translate_dict.get(
+                        attempts) if game_lan == 'en' else pt_numbers_translate_dict.get(attempts)
+        
+                    if attempts in (5, 6, 7):
+                        number_of_attempts = '\033[32m' + number_of_attempts + '\033[0m'
+                    elif attempts in (4, 3, 2):
+                        number_of_attempts = '\033[33m' + number_of_attempts + '\033[0m'
+                    else:  # attempts == 1 or 0
+                        number_of_attempts = '\033[31m' + number_of_attempts + '\033[0m'
+        
+                    game_start_message: str = f"\n● try to guess the word before the gallow is completed, you have {number_of_attempts} attempts:" if game_lan == 'en' else \
+                        f"\n● tente adivinhar a palavra antes que a forca seja concluída, você tem {number_of_attempts} tentativa(s):"
+        
+                    print(game_start_message)
+                    
+                    print("""        ______|
+        /    ||
+        |    ◯ 
+        |   /|\\
+        |   / \\
+        |
+        / \\
+        /___\\
+            """)
+            
+                    lose_message: str = f"You Lost... The hidden word was {drawn_word}. Wanna play again? ;)" if game_lan == 'en' else \
+                        f"Você perdeu... A palavra oculta era {drawn_word}. Deseja jogar novamente? ;)"
+            
+                    print(lose_message)
+            
                     if game_lan == 'en':
-                        print('\033[34m', end='')
-                    else:
-                        print('\033[32m', end='')
-    
-                print(f"{game_lan:^4}", end='')
-                print('\033[0m |')
-    
-                print(f"{presentation_message_1:^138}")
-    
-                number_of_attempts: str = en_numbers_translate_dict.get(
-                    attempts) if game_lan == 'en' else pt_numbers_translate_dict.get(attempts)
-    
-                if attempts in (5, 6, 7):
-                    number_of_attempts = '\033[32m' + number_of_attempts + '\033[0m'
-                elif attempts in (4, 3, 2):
-                    number_of_attempts = '\033[33m' + number_of_attempts + '\033[0m'
-                else:  # attempts == 1 or 0
-                    number_of_attempts = '\033[31m' + number_of_attempts + '\033[0m'
-    
-                game_start_message: str = f"\n● try to guess the word before the gallow is completed, you have {number_of_attempts} attempts:" if game_lan == 'en' else \
-                    f"\n● tente adivinhar a palavra antes que a forca seja concluída, você tem {number_of_attempts} tentativa(s):"
-    
-                print(game_start_message)
-                
-                print("""        ______|
-       /    ||
-       |    ◯ 
-       |   /|\\
-       |   / \\
-       |
-      / \\
-     /___\\
-        """)
-        
-                lose_message: str = f"You Lost... The hidden word was {drawn_word}. Wanna play again? ;)" if game_lan == 'en' else \
-                    f"Você perdeu... A palavra oculta era {drawn_word}. Deseja jogar novamente? ;)"
-        
-                print(lose_message)
-        
-                if game_lan == 'en':
-                    print("[v] - \033[32mYes\033[0m // [x] - \033[31mNo\033[0m")
-                if game_lan == 'pt':
-                    print("[v] - \033[32mSim\033[0m // [x] - \033[31mNão\033[0m")
-        
-                print(">>> ", end='')
-
-                match user_answer:
-                    case 'x':
-                        print('\033[31m', end='')
-                    case 'v':
-                        print('\033[32m', end='')
-                    case _:
-                        print('\033[0m', end='')
-
-                print(user_answer, '\033[0m', sep='')
+                        print("[v] - \033[32mYes\033[0m // [x] - \033[31mNo\033[0m")
+                    if game_lan == 'pt':
+                        print("[v] - \033[32mSim\033[0m // [x] - \033[31mNão\033[0m")
             
-                
-                temp_user_answer: bytes = getchar()
+                    print(">>> ", end='')
 
-                try:
-                    if temp_user_answer.decode().lower() in lower_characters:
-                        user_answer = temp_user_answer.decode().lower()
-                except UnicodeDecodeError as error:
-                    pass
-                
-                if user_answer in ('v', 'x') and temp_user_answer == b'\x0d':
                     match user_answer:
-                        case 'v':
-                            return play_hangman()
                         case 'x':
-                            print()
-                            if game_lan == 'en':
-                                for i in range(3, -1, -1):
-                                    print("Thanks for Playing!!! Closing in", i, '...', end='')
-                                    time.sleep(1)
-                                    print('\r', end='')
-                            else:  # game_lan == 'pt'
-                                for i in range(3, -1, -1):
-                                    print("Obrigado por Jogar!!! Fechando em", i, '...', end='\r')
-                                    time.sleep(1)
-                            os.system('cls')
-                            return None
+                            print('\033[31m', end='')
+                        case 'v':
+                            print('\033[32m', end='')
+                        case _:
+                            print('\033[0m', end='')
+
+                    print(user_answer, '\033[0m', sep='')
+                
+                    
+                    temp_user_answer: bytes = getchar()
+
+                    try:
+                        if temp_user_answer.decode().lower() in lower_characters:
+                            user_answer = temp_user_answer.decode().lower()
+                    except UnicodeDecodeError as error:
+                        pass
+                    
+                    if user_answer in ('v', 'x') and temp_user_answer == b'\x0d':
+                        match user_answer:
+                            case 'v':
+                                return play_hangman()
+                            case 'x':
+                                print()
+                                if game_lan == 'en':
+                                    for i in range(3, -1, -1):
+                                        print("Thanks for Playing!!! Closing in", i, '...', end='\r')
+                                        time.sleep(1)
+                                else:  # game_lan == 'pt'
+                                    for i in range(3, -1, -1):
+                                        print("Obrigado por Jogar!!! Fechando em", i, '...', end='\r')
+                                        time.sleep(1)
+                                os.system('cls')
+                                return None
                         
         if not set(drawn_word).issubset(letters_guessed):  # User still Playing
 
@@ -403,9 +407,8 @@ def play_hangman() -> None:
                         print()
                         if game_lan == 'en':
                             for i in range(3, -1, -1):
-                                print("Thanks for Playing!!! Closing in", i, '...', end='')
+                                print("Thanks for Playing!!! Closing in", i, '...', end='\r')
                                 time.sleep(1)
-                                print('\r', end='')
                         else:  # game_lan == 'pt'
                             for i in range(3, -1, -1):
                                 print("Obrigado por Jogar!!! Fechando em", i, '...', end='\r')
