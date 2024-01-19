@@ -1,3 +1,7 @@
+# / ------------------------------------------------------------------------------------ \ #
+#   This code was created using the Python language and works in versions 3.12 and higher
+# \ ------------------------------------------------------------------------------------ / #
+
 import string
 import random
 import os
