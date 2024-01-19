@@ -12,7 +12,7 @@ from typing import Callable
 def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool = False) -> str:
     
     """
-    The function create a password with symbols, upper and lower alphabetic characters.
+    The function create a password with symbols, numbers, upper and lower alphabetic characters.
 
     :param length: Number that informs the desired length of the password.
     :param symbols: Boolean value to specify whether the password must contain special characters,
@@ -27,7 +27,7 @@ def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool 
     if not (isinstance(uppercase, bool) and isinstance(symbols, bool)):
         raise TypeError("\"symbols\" and \"uppercase\" parameters must be boolean type. (\"true\" or \"false\")")
 
-    password_characters: list[str] = list(string.ascii_lowercase)
+    password_characters: list[str] = list(string.ascii_lowercase + string.digits)
 
     if symbols:
         password_characters.extend(list(string.punctuation))
