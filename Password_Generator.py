@@ -66,9 +66,8 @@ if __name__ == '__main__':
     for order in range(1, quantity + 1):
         password_generated: str = generate_password(passwords_len, symbols=random.choice((True, False)),
                                                     uppercase=random.choice((True, False)))
-        print(
-            f"{order}° -> {password_generated} || (Upper: {check_uppercase(password_generated)},"
-            f" Sym: {check_symbols(password_generated)})")
+        print(f"{order}° -> {password_generated} || (Upper: {check_uppercase(password_generated)},"
+              f" Sym: {check_symbols(password_generated)})")
 
     print("\nPress any key to close the program.")
     os.system('pause >nul')
