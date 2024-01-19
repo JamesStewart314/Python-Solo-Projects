@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     import random
 
-    quantity: int = int(input("How many passwords do you wanna generate? >> "))
+    quantity: int = int(input("How many passwords do you want to create? >> "))
     passwords_len = int(input("and what size should they be? >> "))
 
     check_uppercase: Callable[[str], bool] = lambda x: any(character in string.ascii_uppercase for character in x)
