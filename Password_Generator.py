@@ -3,7 +3,7 @@
 # \ ------------------------------------------------------------------------------------ / #
 
 import string
-import random
+import secrets
 import os
 
 from typing import Callable
@@ -32,18 +32,23 @@ def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool 
         password_characters.extend(list(string.punctuation))
     if uppercase:
         password_characters.extend(list(string.ascii_uppercase))
+    
+    password_characters_size: int = len(password_characters) - 1
 
     string_len: int = 0
     new_password: str = ""
 
     while string_len < length:
-        new_password += random.choice(password_characters)
+        new_password += password_characters[secrets.randbelow(password_characters_size)]
         string_len += 1
 
     return new_password
 
 
 if __name__ == '__main__':
+
+    import random
+
     quantity: int = int(input("How many passwords do you wanna generate? >> "))
     passwords_len = int(input("and what size should they be? >> "))
 
