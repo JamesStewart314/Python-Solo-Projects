@@ -37,7 +37,7 @@ def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool 
     check_uppercase: Callable[[str], bool] = lambda x: any(character in string.ascii_uppercase for character in x)
     check_symbols: Callable[[str], bool] = lambda x: any(character in string.punctuation for character in x)
     
-    password_characters_size: int = len(password_characters) - 1
+    password_characters_size: int = len(password_characters)
 
     string_len: int = 0
     new_password: str = ""
