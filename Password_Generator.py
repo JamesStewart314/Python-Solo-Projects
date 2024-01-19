@@ -34,6 +34,9 @@ def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool 
     if uppercase:
         password_characters.extend(list(string.ascii_uppercase))
     
+    check_uppercase: Callable[[str], bool] = lambda x: any(character in string.ascii_uppercase for character in x)
+    check_symbols: Callable[[str], bool] = lambda x: any(character in string.punctuation for character in x)
+    
     password_characters_size: int = len(password_characters) - 1
 
     string_len: int = 0
@@ -43,7 +46,8 @@ def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool 
         new_password += password_characters[secrets.randbelow(password_characters_size)]
         string_len += 1
 
-    return new_password
+    return new_password if (check_symbols(new_password), check_uppercase(new_password)) == (symbols, uppercase) else\
+          generate_password(length, symbols=symbols, uppercase=uppercase)
 
 
 if __name__ == '__main__':
