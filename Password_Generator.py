@@ -46,7 +46,7 @@ def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool 
         new_password += password_characters[secrets.randbelow(password_characters_size)]
         string_len += 1
 
-    return new_password if (check_symbols(new_password), check_uppercase(new_password)) == (symbols, uppercase) else\
+    return new_password if ((check_symbols(new_password), check_uppercase(new_password)) == (symbols, uppercase) and length > 1) else\
           generate_password(length, symbols=symbols, uppercase=uppercase)
 
 
