@@ -10,6 +10,7 @@ from typing import Callable
 
 
 def generate_password(length: int, /, *, symbols: bool = False, uppercase: bool = False) -> str:
+    
     """
     The function create a password with symbols, upper and lower alphabetic characters.
 
