@@ -31,7 +31,7 @@ class QRCode:
         
 
 if __name__ == '__main__':
+    
     # Test :
-
     myqr: QRCode = QRCode(scale=30, padding=2)
     myqr.create_qr('Sample.png', (57, 255, 20), 'black')
