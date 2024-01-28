@@ -127,7 +127,7 @@ if __name__ == '__main__':
             print(emoji.emojize(f"\nFor Your Security, I Recommend That You Try Creating a New Password... 😥"))
     
     else:
-
+        # unique password
         print(emoji.emojize("⚜️⚜️⚜️ !!! Your Password is \033[35mUnique\033[0m !!! ⚜️⚜️⚜️\n"))
         print("\033[3mResults obtained during Analysis with the Database\033[0m: ")
 
