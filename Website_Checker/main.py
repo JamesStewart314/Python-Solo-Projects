@@ -1,7 +1,12 @@
+# / -------------------------------------------------------------------------------------------------- \ #
+#   This code was created using the Python language and works in versions 3.12 and higher - 01/23/2024
+# \ -------------------------------------------------------------------------------------------------- / #
+
 import csv
-import requests
 import http
 import os
+
+import requests
 import emoji
 import fake_useragent
 
