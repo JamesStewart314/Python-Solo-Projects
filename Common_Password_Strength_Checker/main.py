@@ -59,8 +59,8 @@ if __name__ == '__main__':
 
     clear()
 
-    user_given_password: str = ''
-    user_given_password_size: int = 0
+    user_given_password: str
+    user_given_password_size: int
 
     while True:
         user_given_password = input("Enter a password containing between 4 and 40 characters: \n>>> ").strip().lower()
