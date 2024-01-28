@@ -1,6 +1,11 @@
-import emoji
+# / -------------------------------------------------------------------------------------------------- \ #
+#   This code was created using the Python language and works in versions 3.12 and higher - 01/27/2024
+# \ -------------------------------------------------------------------------------------------------- / #
+
 import os
 import time
+
+import emoji
 
 from typing import Generator
 
