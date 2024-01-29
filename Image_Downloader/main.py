@@ -1,3 +1,7 @@
+# / -------------------------------------------------------------------------------------------------- \ #
+#   This code was created using the Python language and works in versions 3.12 and higher - 01/29/2024
+# \ -------------------------------------------------------------------------------------------------- / #
+
 import os
 import itertools
 
@@ -18,7 +22,6 @@ def get_extension(image_url: str, /) -> str | None:
 def download_image(image_url: str, name: str, /, folder: str | None = None) -> None:
 
     if extension := get_extension(image_url):
-
         image_name: str = f"{folder}/{name}{extension}" if folder else f"{name}{extension}"
 
     else:
@@ -48,6 +51,7 @@ def download_image(image_url: str, name: str, /, folder: str | None = None) -> N
 
 
 if __name__ == '__main__':
+    
     input_url: str = input("Enter an image URL: \n>>> ").strip()
     input_name: str = input("What would you like to name it? : \n>>> ").strip()
 
