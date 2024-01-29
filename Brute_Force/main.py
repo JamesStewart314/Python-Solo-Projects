@@ -82,7 +82,7 @@ def crack_password(unknown_password: str, /, time_limit: int | float = 120.0, *,
     
     # Then tries brute force:
     passwords_generator: Generator[str, None, None] = (''.join(pw) for pw in itertools.product(list_of_characters_in_search, repeat=len(unknown_password)))
-    counter: count[int] = itertools.count(start=10 ** 7)  # Considering the previous execution of all attempts present in the password database.
+    counter: count = itertools.count(start=10 ** 7)  # Considering the previous execution of all attempts present in the password database.
 
     for temp_password in passwords_generator:
         # print(temp_password, end='\r')  # Just uncomment this line for fun purposes, it slows down the code A LOT...
@@ -185,5 +185,3 @@ if __name__ == '__main__':
 
     pause("\nPress Any Key to Close the Program...")
     clear()
-    
-
