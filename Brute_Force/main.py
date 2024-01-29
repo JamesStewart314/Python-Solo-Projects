@@ -6,7 +6,6 @@ import string
 import time
 import itertools
 import os
-import threading
 
 from typing import Generator, Callable
 from itertools import count
