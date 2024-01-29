@@ -49,7 +49,6 @@ def crack_password(unknown_password: str, /, time_limit: int | float = 120.0, *,
      I will only consider passwords with lowercase characters to avoid exorbitant search complexity.
 
      :param password: The password the user would like to crack.
-     :param size: Unknown password length.
      :param time_limit: Timeout in seconds for password cracking attempts.
      :param digits: Specifies whether the search should include digits in the password search.
      :param symbols: Informs whether the search should also cover special symbols.
