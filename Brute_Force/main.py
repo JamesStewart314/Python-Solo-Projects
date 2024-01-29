@@ -1,3 +1,7 @@
+# / -------------------------------------------------------------------------------------------------- \ #
+#   This code was created using the Python language and works in versions 3.12 and higher - 01/28/2024
+# \ -------------------------------------------------------------------------------------------------- / #
+
 import string
 import time
 import itertools
