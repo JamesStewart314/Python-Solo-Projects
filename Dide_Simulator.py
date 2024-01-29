@@ -46,13 +46,16 @@ if __name__ == '__main__':
                 continue
 
         except (ValueError, IndexError) as error:
+
             if dice_and_rolls in dices_available:
+
                 dice: DiceType = dice_and_rolls
                 print('\n', "Result: ", get_rolls(dice), '\n', sep='')
                 os.system('pause')
                 os.system('cls')
 
             else:
+
                 print("\nInvalid Input!"
                       " Please provide an entry corresponding to the model present in the examples provided.")
 
@@ -61,10 +64,15 @@ if __name__ == '__main__':
                 continue
                 
         else:
+            
             dice: DiceType
             rolls: int
             dice, rolls = dice_and_rolls.split()[1], int(dice_and_rolls.split()[0])
+            
+            final_results: int | tuple[int, ...] = get_rolls(dice, rolls)
 
-            print('\n', "Result: ", get_rolls(dice, rolls), '\n', sep='')
+            print('\n', "Result: ", final_results, sep='')
+            print(f"\n|\tTotal Sum: {sum(final_results)}\t|\n")
+            
             os.system('pause')
             os.system('cls')
