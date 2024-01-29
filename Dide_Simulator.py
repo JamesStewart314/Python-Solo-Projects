@@ -38,6 +38,7 @@ if __name__ == '__main__':
             break
 
         try:
+            
             if not (dice_and_rolls.split()[1] in dices_available) or int(dice_and_rolls.split()[0]) < 0:
                 print("\nInvalid Input!"
                       " Please provide an entry corresponding to the model present in the examples provided.")
