@@ -28,7 +28,7 @@ def pause(custom_message: str | None = None, /) -> None:
 def common_guess(unknown_password: str, /) -> int | None:
     
     passwords_generator: Generator[str, None, None] = (pw.removesuffix('\n') for pw in open("Passwords.txt", 'r'))
-    counter: count[int] = itertools.count(start=1)
+    counter: count = itertools.count(start=1)
 
     temp_counter: int
 
