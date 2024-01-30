@@ -40,12 +40,13 @@ class TaxCalculator:
         self.calculate_button = ctk.CTkButton(self.window, text="Calculate", fg_color='black', command=self.calculate_tax)
         self.calculate_button.grid(row=3, column=1, **self.padding)
 
+    
     def update_result(self, text: str) -> None:
         self.result_entry.delete(0, ctk.END)
         self.result_entry.insert(0, f"{text:^30}")
+
     
     def calculate_tax(self) -> None:
-
         try:
             income: float = float(self.income_entry.get())
             tax_rate: float = float(self.tax_rate_entry.get())
@@ -55,6 +56,7 @@ class TaxCalculator:
         except ValueError as error:
             self.update_result("Invalid Entry")
 
+    
     def run(self) -> None:
         self.window.mainloop()
 
