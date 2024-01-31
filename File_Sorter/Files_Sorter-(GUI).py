@@ -13,33 +13,6 @@ ctk.set_appearance_mode('dark')
 
 class FileSorter:
 
-    def __init__(self, window_title: str, width: int, height: int) -> None:
-        
-        self._width = width
-        self._height = height
-        
-        self._window = ctk.CTk()
-        self._window.geometry(f"{self._width}x{self._height}")  # Establishing the dimensions of the window.
-        self._window.title(window_title)  # Giving the window a title
-        self._window.resizable(False, False)  # Window is not resizable in any direction.
-
-        # Info Label :
-        self._window_title = """           ╔═══════════════╗\n           ╠    ▓▒░  FILE SORTER  ░▒▓    ╣\n           ╚═══════╬═══════╝"""
-        self._display_window_title = ctk.CTkLabel(self._window, text=self._window_title, text_color='yellow')
-        self._display_window_title.place(x=70, y=(self._height // 20))
-
-        self._info_message = "This Program Sorts your Files\nPlease, Provide a Valid Folder Path to Sort Files by their Extension\n(Example: C:\\Users\\MyUser\\MyUnsortedFolder)"
-        self._display_info_message = ctk.CTkLabel(self._window, text=self._info_message, text_color='green')
-        self._display_info_message.place(x=25, y=70)
-
-        # Path Input Label :
-        self._input_entry = ctk.CTkEntry(self._window, width=400)
-        self._input_entry.place(x=15, y=130)
-
-        self._sort_button = ctk.CTkButton(self._window, text='sort now', corner_radius=200, text_color='green', fg_color=('black', 'black'), command=self.sort_files)
-        self._sort_button.place(x=145, y=200)
-
-
     @staticmethod
     def create_directory(path_root: str, extension: str | None = None, /) -> str:
 
@@ -79,6 +52,33 @@ class FileSorter:
                     shutil.move(file_path, destiny_folder_path)
                 
         FileSorter.erase_empty_directories(directory_path_to_sort)  # To clean the empty folders.
+    
+
+    def __init__(self, window_title: str, width: int, height: int) -> None:
+        
+        self._width = width
+        self._height = height
+        
+        self._window = ctk.CTk()
+        self._window.geometry(f"{self._width}x{self._height}")  # Establishing the dimensions of the window.
+        self._window.title(window_title)  # Giving the window a title
+        self._window.resizable(False, False)  # Window is not resizable in any direction.
+
+        # Info Label :
+        self._window_title = """           ╔═══════════════╗\n           ╠    ▓▒░  FILE SORTER  ░▒▓    ╣\n           ╚═══════╬═══════╝"""
+        self._display_window_title = ctk.CTkLabel(self._window, text=self._window_title, text_color='yellow')
+        self._display_window_title.place(x=70, y=(self._height // 20))
+
+        self._info_message = "This Program Sorts your Files\nPlease, Provide a Valid Folder Path to Sort Files by their Extension\n(Example: C:\\Users\\MyUser\\MyUnsortedFolder)"
+        self._display_info_message = ctk.CTkLabel(self._window, text=self._info_message, text_color='green')
+        self._display_info_message.place(x=25, y=70)
+
+        # Path Input Label :
+        self._input_entry = ctk.CTkEntry(self._window, width=400)
+        self._input_entry.place(x=15, y=130)
+
+        self._sort_button = ctk.CTkButton(self._window, text='sort now', corner_radius=200, text_color='green', fg_color=('black', 'black'), command=self.sort_files)
+        self._sort_button.place(x=145, y=200)
     
 
     def run(self) -> None:
