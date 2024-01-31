@@ -64,7 +64,7 @@ class FileSorter:
     
 
     @staticmethod
-    def make_sort(directory_path_to_sort: str) -> None:
+    def make_sort(directory_path_to_sort: str, /) -> None:
 
         for root_path, *_, filenames in os.walk(directory_path_to_sort):
             for filename in filenames:
