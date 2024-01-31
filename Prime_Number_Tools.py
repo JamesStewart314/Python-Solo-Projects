@@ -66,7 +66,7 @@ def first_n_primes(quantity: int, /) -> list[int]:
 def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
 
     """
-    The function returns the nth prime number, where the position is specified by the "order" parameter.
+    The function returns the nth prime number or a list of prime numbers, where the position is specified by the "order" parameter.
 
     :param order: Represents the nth desired prime number.
     :param quantity: Expresses the number of prime numbers desired from the position specified by the "order" parameter.
