@@ -28,7 +28,7 @@ class FileSorter:
     @staticmethod
     def erase_empty_directories(directory_path_to_clean: str, /) -> None:
 
-        for root_path, sub_directories, _ in os.walk(directory_path_to_clean, topdown=False):
+        for root_path, sub_directories, *_ in os.walk(directory_path_to_clean, topdown=False):
             for current_directory in sub_directories:
                 folder_path: str = os.path.join(root_path, current_directory)
 
