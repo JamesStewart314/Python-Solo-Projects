@@ -80,10 +80,6 @@ class FileSorter:
         self._sort_button = ctk.CTkButton(self._window, text='sort now', corner_radius=200, text_color='green', fg_color=('black', 'black'), command=self.sort_files)
         self._sort_button.place(x=145, y=200)
     
-
-    def run(self) -> None:
-        self._window.mainloop()
-    
     
     def sort_files(self) -> None:
 
@@ -100,7 +96,11 @@ class FileSorter:
 
         else:
             self._temp_message.configure(text="Invalid Path!\n Please, Check if the Given Path is Correct and it Exists")
-        
+    
+
+    def run(self) -> None:
+        self._window.mainloop()
+
 
 if __name__ == '__main__':
     mysorter = FileSorter("File Sorter +", 430, 300)
