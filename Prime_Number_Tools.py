@@ -1,3 +1,5 @@
+import itertools
+
 from typing import Generator
 
 
@@ -34,12 +36,7 @@ def prime_generator() -> Generator[int, None, None]:
     :return: Returns a generator object to form prime numbers.
     """
     
-    counter: int = 2
-
-    while True:
-        if check_primality(counter):
-            yield counter
-        counter += 1
+    return (number for number in itertools.count(start=2) if check_primality(number))
 
 
 def first_n_primes(quantity: int, /) -> list[int]:
@@ -108,3 +105,4 @@ def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
             desired_primes.append(next(primes_generator))
         
         return desired_primes
+
