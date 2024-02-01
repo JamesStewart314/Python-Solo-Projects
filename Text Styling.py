@@ -1,6 +1,7 @@
-# / ------------------------------------------------------------------------- \ #
-#   This is an old project that I intend to reformulate and organize later on.
-# \ ------------------------------------------------------------------------- / #
+# / ----------------------------------------------------------------------------------------- \ #
+#   This code was created using the Python language in version 3.10 and higher - 07/15/2023
+#          This is an old project that I intend to reformulate and organize later on.
+# \ ----------------------------------------------------------------------------------------- / #
 
 import os
 import itertools
