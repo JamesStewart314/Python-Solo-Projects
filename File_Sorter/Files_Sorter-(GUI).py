@@ -1,7 +1,7 @@
 # /-----------------------------------------------------------------------------------------------------------------------------------\
 #  This code is a File Sorter created in Python language - version 3.12 or higher - with dependencies on the "customtkinter" library.
 #                  To run it properly, make sure you have these frameworks in your virtual environment.
-#                                                Code Created in ~ 01/31/2024 ~
+#                                                Code Created in ~ 01/30/2024 ~
 # \-----------------------------------------------------------------------------------------------------------------------------------/
 
 
