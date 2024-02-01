@@ -1,3 +1,7 @@
+# / ----------------------------------------------------------------------------------------- \ #
+#   This code was created using the Python language in version 3.12 and higher - 01/09/2024
+# \ ----------------------------------------------------------------------------------------- / #
+
 import itertools
 
 from typing import Generator
