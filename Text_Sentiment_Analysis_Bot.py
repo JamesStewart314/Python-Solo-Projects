@@ -28,7 +28,7 @@ type Number = int | float
 
 available_languages: tuple[str, ...] = ('en', 'pt')
 
-special_portuguese_characters: str = "áàâãéèêíìîóòôõúùûç"
+special_portuguese_characters: str = "áàâãéèêíìîóòôõúùûçÁÀÂÃÉÈÊÍÌÎÓÒÔÕÚÙÛÇ"
 
 portuguese_translator: Translator = Translator(to_lang='en', from_lang='pt')
 
@@ -83,7 +83,7 @@ class StylishWriting:
 
 
 # Function to check if a name is not empty, has only alphabetic characters and its length does not exceed 10 characters :
-name_checker: Callable[[str], bool] = lambda x: all((bool(x), x.isalpha() and x.isascii(), len(x) <= 10))
+name_checker: Callable[[str], bool] = lambda x: all((bool(x), x.isalpha() and x.isascii(), len(x) <= 15))
 
 # Function to check whether a text has at least 14 characters and only contains valid alphabetic characters
 text_checker: Callable[[str], bool] = lambda x: all((len(x) >= 14, all([char in string.ascii_letters + string.punctuation + string.digits + special_portuguese_characters + "' " for char in x])))
@@ -231,9 +231,9 @@ def run_bot() -> None:
                               if program_lan == 'en' else\
                                   f"● Bem-vindo, usuário! Este programa é um singelo protótipo de analisador de humor. Para começarmos, digite seu primeiro nome e pressione Enter:"
     
-    error_message_text: str = f"⚠️ You can not do that! Please provide a non-empty name with less than or equal to ten characters."\
+    error_message_text: str = f"⚠️ You can not do that! Please provide a non-empty name with less than or equal to fifteen characters."\
                                if program_lan == 'en' else\
-                              f"⚠️ Você não pode fazer isso! Por favor, forneça um nome não vazio com uma quantidade inferior ou igual a dez caracteres."
+                              f"⚠️ Você não pode fazer isso! Por favor, forneça um nome não vazio com uma quantidade inferior ou igual a quinze caracteres."
 
     while not name_checker(user_name):
         
