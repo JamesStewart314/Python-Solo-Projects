@@ -78,6 +78,7 @@ class StylishWriting:
             for _ in range(StylishWriting.number_of_letter_draws):
                 print(random.choice(StylishWriting.used_symbols), end='\b')
                 time.sleep(return_delay)
+                
             print(' ', end='\b')
 
 
@@ -228,11 +229,11 @@ def run_bot() -> None:
     first_meet: bool = True
 
     greetings_message_text: str = f"● Welcome, user! This program is a simple prototype of a mood analyzer. To get started, type your first name and press Enter:"\
-                              if program_lan == 'en' else\
+                                  if program_lan == 'en' else\
                                   f"● Bem-vindo, usuário! Este programa é um singelo protótipo de analisador de humor. Para começarmos, digite seu primeiro nome e pressione Enter:"
     
     error_message_text: str = f"⚠️ You can not do that! Please provide a non-empty name with less than or equal to fifteen characters."\
-                               if program_lan == 'en' else\
+                              if program_lan == 'en' else\
                               f"⚠️ Você não pode fazer isso! Por favor, forneça um nome não vazio com uma quantidade inferior ou igual a quinze caracteres."
 
     while not name_checker(user_name):
