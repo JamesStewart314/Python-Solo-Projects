@@ -3,8 +3,8 @@
 #                                     To run it properly, make sure you have these frameworks in your virtual environment.
 #
 #         I emphasize that this script was created for Windows and VSCode, which means that it will not work correctly in other operating systems or IDE's,
-#                                                      it will only run correctly in the VSCode Terminal.
-#                                                              Code Created in ~ 02/01/2024 ~
+#                                                      it will only run correctly in the VSCode Terminal on Windows.
+#                                                                     Code Created in ~ 02/01/2024 ~
 # \---------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
 
 
