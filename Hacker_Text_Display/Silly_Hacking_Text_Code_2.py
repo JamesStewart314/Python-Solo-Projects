@@ -5,6 +5,9 @@
 #            where I try to display the text directly in the terminal in a smoother and more fluid way,
 #   without oscillations between the time interval during the display of characters and vibrations in the terminal,
 #                                         with a box to cover the text.
+#
+#                   I am aware that the code does not work as expected for very large sentences.
+#             This is a problem that I will try to solve in the next version of this naive code idea ^^
 # \ -------------------------------------------------------------------------------------------------------------- / #
 
 import itertools
@@ -52,7 +55,7 @@ for letter in text:
     # making it possible to reformat texts already displayed!!!
     # For example, the command "print('\033[1A', end='')" would go back one line.
 
-    print('\033[3A', end='')
+    print('\033[10A', end='')
 
 # Cleaning the Last Box Without os.system('cls') :
 for _ in range(3):
