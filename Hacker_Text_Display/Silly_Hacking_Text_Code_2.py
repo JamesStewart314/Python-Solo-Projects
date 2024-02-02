@@ -69,6 +69,7 @@ print('╚═', '═' * len(text), '═╝', sep='')
 
 print("\n\n Press Any Key to End the Program.")
 os.system('pause > nul')  # Pauses the Terminal Without Showing any Text
+os.system('color 07')  # Restoring the Terminal's Default Aesthetic Settings
 os.system('cls')  # Clears the Terminal Before Finishing
 
 
