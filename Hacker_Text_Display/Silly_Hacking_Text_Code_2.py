@@ -47,7 +47,7 @@ for letter in text:
         print(random.choice(symbols_used), end='\b')
         time.sleep(delay_time)
 
-    print('   ║', sep='')
+    print('   ║')
     print('╚═', '═' * upperline_quantity, '═══╝', sep='')
 
     # This is where the trick lies!
