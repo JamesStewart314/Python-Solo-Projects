@@ -55,7 +55,7 @@ for letter in text:
     # making it possible to reformat texts already displayed!!!
     # For example, the command "print('\033[1A', end='')" would go back one line.
 
-    print('\033[10A', end='')
+    print('\033[3A', end='')
 
 # Cleaning the Last Box Without os.system('cls') :
 for _ in range(3):
