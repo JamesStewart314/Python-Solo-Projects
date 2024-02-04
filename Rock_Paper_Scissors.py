@@ -1,5 +1,8 @@
 # / ----------------------------------------------------------------------------------------- \ #
 #   This code was created using the Python language in version 3.12 and higher - 01/18/2024
+#
+#                 I emphasize that this script was created for Windows,
+#     which means it won't work properly on other operating systems like Linux and MacOS
 # \ ----------------------------------------------------------------------------------------- / #
 
 import msvcrt
