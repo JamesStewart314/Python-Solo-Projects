@@ -38,9 +38,11 @@ def determinant(matrix: MatrixType, /) -> OptionalNumber:
                     return first_sum - second_sum
 
                 else:
+                    
                     # Laplace's Theorem :
-
-                    line: list[int] = max(matrix, key=lambda x: x.count(0))  # Getting the Horizontal Line with More Zeros.
+                    
+                    # Getting the Horizontal Line with More Zeros :
+                    line: list[int] = max(matrix, key=lambda x: x.count(0))
                     indexes: list[tuple[int, int]] = [(matrix.index(line), i) for i in range(len(line))]
 
                     # Auxiliary Variables to Check Vertical Lines on the Matrix to apply Laplace's Theorem :
