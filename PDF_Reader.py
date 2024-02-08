@@ -61,7 +61,7 @@ def count_words(text_list: Text_list, /) -> Tuple[Counter, int, int]:
      It receives as its main parameter a list with strings
     and returns a tuple containing a Counter object of the words present
     in the list's strings, an integer informing the total number of words
-    present in the strings and an integer with the number of alphabetic
+    present in the strings and an integer with the number of alphanumeric
     characters in the strings.
 
     :param text_list: A list containing only strings.
