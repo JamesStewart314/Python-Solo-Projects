@@ -5,11 +5,9 @@
 # \-----------------------------------------------------------------------------------------------------------------------------------/
 
 import os
-
 from typing import Final
 
 import requests
-
 from requests import Response
 
 
