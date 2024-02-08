@@ -21,6 +21,7 @@ BASE_URL: Final[str] = "https://cutt.ly/api/api.php"
 def shorten_link(full_link: str) -> str | None:
 
     """
+    
     It takes as input a valid link and returns a shortened version of the same link.
 
     :param full_link: A string containing the link to be shortened.
