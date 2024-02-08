@@ -24,11 +24,11 @@ def clear() -> None:
     os.system('cls')
 
 
-def line_spacing(lines: int) -> None:
+def line_spacing(lines: int, /) -> None:
     print('\n' * lines, end='')
 
 
-def extract_text_pdf(pdf_file: str) -> Tuple[Text_list, Pages]:
+def extract_text_pdf(pdf_file: str, /) -> Tuple[Text_list, Pages]:
 
     r"""
     
@@ -54,7 +54,7 @@ def extract_text_pdf(pdf_file: str) -> Tuple[Text_list, Pages]:
         return (pdf_text, pages)
 
 
-def count_words(text_list: Text_list) -> Tuple[Counter, int, int]:
+def count_words(text_list: Text_list, /) -> Tuple[Counter, int, int]:
 
     """
 
