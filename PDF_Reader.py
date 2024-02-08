@@ -125,7 +125,8 @@ if __name__ == '__main__':
         print("\\", '-' * 100, '/', sep='')
         line_spacing(2)
 
-    print("|", '-' * 100, '|', sep='')  # Returns a Line and Displays the Closing Divider
+    # Returns a Line and Displays the Closing Divider :
+    print("|", '-' * 100, '|', sep='')
     print(f"\n|{"Press Enter to Close the Reading...":^100}|")
     print("\n|", '-' * 100, '|', sep='')
 
