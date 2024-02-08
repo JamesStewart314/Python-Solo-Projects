@@ -6,9 +6,9 @@
 
 import os
 
-import requests
-
 from typing import Final
+
+import requests
 
 from requests import Response
 
