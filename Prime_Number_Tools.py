@@ -14,7 +14,6 @@ def check_primality(number: int, /) -> bool:
     The function checks if the given number is prime or not.
     
     :param number: An positive integer number.
-
     :return: Returns a boolean ("True" if the number is prime, "False" if it's not.)
 
     """
@@ -57,7 +56,6 @@ def first_n_primes(quantity: int, /) -> list[int]:
      prime numbers in a quantity specified by the "quantity" parameter.
 
      :param quantity: A positive integer representing the desired quantity of prime numbers.
-
      :return: Returns a list with the specified quantity of prime numbers.
 
      """
