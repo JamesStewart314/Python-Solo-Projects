@@ -135,7 +135,7 @@ def get_prime_ordinal_pos(prime_number: int, /) -> int | None:
     (e.g.: 2 ~> 1 ; 3 ~> 2 ; 4 ~> None ; 5 ~> 3 ... etc)
 
     :param prime_number: Prime integer whose ordinal position wants to be calculated.
-    :return: an integer corresponding to the ordinal position of the given prime or a "None"
+    :return: an integer corresponding to the ordinal position of the prime or "None"
     if the given integer is not a prime number.
     
     """
