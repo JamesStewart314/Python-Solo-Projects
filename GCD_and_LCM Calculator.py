@@ -7,11 +7,12 @@ import functools
 
 def GCD(iterable: tuple[int, ...] | list[int], /) -> int | None:
     
-    ######################################################################################
-    # Command Block for Preventive Verification :
-    # (removable if necessary to improve algorithm performance)
-    
     if len(iterable) >= 2:
+
+        ######################################################################################
+        #               Command Block for Preventive Verification :
+        #       (removable if necessary to improve algorithm performance)
+        
         for element in iterable:
             if isinstance(element, int):
                 if element <= 0:
@@ -23,7 +24,7 @@ def GCD(iterable: tuple[int, ...] | list[int], /) -> int | None:
                     print("Iterable must only contain non-zero positive integers.")
                 return None
         
-    ######################################################################################
+        ######################################################################################
         
         # Euclid's Algorithm :
         def GCD_2_numbers(number_1: int, number_2: int, /) -> int:
@@ -50,12 +51,13 @@ def GCD(iterable: tuple[int, ...] | list[int], /) -> int | None:
 
 
 def LCM(iterable: tuple[int, ...] | list[int], /) -> int | None:
-
-    ######################################################################################
-    # Command Block for Preventive Verification :
-    # (removable if necessary to improve algorithm performance)
     
     if len(iterable) >= 2:
+        
+        ######################################################################################
+        #               Command Block for Preventive Verification :
+        #       (removable if necessary to improve algorithm performance)
+        
         for element in iterable:
             if isinstance(element, int):
                 if element <= 0:
@@ -67,7 +69,7 @@ def LCM(iterable: tuple[int, ...] | list[int], /) -> int | None:
                     print("Iterable must only contain non-zero positive integers.")
                 return None
                 
-    ######################################################################################
+        ######################################################################################
 
         def LCM_2_numbers(number_1: int, number_2: int, /) -> int:
 
