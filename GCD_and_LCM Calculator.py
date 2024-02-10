@@ -12,7 +12,7 @@ def GCD(number_iterator: tuple[int, ...] | list[int], /) -> int:
     """
     
     Calculates the greatest common divisor between two or more numbers present in an Iterable.
-    (e.g: GCD((2, 3, 5)) => 1 ; LCM([7, 49, 21]) => 7 ; etc)
+    (e.g: GCD((2, 3, 5)) => 1 ; GCD([7, 49, 21]) => 7 ; etc)
 
     :param number_iterator: An Iterable containing two or more positive integers.
     
