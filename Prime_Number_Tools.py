@@ -11,7 +11,7 @@ def check_primality(number: int, /) -> bool:
 
     """
     
-    The function checks if the given number is prime or not.
+     The function checks if the given number is prime or not.
     
     :param number: An positive integer number.
     :return: Returns a boolean ("True" if the number is prime, "False" if it's not.)
@@ -39,7 +39,7 @@ def prime_generator() -> Generator[int, None, None]:
 
     """
     
-    The function creates a generator of sequential prime numbers.
+     The function creates a generator of sequential prime numbers.
 
     :return: Returns a generator object to form prime numbers.
 
@@ -52,7 +52,7 @@ def first_n_primes(quantity: int, /) -> list[int]:
 
     """
 
-     The function returns a list containing the first
+      The function returns a list containing the first
      prime numbers in a quantity specified by the "quantity" parameter.
 
      :param quantity: A positive integer representing the desired quantity of prime numbers.
@@ -79,7 +79,7 @@ def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
 
     """
 
-    The function returns the nth prime number or a integer list of prime numbers,
+     The function returns the nth prime number or a integer list of prime numbers,
     where the ordinal position of the first prime number is specified by the "order" parameter.
 
     :param order: Represents the nth desired prime number.
@@ -130,12 +130,12 @@ def get_prime_ordinal_pos(prime_number: int, /) -> int | None:
 
     """
     
-    Takes an integer and returns None if the value is not prime,
+     Takes an integer and returns "None" if the value is not prime,
     or returns the ordinal position of the corresponding prime number.
     (e.g.: 2 ~> 1 ; 3 ~> 2 ; 4 ~> None ; 5 ~> 3 ... etc)
 
     :param prime_number: Prime integer whose ordinal position wants to be calculated.
-    :return: an integer corresponding to the ordinal position of the given prime or a \"None\"
+    :return: an integer corresponding to the ordinal position of the given prime or a "None"
     if the given integer is not a prime number.
     
     """
