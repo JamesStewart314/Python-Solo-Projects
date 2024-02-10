@@ -19,7 +19,7 @@ def check_primality(number: int, /) -> bool:
     """
     
     if not isinstance(number, int) or number <= 0:
-        raise ValueError('To check primality, the number must be an positive integer.')
+        raise ValueError("To check primality, the number must be an positive integer.")
     
     if number == 1:
         return False
@@ -61,7 +61,7 @@ def first_n_primes(quantity: int, /) -> list[int]:
      """
 
     if not isinstance(quantity, int) or quantity < 0:
-        raise ValueError('The \"quantity\" parameter must be a positive integer.')
+        raise ValueError("The \"quantity\" parameter must be a positive integer.")
 
     primes: list[int] = []
     size: int = 0
