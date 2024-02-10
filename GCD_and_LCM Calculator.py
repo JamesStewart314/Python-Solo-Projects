@@ -5,7 +5,12 @@
 import functools
 
 
-def GDC(iterable: tuple[int, ...] | list[int], /) -> int | None:
+def GCD(iterable: tuple[int, ...] | list[int], /) -> int | None:
+    
+    ######################################################################################
+    # Command Block for Preventive Verification :
+    # (removable if necessary to improve algorithm performance)
+    
     if len(iterable) >= 2:
         for element in iterable:
             if isinstance(element, int):
@@ -17,9 +22,11 @@ def GDC(iterable: tuple[int, ...] | list[int], /) -> int | None:
                 if __name__ == "__main__":
                     print("Iterable must only contain non-zero positive integers.")
                 return None
-
+        
+    ######################################################################################
+        
         # Euclid's Algorithm :
-        def GDC_2_numbers(number_1: int, number_2: int, /) -> int:
+        def GCD_2_numbers(number_1: int, number_2: int, /) -> int:
 
             aux_number_1 = max(number_1, number_2)
             aux_number_2 = min(number_1, number_2)
@@ -33,15 +40,20 @@ def GDC(iterable: tuple[int, ...] | list[int], /) -> int | None:
 
             return aux_number_2
 
-        return functools.reduce(GDC_2_numbers, iterable)
+        return functools.reduce(GCD_2_numbers, iterable)
 
     else:
         if __name__ == "__main__":
             print("To calculate GDC, we need to have at least two numbers.")
+            
         return None
 
 
 def LCM(iterable: tuple[int, ...] | list[int], /) -> int | None:
+
+    ######################################################################################
+    # Command Block for Preventive Verification :
+    # (removable if necessary to improve algorithm performance)
     if len(iterable) >= 2:
         for element in iterable:
             if isinstance(element, int):
@@ -53,10 +65,11 @@ def LCM(iterable: tuple[int, ...] | list[int], /) -> int | None:
                 if __name__ == "__main__":
                     print("Iterable must only contain non-zero positive integers.")
                 return None
+    ######################################################################################
 
         def LCM_2_numbers(number_1: int, number_2: int, /) -> int:
 
-            return number_1 * number_2 // GDC((number_1, number_2))
+            return number_1 * number_2 // GCD((number_1, number_2))
 
         return functools.reduce(LCM_2_numbers, iterable)
 
