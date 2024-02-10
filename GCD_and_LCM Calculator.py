@@ -4,26 +4,36 @@
 
 import functools
 
+from typing import Iterable
 
-def GCD(iterable: tuple[int, ...] | list[int], /) -> int | None:
+
+def GCD(number_iterator: tuple[int, ...] | list[int], /) -> int:
+
+    """
     
-    if len(iterable) >= 2:
+    Calculates the greatest common divisor between two or more numbers present in an Iterable.
+    (e.g: GDC((2, 3, 5)) => 1 ; LCM([7, 49, 21]) => 7 ; etc)
+
+    :param number_iterator: An Iterable containing two or more positive integers.
+    
+    :return: An integer corresponding to the greatest common divisor of
+    all numbers present in the Iterable.
+    
+    """
+    
+    if isinstance(number_iterator, Iterable) and len(number_iterator) >= 2:
 
         ######################################################################################
-        #               Command Block for Preventive Verification :
-        #       (removable if necessary to improve algorithm performance)
+        #                     Command Block for Preventive Verification :                    #
+        #             (removable if necessary to improve algorithm performance)              #
         
-        for element in iterable:
+        for element in number_iterator:
             if isinstance(element, int):
                 if element <= 0:
-                    if __name__ == "__main__":
-                        print("Iterable must only contain non-zero positive integers.")
-                    return None
+                    raise ValueError("Iterable must only contain non-zero positive integers.")
             else:
-                if __name__ == "__main__":
-                    print("Iterable must only contain non-zero positive integers.")
-                return None
-        
+                raise TypeError("Iterable must only contain non-zero positive integers.")
+        #                                                                                    #
         ######################################################################################
         
         # Euclid's Algorithm :
@@ -41,43 +51,46 @@ def GCD(iterable: tuple[int, ...] | list[int], /) -> int | None:
 
             return aux_number_2
 
-        return functools.reduce(GCD_2_numbers, iterable)
+        return functools.reduce(GCD_2_numbers, number_iterator)
 
     else:
-        if __name__ == "__main__":
-            print("To calculate GDC, we need to have at least two numbers.")
-            
-        return None
+        raise TypeError("To calculate GCD, we need to have at least two numbers in an iterator.")
 
 
-def LCM(iterable: tuple[int, ...] | list[int], /) -> int | None:
+def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
+
+    """
     
-    if len(iterable) >= 2:
+    Calculates the least common multiple between two or more numbers present in an Iterable.
+    (e.g: LCM((2, 3, 5)) => 30 ; LCM([7, 49, 21]) => 147 ; etc)
+
+    :param number_iterator: An Iterable containing two or more positive integers.
+    
+    :return: An integer corresponding to the least common multiple of
+    all numbers present in the Iterable.
+    
+    """
+    
+    if isinstance(number_iterator, Iterable) and len(number_iterator) >= 2:
         
         ######################################################################################
-        #               Command Block for Preventive Verification :
-        #       (removable if necessary to improve algorithm performance)
+        #                     Command Block for Preventive Verification :                    #
+        #             (removable if necessary to improve algorithm performance)              #
         
-        for element in iterable:
+        for element in number_iterator:
             if isinstance(element, int):
                 if element <= 0:
-                    if __name__ == "__main__":
-                        print("Iterable must only contain non-zero positive integers.")
-                    return None
+                    raise ValueError("Iterable must only contain non-zero positive integers.")
             else:
-                if __name__ == "__main__":
-                    print("Iterable must only contain non-zero positive integers.")
-                return None
-                
+                raise TypeError("Iterable must only contain non-zero positive integers.")
+        #                                                                                    #
         ######################################################################################
 
         def LCM_2_numbers(number_1: int, number_2: int, /) -> int:
 
             return number_1 * number_2 // GCD((number_1, number_2))
 
-        return functools.reduce(LCM_2_numbers, iterable)
+        return functools.reduce(LCM_2_numbers, number_iterator)
 
     else:
-        if __name__ == "__main__":
-            print("To calculate LCM, we need to have at least two numbers.")
-        return None
+        raise TypeError("To calculate LCM, we need to have at least two numbers in an iterator.")
