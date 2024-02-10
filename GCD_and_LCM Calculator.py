@@ -88,6 +88,10 @@ def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
 
         def LCM_2_numbers(number_1: int, number_2: int, /) -> int:
 
+            # The product of the GCD and LCM of two natural numbers
+            # is equal to the product of those numbers, so
+            # LCM(n1, n2) = n1 * n2 / GCD(n1, n2) :
+            
             return number_1 * number_2 // GCD((number_1, number_2))
 
         return functools.reduce(LCM_2_numbers, number_iterator)
