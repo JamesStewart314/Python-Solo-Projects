@@ -4,8 +4,10 @@
 #                                                      Code Created in ~ 02/11/2024 ~
 # \---------------------------------------------------------------------------------------------------------------------------------------------/
 
-import requests
 
+from typing import Final
+
+import requests
 from requests import Response
 
 
@@ -29,7 +31,7 @@ class Currency_Converter:
         """
 
         # API link to get the exchange data :
-        url = f'https://api.exchangerate-api.com/v4/latest/{base}'
+        url: Final[str] = f'https://api.exchangerate-api.com/v4/latest/{base}'
 
         API_response: Response = requests.get(url).json()
 
