@@ -1,126 +1,161 @@
 # / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.11 and higher - 12/25/2023
+#   This code was created using the Python language in version 3.12 and higher - 01/09/2024
 # \ ----------------------------------------------------------------------------------------- / #
 
-import functools
+import itertools
 
-from typing import Iterable
-
-
-def _GCD_2_numbers(number_1: int, number_2: int, /) -> int:
-
-    """
-    
-    Calculates the greatest common divisor between two numbers present in an Iterable.
-    (e.g: GCD((2, 3)) => 1 ; GCD([7, 49]) => 7 ; etc)
-
-    :param number_iterator: An Iterable containing two positive integers.
-    
-    :return: An integer corresponding to the greatest common divisor of
-    the numbers present in the Iterable.
-    
-    """
-
-    # Euclid's Algorithm :
-    aux_number_1 = max(number_1, number_2)
-    aux_number_2 = min(number_1, number_2)
-
-    remainder = aux_number_1 % aux_number_2
-
-    while remainder:  # Remainder != 0
-        aux_number_1 = aux_number_2
-        aux_number_2 = remainder
-        remainder = aux_number_1 % aux_number_2
-
-    return aux_number_2
+from typing import Generator
 
 
-def _LCM_2_numbers(number_1: int, number_2: int, /) -> int:
+def check_primality(number: int, /) -> bool:
 
     """
     
-    Calculates the least common multiple between two numbers present in an Iterable.
-    (e.g: LCM((2, 3)) => 6 ; LCM([7, 49]) => 49 ; etc)
-
-    :param number_iterator: An Iterable containing two positive integers.
+     The function checks if the given number is prime or not.
     
-    :return: An integer corresponding to the least common multiple of
-    the numbers present in the Iterable.
-    
-    """
-
-    # The product of the GCD and LCM of two natural numbers
-    # is equal to the product of those numbers, so
-    # LCM(n1, n2) = n1 * n2 / GCD(n1, n2) :
-    
-    return number_1 * number_2 // _GCD_2_numbers(number_1, number_2)
-
-
-def GCD(number_iterator: tuple[int, ...] | list[int], /) -> int:
+    :param number: An positive integer number.
+    :return: Returns a boolean ("True" if the number is prime, "False" if it's not.)
 
     """
     
-    Calculates the greatest common divisor between two or more numbers present in an Iterable.
-    (e.g: GCD((2, 3, 5)) => 1 ; GCD([7, 49, 21]) => 7 ; etc)
+    if not isinstance(number, int) or number <= 0:
+        raise ValueError("To check primality, the number must be an positive integer.")
+    
+    if number == 1:
+        return False
+    elif number == 2:
+        return True
+    elif number % 2 == 0:
+        return False
 
-    :param number_iterator: An Iterable containing two or more positive integers.
-    
-    :return: An integer corresponding to the greatest common divisor of
-    all numbers present in the Iterable.
-    
-    """
-    
-    if isinstance(number_iterator, Iterable) and len(number_iterator) >= 2:
-
-        ######################################################################################
-        #                     Command Block for Preventive Verification :                    #
-        #             (removable if necessary to improve algorithm performance)              #
+    for i in range(3, int(number ** (1 / 2)) + 1):
+        if number % i == 0:
+            return False
         
-        for element in number_iterator:
-            if isinstance(element, int):
-                if element <= 0:
-                    raise ValueError("Iterable must only contain non-zero positive integers.")
-            else:
-                raise TypeError("Iterable must only contain non-zero positive integers.")
-        #                                                                                    #
-        ######################################################################################
+    return True
 
-        return functools.reduce(_GCD_2_numbers, number_iterator)
+
+def prime_generator() -> Generator[int, None, None]:
+
+    """
+    
+     The function creates a generator of sequential prime numbers.
+
+    :return: Returns a generator object to form prime numbers.
+
+    """
+    
+    return (number for number in itertools.count(start=2) if check_primality(number))
+
+
+def first_n_primes(quantity: int, /) -> list[int]:
+
+    """
+
+      The function returns a list containing the first
+     prime numbers in a quantity specified by the "quantity" parameter.
+
+     :param quantity: A positive integer representing the desired quantity of prime numbers.
+     :return: Returns a list with the specified quantity of prime numbers.
+
+     """
+
+    if not isinstance(quantity, int) or quantity < 0:
+        raise ValueError("The \"quantity\" parameter must be a positive integer.")
+
+    primes: list[int] = []
+    size: int = 0
+
+    primes_generator: Generator[int, None, None] = prime_generator()
+
+    while size < quantity:
+        primes.append(next(primes_generator))
+        size += 1
+
+    return primes
+
+
+def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
+
+    """
+
+     The function returns the nth prime number or a integer list of prime numbers,
+    where the ordinal position of the first prime number is specified by the "order" parameter.
+
+    :param order: Represents the nth desired prime number.
+    :param quantity: Expresses the number of prime numbers desired from the position specified
+     by the "order" parameter.
+
+    :return: Returns the prime number corresponding to the position specified by the "order"
+    parameter or a list containing the quantity of prime numbers requested by the "quantity" parameter.
+
+    """
+
+    if not (isinstance(order, int) and isinstance(quantity, int)):
+        raise TypeError("The \"order\" and \"quantity\" parameters must be of integer type.")
+    
+    if order <= 0 or quantity <= 0:
+        raise ValueError("It is not possible to provide a zero/negative ordinal position\
+                          or quantity of prime numbers.")
+
+    primes_generator: Generator[int, None, None] = prime_generator()
+
+    if quantity == 1:
+        
+        order_counter: int = 0
+        desired_prime: int = 0
+
+        while order_counter < order:
+            desired_prime = next(primes_generator)
+            order_counter += 1
+        
+        return desired_prime
 
     else:
-        raise TypeError("To calculate GCD, we need to have at least two numbers in an iterator.")
+
+        order_counter: int = 0
+        desired_primes: list[int] = []
+
+        while order_counter < order - 1:
+            next(primes_generator)
+            order_counter += 1
+        
+        for _ in range(quantity):
+            desired_primes.append(next(primes_generator))
+        
+        return desired_primes
 
 
-def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
+def get_prime_ordinal_pos(prime_number: int, /) -> int | None:
 
     """
     
-    Calculates the least common multiple between two or more numbers present in an Iterable.
-    (e.g: LCM((2, 3, 5)) => 30 ; LCM([7, 49, 21]) => 147 ; etc)
+     Takes an integer and returns "None" if the value is not prime,
+    or returns the ordinal position of the corresponding prime number.
+    (e.g.: 2 ~> 1 ; 3 ~> 2 ; 4 ~> None ; 5 ~> 3 ... etc)
 
-    :param number_iterator: An Iterable containing two or more positive integers.
-    
-    :return: An integer corresponding to the least common multiple of
-    all numbers present in the Iterable.
+    :param prime_number: Prime integer whose ordinal position wants to be calculated.
+    :return: an integer corresponding to the ordinal position of the prime or "None"
+    if the given integer is not a prime number.
     
     """
+
+    if not isinstance(prime_number, int):
+        raise TypeError("The \"prime_number\" parameter must be a integer type.")
     
-    if isinstance(number_iterator, Iterable) and len(number_iterator) >= 2:
-        
-        ######################################################################################
-        #                     Command Block for Preventive Verification :                    #
-        #             (removable if necessary to improve algorithm performance)              #
-        
-        for element in number_iterator:
-            if isinstance(element, int):
-                if element <= 0:
-                    raise ValueError("Iterable must only contain non-zero positive integers.")
-            else:
-                raise TypeError("Iterable must only contain non-zero positive integers.")
-        #                                                                                    #
-        ######################################################################################
+    if prime_number <= 0:
+        raise ValueError("It is not possible to provide a zero/negative number.")
+    
+    primes_generator: Generator[int, None, None] = prime_generator()
 
-        return functools.reduce(_LCM_2_numbers, number_iterator)
+    temp_prime: int = next(primes_generator)
+    temp_ordinal_pos: int = 1
 
+    while temp_prime < prime_number:
+        temp_prime = next(primes_generator)
+        temp_ordinal_pos += 1
+    
+    if temp_prime == prime_number:
+        return temp_ordinal_pos
     else:
-        raise TypeError("To calculate LCM, we need to have at least two numbers in an iterator.")
+        return None
