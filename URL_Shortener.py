@@ -1,7 +1,7 @@
 # /-----------------------------------------------------------------------------------------------------------------------------------\
-#  This code is a File Sorter created in Python language - version 3.12 or higher - with dependencies on the "requests" library.
+#  This code is a URL Shortener created in Python language - version 3.12 or higher - with dependencies on the "requests" library.
 #                  To run it properly, make sure you have this package in your virtual environment.
-#                                                Code Created in ~ 02/08/2024 ~
+#                                           Code Created in ~ 02/08/2024 ~
 # \-----------------------------------------------------------------------------------------------------------------------------------/
 
 import os
