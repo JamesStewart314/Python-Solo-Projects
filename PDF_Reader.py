@@ -1,5 +1,5 @@
 # /---------------------------------------------------------------------------------------------------------------------------\
-#  This code is a File Sorter created in Python language - version 3.12 or higher - with dependencies on the "pypdf2" library.
+#  This code is a PDF Reader created in Python language - version 3.12 or higher - with dependencies on the "pypdf2" library.
 #                  To run it properly, make sure you have this package in your virtual environment.
 #                                                Code Created in ~ 02/08/2024 ~
 # \---------------------------------------------------------------------------------------------------------------------------/
