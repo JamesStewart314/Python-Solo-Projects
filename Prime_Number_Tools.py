@@ -195,9 +195,9 @@ def _willans_prime_formula(order: int) -> int:
     Willans_Coef: Callable[[int], int] = lambda x: math.floor(math.pow(math.cos(math.pi * ((math.factorial(x - 1) + 1) / x)), 2))
 
     # Then, lets define the prime counting function as "Prime_Count(x)" :
-    Prime_Count: Callable[[int], int] = lambda x: sum(Willans_Coef(j) for j in range(1, x + 1))
+    Prime_Count: Callable[[int], int] = lambda x: sum(Willans_Coef(j + 1) for j in range(0, x))
 
     # Therefore, we finally define the formula that returns prime numbers ordinally :
-    Prime: Callable[[int], int] = lambda x: 1 + sum(math.floor(math.pow(math.floor(x / Prime_Count(j)), 1 / x)) for j in range(1, 2 ** x + 1))
+    Prime: Callable[[int], int] = lambda x: 1 + sum(math.floor(math.pow(math.floor(x / Prime_Count(j + 1)), 1 / x)) for j in range(0, 2 ** x))
 
     return Prime(order)
