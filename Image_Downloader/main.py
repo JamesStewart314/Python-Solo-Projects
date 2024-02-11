@@ -1,6 +1,8 @@
-# / -------------------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language and works in versions 3.12 and higher - 01/29/2024
-# \ -------------------------------------------------------------------------------------------------- / #
+# /-----------------------------------------------------------------------------------------------------------------------------\
+#  This code is a File Sorter created in Python language - version 3.12 or higher - with dependencies on the "requests" library.
+#                  To run it properly, make sure you have this package in your virtual environment.
+#                                                Code Created in ~ 01/29/2024 ~
+# \-----------------------------------------------------------------------------------------------------------------------------/
 
 import os
 import itertools
