@@ -11,13 +11,14 @@ def _GCD_2_numbers(number_1: int, number_2: int, /) -> int:
 
     """
     
-    Calculates the greatest common divisor between two numbers present in an Iterable.
-    (e.g: GCD((2, 3)) => 1 ; GCD([7, 49]) => 7 ; etc)
+    Calculates the greatest common divisor between two numbers.
+    (e.g: GCD(2, 3) => 1 ; GCD(7, 49) => 7 ; etc)
 
-    :param number_iterator: An Iterable containing two positive integers.
+    :param number_1: A positive integer.
+    :param number_2: A positive integer.
     
     :return: An integer corresponding to the greatest common divisor of
-    the numbers present in the Iterable.
+    the two given numbers.
     
     """
 
@@ -39,13 +40,14 @@ def _LCM_2_numbers(number_1: int, number_2: int, /) -> int:
 
     """
     
-    Calculates the least common multiple between two numbers present in an Iterable.
-    (e.g: LCM((2, 3)) => 6 ; LCM([7, 49]) => 49 ; etc)
+    Calculates the least common multiple between two numbers.
+    (e.g: LCM(2, 3) => 6 ; LCM(7, 49) => 49 ; etc)
 
-    :param number_iterator: An Iterable containing two positive integers.
+    :param number_1: A positive integer.
+    :param number_2: A positive integer.
     
     :return: An integer corresponding to the least common multiple of
-    the numbers present in the Iterable.
+    the two given numbers.
     
     """
 
