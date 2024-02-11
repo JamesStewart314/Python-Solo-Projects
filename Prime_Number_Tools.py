@@ -162,7 +162,7 @@ def get_prime_ordinal_pos(prime_number: int, /) -> int | None:
         return None
 
 
-def _willans_prime_formula(order: int) -> int:
+def _willans_prime_formula(order: int, /) -> int:
 
     """
 
