@@ -30,7 +30,7 @@ def check_primality(number: int, /) -> bool:
         return False
 
     for i in range(3, int(number ** (1 / 2)) + 1, 2):
-        if number % i == 0:
+        if not number % i:  # if number % i == 0:
             return False
         
     return True
@@ -201,4 +201,3 @@ def _willans_prime_formula(order: int) -> int:
     Prime: Callable[[int], int] = lambda x: 1 + sum(math.floor(math.pow(math.floor(x / Prime_Count(j)), 1 / x)) for j in range(1, 2 ** x + 1))
 
     return Prime(order)
-
