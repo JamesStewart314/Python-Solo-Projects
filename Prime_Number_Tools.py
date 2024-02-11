@@ -28,7 +28,7 @@ def check_primality(number: int, /) -> bool:
     elif number % 2 == 0:
         return False
 
-    for i in range(3, int(number ** (1 / 2)) + 1):
+    for i in range(3, int(number ** (1 / 2)) + 1, 2):
         if number % i == 0:
             return False
         
