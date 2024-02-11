@@ -3,8 +3,9 @@
 # \ ----------------------------------------------------------------------------------------- / #
 
 import itertools
+import math
 
-from typing import Generator
+from typing import Generator, Callable
 
 
 def check_primality(number: int, /) -> bool:
@@ -159,3 +160,45 @@ def get_prime_ordinal_pos(prime_number: int, /) -> int | None:
         return temp_ordinal_pos
     else:
         return None
+
+
+def _willans_prime_formula(order: int) -> int:
+
+    """
+
+     Returns the nth prime number, where the ordinal position of 
+    the prime number is specified by the "order" parameter.
+
+     This function was designed for personal educational purposes only,
+    I emphasize that its practical use in any problem is totally discouraged, 
+    in view of its discrepant inefficiency and inaccuracy in the results from the 
+    seventh prime number onwards.
+
+     For clarification purposes, the function was created based on formulas
+    provided by C. P. Willans in 1964. 
+    
+    Read for more information:
+    
+     • 'https://mathworld.wolfram.com/WillansFormula.html' ;
+     • 'https://en.wikipedia.org/wiki/Formula_for_primes' ;
+     • 'https://www.theoremoftheday.org/NumberTheory/Willans/TotDWillans.pdf'
+
+    :param order: Represents the nth desired prime number.
+    :param quantity: Expresses the number of prime numbers desired from the position specified
+     by the "order" parameter.
+
+    :return: Returns the prime number corresponding to the position specified by the "order" parameter.
+
+    """
+
+    # First, let's define Willans_Coef(x) - which returns 1 if "x = 1" or "x" is prime and 0 otherwise - as :
+    Willans_Coef: Callable[[int], int] = lambda x: math.floor(math.pow(math.cos(math.pi * ((math.factorial(x - 1) + 1) / x)), 2))
+
+    # Then, lets define the prime counting function as "Prime_Count(x)" :
+    Prime_Count: Callable[[int], int] = lambda x: sum(Willans_Coef(j) for j in range(1, x + 1))
+
+    # Therefore, we finally define the formula that returns prime numbers ordinally :
+    Prime: Callable[[int], int] = lambda x: 1 + sum(math.floor(math.pow(math.floor(x / Prime_Count(j)), 1 / x)) for j in range(1, 2 ** x + 1))
+
+    return Prime(order)
+
