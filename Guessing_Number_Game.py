@@ -107,7 +107,7 @@ def game() -> None:
 
     first_number: int = get_user_integer_number("First", 'Yellow')
 
-    print("\nNice! Now please insert another integer to get the number guessing game boundary:")
+    print("\nNice! Now please insert another integer to get the number guessing game boundary:\n")
 
     second_number: int = get_user_integer_number("Second", 'Blue')
 
