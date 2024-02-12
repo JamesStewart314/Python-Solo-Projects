@@ -1,5 +1,5 @@
 # /---------------------------------------------------------------------------------------------------------------------\
-#         This code is a custom module created in Python language - version 3.12 or higher - by me containing a set 
+#         This code is a custom module created in Python language - version 3.12 or higher - by me, it contains
 #                                      of tools for calculate the determinant of a Matrix.
 #                                                Created in ~ 01/19/2024 ~
 # \---------------------------------------------------------------------------------------------------------------------/
