@@ -1,5 +1,5 @@
 # /----------------------------------------------------------------------------------------------------------------------------------------------------------------\
-#  This code is a simple habit tracker created in Python language - version 3.12 or higher - with dependencies on the "pandas", "pyarrow" and "tabulate" libraries.
+#  This code is a simple Habit Tracker created in Python language - version 3.12 or higher - with dependencies on the "pandas", "pyarrow" and "tabulate" libraries.
 #                                      To run it properly, make sure you have these frameworks in your virtual environment.
 #                                                              ~ Code Created in 02/10/2024 ~
 # \----------------------------------------------------------------------------------------------------------------------------------------------------------------/
