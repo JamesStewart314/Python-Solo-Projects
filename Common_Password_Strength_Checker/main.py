@@ -142,6 +142,7 @@ if __name__ == '__main__':
 
 
     pause("\nPress Any Key on Your Keyboard to End the program. Thanks for Using!!!")
+    
     for i in range(3, 0, -1):
         print(f"Closing in {i}...", end='\r')
         time.sleep(1)
