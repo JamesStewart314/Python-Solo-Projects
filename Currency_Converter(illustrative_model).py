@@ -63,7 +63,6 @@ def convert_currency(amount: int | float, base: str, vs: str, rates: dict) -> fl
     return conversion
 
 
-
 if __name__ == '__main__':
 
     data: dict = _get_rates(mock=True)
