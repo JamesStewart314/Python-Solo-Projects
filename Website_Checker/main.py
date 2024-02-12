@@ -39,8 +39,9 @@ def get_websites(csv_path: str) -> list[str]:
 
 
 def get_user_agent() -> str:
-
+    
     user_agent: UserAgent = fake_useragent.UserAgent()
+    
     return user_agent.chrome
 
 
@@ -51,6 +52,7 @@ def get_status_description(status_code: int) -> str:
             description: str = f"Description: ({value} - {value.name}) - \033[32m{value.description}\033[0m"
 
             return description
+            
     return "Description: (???) Unknown Status Code..."
 
 
@@ -59,17 +61,13 @@ def check_website(website: str, user_agent: UserAgent) -> None:
     # Checks the status of a given website.
 
     try:
-        
         code: int = requests.get(website, headers={'User-Agent': user_agent}).status_code
 
-        message: str = f"✅ \"{website}\" - {get_status_description(code)}"
-        
+        message: str = f"✅ \"{website}\" - {get_status_description(code)}"        
         print(message, end='\n' * 2)
 
     except Exception as error:
-
         error_message: str = f"❌ Could not get information for the website: \"{website}\" due to an error: \"\033[31m{error}\033[0m\""
-        
         print(error_message, end='\n' * 2)
 
 
