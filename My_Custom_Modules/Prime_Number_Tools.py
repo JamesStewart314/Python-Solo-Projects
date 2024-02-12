@@ -180,7 +180,8 @@ def _willans_prime_formula(order: int, /) -> int:
     provided by C. P. Willans in 1964. 
     
     Read for more information:
-    
+
+     • 'https://www.jstor.org/stable/3611701' ;
      • 'https://mathworld.wolfram.com/WillansFormula.html' ;
      • 'https://en.wikipedia.org/wiki/Formula_for_primes' ;
      • 'https://www.theoremoftheday.org/NumberTheory/Willans/TotDWillans.pdf'
