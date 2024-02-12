@@ -5,9 +5,8 @@
 import os
 import time
 
-import emoji
-
 from typing import Generator
+
 
 passwords_file_name: str = "Passwords.txt"
 
@@ -89,18 +88,18 @@ if __name__ == '__main__':
         # password compatibility below 50% and is not inside another password:
         if compatibility_rate < 0.5 and results[0].find(user_given_password) == (-1):
 
-            print(emoji.emojize("✅ !!! Your Password is \033[32mStrong\033[0m !!! ✅\n"))
+            print("✅ !!! Your Password is \033[32mStrong\033[0m !!! ✅\n")
             print("\033[3mResults obtained during Analysis with the Database\033[0m: ")
 
             print(f"● Password Provided: {user_given_password}")
             print(f"● Nearest Password Found: {results[0]} (Position: #{results[2]})")
             print(f"● Maximum Compatibility Rate: {str(compatibility_rate * 100)[:5]}%")
-            print(emoji.emojize(f"\nYou Made a Great Password! 😄"))
+            print(f"\nYou Made a Great Password! 😄")
         
         # password compatibility below 75%:
         elif compatibility_rate < 0.75:
 
-            print(emoji.emojize("⚠️ !!! Your Password is \033[33mAverage\033[0m !!! ⚠️\n"))
+            print("⚠️ !!! Your Password is \033[33mAverage\033[0m !!! ⚠️\n")
             print("\033[3mResults obtained during Analysis with the Database\033[0m: ")
 
             print(f"● Password Provided: {user_given_password}")
@@ -112,12 +111,12 @@ if __name__ == '__main__':
                 print()
 
             print(f"● Maximum Compatibility Rate: {str(compatibility_rate * 100)[:5]}%")
-            print(emoji.emojize(f"\nYou Made a Nice Password! But be Careful... 🤔"))
+            print(f"\nYou Made a Nice Password! But be Careful... 🤔")
         
         # password compatibility above 75%:
         else:
 
-            print(emoji.emojize("❌ !!! Your Password is \033[31mBad\033[0m !!! ❌\n"))
+            print("❌ !!! Your Password is \033[31mBad\033[0m !!! ❌\n")
             print("\033[3mResults obtained during Analysis with the Database\033[0m: ")
 
             print(f"● Password Provided: {user_given_password}")
@@ -129,17 +128,17 @@ if __name__ == '__main__':
                 print()
 
             print(f"● Maximum Compatibility Rate: {str(compatibility_rate * 100)[:5]}%")
-            print(emoji.emojize(f"\nFor Your Security, I Recommend That You Try Creating a New Password... 😥"))
+            print(f"\nFor Your Security, I Recommend That You Try Creating a New Password... 😥")
     
     else:
         # unique password
-        print(emoji.emojize("⚜️⚜️⚜️ !!! Your Password is \033[35mUnique\033[0m !!! ⚜️⚜️⚜️\n"))
+        print("⚜️⚜️⚜️ !!! Your Password is \033[35mUnique\033[0m !!! ⚜️⚜️⚜️\n")
         print("\033[3mResults obtained during Analysis with the Database\033[0m: ")
 
         print(f"● Password Provided: {user_given_password}")
         print(f"● Nearest Password Found: {results[0]}")
         print(f"● Maximum Compatibility Rate: \033[1mNo Password Came Even Close!\033[0m")
-        print(emoji.emojize(f"\nYou Made a Wonderful Password, I'm Even Surprised!!! 🥳"))
+        print(f"\nYou Made a Wonderful Password, I'm Even Surprised!!! 🥳")
 
 
     pause("\nPress Any Key on Your Keyboard to End the program. Thanks for Using!!!")
