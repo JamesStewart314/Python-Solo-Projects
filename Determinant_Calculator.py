@@ -1,6 +1,8 @@
-# / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.12 and higher - 01/19/2024
-# \ ----------------------------------------------------------------------------------------- / #
+# /---------------------------------------------------------------------------------------------------------------------\
+#         This code is a custom module created in Python language - version 3.12 or higher - by me containing a set 
+#                                      of tools for calculate the determinant of a Matrix.
+#                                                Code Created in ~ 01/19/2024
+# \---------------------------------------------------------------------------------------------------------------------/
 
 
 type OptionalNumber = int | float | None
