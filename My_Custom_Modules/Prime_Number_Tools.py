@@ -1,5 +1,5 @@
 # /---------------------------------------------------------------------------------------------------------------------\
-#        This code is a custom module created in Python language - version 3.12 or higher - by me containing a set
+#        This code is a custom module created in Python language - version 3.12 or higher - by me, it contains set
 #                       of tools for determining, producing, locating and working with prime numbers.
 #                                                Created in ~ 01/09/2024 ~
 # \---------------------------------------------------------------------------------------------------------------------/
