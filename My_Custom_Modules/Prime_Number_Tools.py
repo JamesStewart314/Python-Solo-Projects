@@ -194,12 +194,12 @@ def _willans_prime_formula(order: int, /) -> int:
     """
 
     # First, let's define Willans_Coef(x) - which returns 1 if "x = 1" or "x" is prime and 0 otherwise - as :
-    Willans_Coef: Callable[[int], int] = lambda x: math.floor(math.pow(math.cos(math.pi * ((math.factorial(x - 1) + 1) / x)), 2))
+    Willans_Coef: Callable[[int], int] = lambda x: math.floor(pow(math.cos(math.pi * ((math.factorial(x - 1) + 1) / x)), 2))
 
     # Then, lets define the prime counting function as "Prime_Count(x)" :
     Prime_Count: Callable[[int], int] = lambda x: sum(Willans_Coef(j + 1) for j in range(0, x))
 
     # Therefore, we finally define the formula that returns prime numbers ordinally :
-    Prime: Callable[[int], int] = lambda x: 1 + sum(math.floor(math.pow(math.floor(x / Prime_Count(j + 1)), 1 / x)) for j in range(0, 2 ** x))
+    Prime: Callable[[int], int] = lambda x: 1 + sum(math.floor(pow(x / Prime_Count(j + 1), 1 / x)) for j in range(0, pow(2, x)))
 
     return Prime(order)
