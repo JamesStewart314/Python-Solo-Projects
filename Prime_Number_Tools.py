@@ -1,6 +1,8 @@
-# / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.12 and higher - 01/09/2024
-# \ ----------------------------------------------------------------------------------------- / #
+# /---------------------------------------------------------------------------------------------------------------------\
+#         This code is a custom module created in Python language - version 3.12 or higher - by me containing a set 
+#                        of tools for determining, producing, locating and working with prime numbers.
+#                              code initially created in ~ 01/09/2024 ~ and updated sporadically
+# \---------------------------------------------------------------------------------------------------------------------/
 
 import itertools
 import math
