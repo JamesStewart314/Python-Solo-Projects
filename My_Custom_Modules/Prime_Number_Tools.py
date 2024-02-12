@@ -17,7 +17,7 @@ def check_primality(number: int, /) -> bool:
      The function checks if the given number is prime or not.
     
     :param number: A positive integer number.
-    :return: Returns a boolean ("True" if the number is prime, "False" if it's not.)
+    :return: Returns a boolean ("True" if the number is prime, "False" if it's not)
 
     """
     
