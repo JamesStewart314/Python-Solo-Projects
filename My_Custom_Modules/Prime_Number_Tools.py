@@ -171,10 +171,10 @@ def _willans_prime_formula(order: int, /) -> int:
      Returns the nth prime number, where the ordinal position of 
     the prime number is specified by the "order" parameter.
 
-     This function was designed for personal educational purposes only,
-    I emphasize that its practical use in any problem is totally discouraged, 
-    in view of its discrepant inefficiency and inaccuracy in the results from the 
-    seventh prime number onwards.
+     This function was designed for self personal educational purposes only,
+    I emphasize that its practical use in any program is totally discouraged, 
+    in view of its discrepant inefficiency and inaccuracy in the results from
+    the seventh prime number onwards, based on my personal tests.
 
      For clarification purposes, the function was created based on formulas
     provided by C. P. Willans in 1964. 
