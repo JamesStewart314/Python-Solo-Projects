@@ -2,12 +2,12 @@
 #   This code was created using the Python language in version 3.12 and higher - 02/04/2024
 # \ ----------------------------------------------------------------------------------------- / #
 #
-# I created just to test the uses of the Walrus Operator. 
+# I created it just to test the uses of the Walrus Operator.
 # It was designed to count the lines, words and characters contained in a text file and 
 # its use is exclusive through the terminal.
 #
 # The syntax to use it in the terminal is:
-# " python -u <path of this file in quotes> <path of the .txt file in quotes> "
+# • python -u <path of this file in quotes> <path of the .txt file in quotes> 
 #
 # Example:
 # • python -u "C:\Users\myuser\Downloads\Line_Counter.py" "C:\Users\myuser\Downloads\MyTextFile.txt"
