@@ -1,7 +1,7 @@
 # /-----------------------------------------------------------------------------------------------------------------------------------\
 #  This code is a URL Shortener created in Python language - version 3.12 or higher - with dependencies on the "requests" library.
-#                      To run it properly, make sure you have this package in your virtual environment.
-#                                               Code Created in ~ 02/08/2024 ~
+#          It was written for personal educational purposes only, which means that it will not work if you try to run it.
+#                                           Code Created in ~ 02/08/2024 ~
 # \-----------------------------------------------------------------------------------------------------------------------------------/
 
 import os
