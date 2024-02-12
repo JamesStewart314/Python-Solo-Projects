@@ -1,15 +1,14 @@
-# /-----------------------------------------------------------------------------------------------------------------------------------------------------------------\
-#  This code is a Website Checker created in Python language - version 3.12 or higher - with dependencies on the "requests", "emoji" and "fake_useragent" libraries.
+# /---------------------------------------------------------------------------------------------------------------------------------------------------------\
+#  This code is a Website Checker created in Python language - version 3.12 or higher - with dependencies on the "requests" and "fake_useragent" libraries.
 #                                       To run it properly, make sure you have this package in your virtual environment.
 #                                                               Code Created in ~ 01/23/2024 ~
-# /-----------------------------------------------------------------------------------------------------------------------------------------------------------------/
+# \---------------------------------------------------------------------------------------------------------------------------------------------------------/
 
 import csv
 import http
 import os
 
 import requests
-import emoji
 import fake_useragent
 
 from fake_useragent import UserAgent
@@ -64,16 +63,14 @@ def check_website(website: str, user_agent: UserAgent) -> None:
         code: int = requests.get(website, headers={'User-Agent': user_agent}).status_code
 
         message: str = f"✅ \"{website}\" - {get_status_description(code)}"
-        message_with_emoji: str = emoji.emojize(message)
         
-        print(message_with_emoji, end='\n' * 2)
+        print(message, end='\n' * 2)
 
     except Exception as error:
 
         error_message: str = f"❌ Could not get information for the website: \"{website}\" due to an error: \"\033[31m{error}\033[0m\""
-        error_message_with_emoji: str = emoji.emojize(error_message)
         
-        print(error_message_with_emoji, end='\n' * 2)
+        print(error_message, end='\n' * 2)
 
 
 if __name__ == '__main__':
@@ -86,4 +83,3 @@ if __name__ == '__main__':
     for index, site in enumerate(sites, start=1):
         print(index, '°', sep='', end=' ')
         check_website(site, user_agent)
-
