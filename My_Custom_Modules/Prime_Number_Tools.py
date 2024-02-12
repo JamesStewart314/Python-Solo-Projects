@@ -32,7 +32,7 @@ def check_primality(number: int, /) -> bool:
         return False
 
     for i in range(3, int(number ** (1 / 2)) + 1, 2):
-        if not number % i:  # if number % i == 0:
+        if not number % i:
             return False
         
     return True
