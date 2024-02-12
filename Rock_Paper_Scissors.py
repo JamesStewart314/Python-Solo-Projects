@@ -1,9 +1,10 @@
-# / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.12 and higher - 01/18/2024
+# /--------------------------------------------------------------------------------------------------------\
+#  This code is a Rock Paper Scissors Interactive Game created in Python language - version 3.12 or higher
 #
-#                 I emphasize that this script was created for Windows,
-#     which means it won't work properly on other operating systems like Linux and MacOS
-# \ ----------------------------------------------------------------------------------------- / #
+#                          I emphasize that this script was created for Windows,
+#              which means it won't work properly on other operating systems like Linux and MacOS
+#                                       Code Created in ~ 01/18/2024 ~
+# \--------------------------------------------------------------------------------------------------------/ #
 
 import msvcrt
 import time
