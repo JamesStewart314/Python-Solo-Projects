@@ -187,9 +187,6 @@ def _willans_prime_formula(order: int, /) -> int:
      • 'https://www.theoremoftheday.org/NumberTheory/Willans/TotDWillans.pdf'
 
     :param order: Represents the nth desired prime number.
-    :param quantity: Expresses the number of prime numbers desired from the position specified
-     by the "order" parameter.
-
     :return: Returns the prime number corresponding to the position specified by the "order" parameter.
 
     """
