@@ -105,8 +105,8 @@ def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
 
     if quantity == 1:
         
-        order_counter: int = 0
-        desired_prime: int = 0
+        desired_prime: int = next(primes_generator)
+        order_counter: int = 1
 
         while order_counter < order:
             desired_prime = next(primes_generator)
@@ -116,8 +116,8 @@ def get_n_prime(order: int, /, *, quantity: int = 1) -> int | list[int]:
 
     else:
 
-        order_counter: int = 0
         desired_primes: list[int] = []
+        order_counter: int = 0
 
         while order_counter < order - 1:
             next(primes_generator)
@@ -138,7 +138,7 @@ def get_prime_ordinal_pos(prime_number: int, /) -> int | None:
     (e.g.: 2 ~> 1 ; 3 ~> 2 ; 4 ~> None ; 5 ~> 3 ... etc)
 
     :param prime_number: Prime integer whose ordinal position wants to be calculated.
-    :return: an integer corresponding to the ordinal position of the prime or "None"
+    :return: An integer corresponding to the ordinal position of the prime or "None"
     if the given integer is not a prime number.
     
     """
