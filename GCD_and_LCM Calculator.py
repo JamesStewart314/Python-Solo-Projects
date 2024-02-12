@@ -1,6 +1,8 @@
-# / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.11 and higher - 12/25/2023
-# \ ----------------------------------------------------------------------------------------- / #
+# /----------------------------------------------------------------------------------------------------------------------\
+#         This code is a custom module created in Python language - version 3.11 or higher - by me containing a set 
+#  of tools for calculate the least common multiple and greatest common divisor between an arbitrary quantity of numbers.
+#                                              Code Created in ~ 12/25/2023 ~
+# \----------------------------------------------------------------------------------------------------------------------/
 
 import functools
 
