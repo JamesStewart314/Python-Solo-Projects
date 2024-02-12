@@ -22,7 +22,7 @@ def check_primality(number: int, /) -> bool:
     """
     
     if not isinstance(number, int) or number <= 0:
-        raise ValueError("To check primality, the number must be an positive integer.")
+        raise ValueError("To check primality, the number must be a non-zero positive integer.")
     
     if number == 1:
         return False
