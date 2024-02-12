@@ -42,9 +42,9 @@ def prime_generator() -> Generator[int, None, None]:
 
     """
     
-     The function creates a generator of sequential prime numbers.
+     The function creates and returns a generator of sequential prime numbers.
 
-    :return: Returns a generator object to form prime numbers.
+    :return: Returns a generator object to form infinite sequential prime numbers.
 
     """
     
