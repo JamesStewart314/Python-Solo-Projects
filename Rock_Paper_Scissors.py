@@ -1,5 +1,5 @@
 # /--------------------------------------------------------------------------------------------------------\
-#  This code is a Rock Paper Scissors Interactive Game created in Python language - version 3.12 or higher
+#  This code is an interactive Rock Paper Scissors game created in Python language - version 3.12 or higher
 #
 #                          I emphasize that this script was created for Windows,
 #              which means it won't work properly on other operating systems like Linux and MacOS
