@@ -7,7 +7,7 @@
 import itertools
 import math
 
-from typing import Generator, Callable
+from typing import Callable, Generator
 
 
 def check_primality(number: int, /) -> bool:
