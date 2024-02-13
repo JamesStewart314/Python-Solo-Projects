@@ -20,10 +20,7 @@ from bs4 import BeautifulSoup
 
 def get_soup() -> BeautifulSoup:
     
-    my_headers: dict = {'User-Agent': 
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-     AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
-    }
+    my_headers: dict = {'User-Agent': '< Enter your User Agent Here >'}
 
     request = requests.get('https://www.bbc.com/news', headers=my_headers)
     html: bytes = request.content
