@@ -1,5 +1,5 @@
 # / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.12 and higher - 02/12/2024
+#   This code was created using the Python language in version 3.12 or higher - 02/12/2024
 # \ ----------------------------------------------------------------------------------------- / #
 
 import winsound, time
