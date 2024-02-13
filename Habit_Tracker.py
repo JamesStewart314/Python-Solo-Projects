@@ -93,4 +93,4 @@ if __name__ == '__main__':
 
 
     print("\nPress Enter to Close...")
-    os.system('pause > nul'); os.system('cls')  # Pause the Program and Close it by Cleaning the Terminal
+    os.system('pause > nul'); os.system('cls')  # Pause the Program and Close it Cleaning the Terminal
