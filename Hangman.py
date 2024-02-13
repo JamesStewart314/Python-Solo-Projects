@@ -395,9 +395,10 @@ def play_hangman() -> None:
             
             temp_user_answer: bytes = getchar()
 
-            try:    
+            try:
                 if temp_user_answer.decode().lower() in lower_characters:
                     user_answer = temp_user_answer.decode().lower()
+                  
             except UnicodeDecodeError as error:
                 pass
                 
@@ -405,16 +406,19 @@ def play_hangman() -> None:
                 match user_answer:
                     case 'v':
                         return play_hangman()
+                      
                     case 'x':
                         print()
                         if game_lan == 'en':
                             for i in range(3, -1, -1):
                                 print("Thanks for Playing!!! Closing in", i, '...', end='\r')
                                 time.sleep(1)
+                              
                         else:  # game_lan == 'pt'
                             for i in range(3, -1, -1):
                                 print("Obrigado por Jogar!!! Fechando em", i, '...', end='\r')
                                 time.sleep(1)
+                              
                         os.system('cls')
                         return None
     
