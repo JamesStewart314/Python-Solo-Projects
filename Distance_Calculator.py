@@ -1,8 +1,8 @@
-# /----------------------------------------------------------------------------------------------------------------------------\
-#  This code is a Hangman game created in Python language - version 3.12 or higher - with dependencies on the "geopy" library.
+# /----------------------------------------------------------------------------------------------------------------------------------\
+#  This code is a Distance Calculator created in Python language - version 3.12 or higher - with dependencies on the "geopy" library.
 #                         To run it properly, make sure you have this framework in your virtual environment.
 #                                                   Code Created in ~ 02/13/2024 ~
-# \----------------------------------------------------------------------------------------------------------------------------/
+# \----------------------------------------------------------------------------------------------------------------------------------/
 
 import os
 
