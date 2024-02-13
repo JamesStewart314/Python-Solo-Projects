@@ -1,5 +1,5 @@
 # / ----------------------------------------------------------------------------------------- \ #
-#   This code was created using the Python language in version 3.12 and higher - 01/17/2024
+#   This code was created using the Python language in version 3.12 or higher - 01/17/2024
 # \ ----------------------------------------------------------------------------------------- / #
 
 
