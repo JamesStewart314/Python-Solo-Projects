@@ -65,21 +65,21 @@ def check_headlines(headlines: list[str], term_to_search: str):
                         terms_found += 1
                         word_found = True
                         
-                        print(f"[{idx}]: {headline.capitalize()} <----------------------< \033[32mTerm Found!\033[0m")
                         break
                     
                     elif bool({word[0], word[-1], word[-2]}.intersection(quotes)) and ((len(word) == len(tearm_to_search) + 1) or (len(word) == len(tearm_to_search) + 2)):
                         terms_list.append(headline)
                         terms_found += 1
                         word_found = True
-                        
-                        print(f"[{idx}]: {headline.capitalize()} <----------------------< \033[32mTerm Found!\033[0m")
+
                         break
 
                 except IndexError as error:
                     word_found = False
 
-        if not word_found:
+        if word_found:
+            print(f"[{idx}]: {headline.capitalize()} <----------------------< \033[32mTerm Found!\033[0m")
+        else:
             print(f"[{idx}]: {headline.capitalize()}")
     
 
