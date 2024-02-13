@@ -262,13 +262,13 @@ def play_hangman() -> None:
                     print(game_start_message)
                     
                     print("""        ______|
-        /    ||
-        |    ◯ 
-        |   /|\\
-        |   / \\
-        |
-        / \\
-        /___\\
+       /     ||
+       |     ◯ 
+       |    /|\\
+       |    / \\
+       |
+      / \\
+     /___\\
             """)
             
                     lose_message: str = f"You Lost... The hidden word was {drawn_word}. Wanna play again? ;)" if game_lan == 'en' else \
