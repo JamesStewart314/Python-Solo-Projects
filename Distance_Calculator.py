@@ -28,6 +28,8 @@ class Coordinates:
 
 def get_coordinates(adress: str, /) -> Coordinates | None:
 
+    # Returns an instance of the Coordinates class corresponding to the given address.
+
     geolocator: Nominatim = Nominatim(user_agent='distance_calculator')
     location = geolocator.geocode(adress)
 
@@ -36,6 +38,9 @@ def get_coordinates(adress: str, /) -> Coordinates | None:
 
 
 def calculate_distance(base_adress: str, destiny_adress: str, /, *, unit_of_measurement: distance_units) -> float | None:
+
+    # Calculates and returns the distance between two addresses
+    # in a unit of measurement specified by the "unit_of_measurement" parameter.
     
     Cbase_adress: Coordinates | None = get_coordinates(base_adress)
     Cdestiny_adress: Coordinates | None = get_coordinates(destiny_adress)
