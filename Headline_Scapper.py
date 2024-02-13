@@ -1,11 +1,16 @@
-# /--------------------------------------------------------------------------------------------------------------------------------------------------------\
+# /----------------------------------------------------------------------------------------------------------------------------------------------------------\
 #  This code is a Headline Scapper created in Python language - version 3.12 or higher - with dependencies on the "requests" and "beautifulsoup4" libraries.
 #                                    To run it correctly, make sure you have these packages in your virtual environment.
+#
+# It is possible that some specific scoring combinations could cause inaccuracies in the results, but I chose not to address these cases just for convenience.
+#           The solutions to these problems are completely feasible, but they represent minute details that are superfluous to the final result of a
+#                                                         code prototype whose sole purpose is learning.
 #                                                                 Code Created in ~ 02/12/2024 ~
-# \--------------------------------------------------------------------------------------------------------------------------------------------------------/
+# \----------------------------------------------------------------------------------------------------------------------------------------------------------/
 
 
 import os
+import string
 
 import bs4
 import requests
@@ -43,15 +48,38 @@ def get_headlines(soup: BeautifulSoup, /) -> list[str]:
 def check_headlines(headlines: list[str], term_to_search: str):
     terms_list: list[str] = []
     terms_found: int = 0
+    word_found: bool
+
+    quotes: set[str] = {"\'", "\""}
 
     for idx, headline in enumerate(headlines, start=1):
-        if term_to_search.lower() in headline:
-            terms_list.append(headline)
-            terms_found += 1
-            
-            print(f"[{idx}]: {headline.capitalize()} <----------------------< \033[32mTerm Found!\033[0m")
-        
-        else:
+        word_found = False
+
+        for word in set(headline.split()):
+            if tearm_to_search in word:
+                
+                try:
+                    if len(word) == len(tearm_to_search):
+                        
+                        terms_list.append(headline)
+                        terms_found += 1
+                        word_found = True
+                        
+                        print(f"[{idx}]: {headline.capitalize()} <----------------------< \033[32mTerm Found!\033[0m")
+                        break
+                    
+                    elif bool({word[0], word[-1], word[-2]}.intersection(quotes)) and ((len(word) == len(tearm_to_search) + 1) or (len(word) == len(tearm_to_search) + 2)):
+                        terms_list.append(headline)
+                        terms_found += 1
+                        word_found = True
+                        
+                        print(f"[{idx}]: {headline.capitalize()} <----------------------< \033[32mTerm Found!\033[0m")
+                        break
+
+                except IndexError as error:
+                    word_found = False
+
+        if not word_found:
             print(f"[{idx}]: {headline.capitalize()}")
     
 
@@ -78,6 +106,6 @@ if __name__ == '__main__':
     temp_soup: BeautifulSoup = get_soup()
     headlines: list[str] = get_headlines(temp_soup)
 
-    tearm_to_search: str = 'Biden'
+    tearm_to_search: str = input("What term would you like to check for in BBC News headers? >> ")
 
     check_headlines(headlines, tearm_to_search)
