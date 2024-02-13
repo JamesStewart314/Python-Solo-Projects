@@ -5,12 +5,15 @@
 # It is possible that some specific scoring combinations could cause inaccuracies in the results, but I chose not to address these cases just for convenience.
 #           The solutions to these problems are completely feasible, but they represent minute details that are superfluous to the final result of a
 #                                                         code prototype whose sole purpose is learning.
+#
+#         Furthermore, for the code to work correctly, you need to replace the "< Enter your User Agent Here >" field with your User Agent 
+#                                                     (open your default browser and search for "My User Agent")
+#
 #                                                                 Code Created in ~ 02/12/2024 ~
 # \----------------------------------------------------------------------------------------------------------------------------------------------------------/
 
 
 import os
-import string
 
 import bs4
 import requests
@@ -19,6 +22,9 @@ from bs4 import BeautifulSoup
 
 
 def get_soup() -> BeautifulSoup:
+
+    # Returns an instance of the BeautifulSoup class 
+    # containing information relating to news headers from the BBC News website.
     
     my_headers: dict = {'User-Agent': '< Enter your User Agent Here >'}
 
@@ -33,6 +39,10 @@ def get_soup() -> BeautifulSoup:
 
 def get_headlines(soup: BeautifulSoup, /) -> list[str]:
 
+    # Receives and processes the instance of the BeautifulSoup class 
+    # containing news headers and returns a list of strings with the 
+    # contents of the headers.
+
     headlines_set: set = set()
 
     for h in soup.findAll('h3', class_='gs-c-promo-heading__title'):
@@ -42,7 +52,11 @@ def get_headlines(soup: BeautifulSoup, /) -> list[str]:
     return sorted(headlines_set)
 
 
-def check_headlines(headlines: list[str], term_to_search: str):
+def check_headlines(headlines: list[str], term_to_search: str) -> None:
+
+    # checks matches for a given word within a list of strings 
+    # storing the contents of the Headers.
+
     terms_list: list[str] = []
     terms_found: int = 0
     word_found: bool
@@ -93,6 +107,8 @@ def check_headlines(headlines: list[str], term_to_search: str):
     else:
         print(f"\tNo matches found for term \"{term_to_search}\".\n")
         print('|', '-' * 81, '|', sep='')
+    
+    return None
 
 
 
