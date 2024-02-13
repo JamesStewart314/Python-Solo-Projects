@@ -2,7 +2,7 @@
 #   This code was created using the Python language in version 3.12 and higher - 02/04/2024
 # \ ----------------------------------------------------------------------------------------- / #
 #
-# I created it just to test the uses of the Walrus Operator.
+# I created it just to test the uses of Walrus Operator.
 # It was designed to count the lines, words and characters contained in a text file and 
 # its use is exclusive through the terminal.
 #
