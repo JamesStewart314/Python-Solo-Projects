@@ -5,7 +5,7 @@
 #  I emphasize that this script was created for Windows, meaning it may not work correctly on other operating systems such as Linux or MacOS.
 #
 #                               Also, make sure you run this program in a terminal that supports cleaning. 
-#                                                    (e.g.: cmd.exe, VSCode terminal, etc.)
+#                                                  (e.g.: cmd.exe, VSCode terminal, etc.)
 #                         Terminals in IDEs like Pycharm will probably not be able to run this script correctly.
 #
 #                                                     Code Created in ~ 02/01/2024 ~
