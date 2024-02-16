@@ -19,7 +19,7 @@ class QRCode:
         :param file_name: String type parameter that corresponds to the desired name for the PNG file containing the QR code.
         :param foreground_color: String type parameter that specifies the desired color for the foreground of the qr code. 
         If you are unable to provide the color name, try entering a tuple containing three integers corresponding to the color's RGB code. 
-        (Example: 'black', (128, 128, 128), 'White', etc)
+        (e.g.: 'black', (128, 128, 128), 'White', etc)
         :param background_color: Analogous to the foreground color specifications, this parameter defines the background color only.
         :return: None.
         """
