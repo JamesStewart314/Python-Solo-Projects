@@ -2,8 +2,7 @@
 #  This code is a Text Sentiment Analysis Bot created in Python language - version 3.12 or higher - with dependencies on the "colorama", "translate" and "textblob" libraries.
 #                                     To run it properly, make sure you have these frameworks in your virtual environment.
 #
-#         I emphasize that this script was created for Windows and VSCode, which means that it will not work correctly in other operating systems or IDE's,
-#                                                      it will only run correctly in the VSCode Terminal on Windows.
+#                       I emphasize that this script was created for Windows, which means that it maybe not work correctly in other operating systems,
 #                                                                     Code Created in ~ 02/01/2024 ~
 # \---------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
 
@@ -52,34 +51,37 @@ class StylishWriting:
         for letter in message:
             for _ in range(StylishWriting.number_of_letter_draws):
 
-                print(random.choice(StylishWriting.used_symbols), end='\b')
+                print(random.choice(StylishWriting.used_symbols), end='', flush=True)
                 time.sleep(writing_delay)
+                print('\b', end='')
 
-            print(letter, end='')
+            print(letter, end='', flush=True)
         
         if skip_end_line:
-            print()
+            print('', flush=True)
     
     @staticmethod
     def write_loop(message: str, /, waiting_time: Number, *, writing_delay: Number = 0.02, return_delay: Number) -> None:
         for letter in message:
             for _ in range(StylishWriting.number_of_letter_draws):
 
-                print(random.choice(StylishWriting.used_symbols), end='\b')
+                print(random.choice(StylishWriting.used_symbols), end='', flush=True)
                 time.sleep(writing_delay)
+                print('\b', end='')
 
-            print(letter, end='')
+            print(letter, end='', flush=True)
 
         time.sleep(waiting_time)
 
         for _ in range(len(message)):
-            print('\b', end='')
+            print('\b', end='', flush=True)
 
             for _ in range(StylishWriting.number_of_letter_draws):
-                print(random.choice(StylishWriting.used_symbols), end='\b')
+                print(random.choice(StylishWriting.used_symbols), end='', flush=True)
                 time.sleep(return_delay)
+                print('\b', end='')
                 
-            print(' ', end='\b')
+            print(' ', end='\b', flush=True)
 
 
 
