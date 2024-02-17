@@ -295,9 +295,9 @@ def run_bot() -> None:
             StylishWriting.write(exit_alert, skip_end_line=False)
             
             for i in range(3, -1, -1):
-                print(f"({i}...)", end='')
+                print(f"({i}...)", end='', flush=True)
                 time.sleep(1)
-                print('\b' * 6, end='')
+                print('\b' * 6, end='', flush=True)
             
             # Close the Bot :
             clear()
