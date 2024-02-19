@@ -8,16 +8,16 @@
 
 
 import Credentials
+from Credentials import Email_Dict
 
 import smtplib
 import ssl
 
+from ssl import SSLContext
+
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
-
-from Credentials import Email_Dict
-from ssl import SSLContext
 
 
 def create_image_attachment(image_path: str) -> MIMEImage:
