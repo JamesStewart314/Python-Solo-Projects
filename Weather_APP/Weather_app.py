@@ -155,4 +155,4 @@ if __name__ == '__main__':
                 weather_message: str = f"{location.title()}: {wtr}"
                 print(f"{weather_message:^{50 + size_of_weather_message}}")
             
-            print(f"{'\\' + '-' * (size_of_weather_message + len(location) - 13) + '/':^{30 + size_of_weather_message}}")
+            print(f"{' \\' + '-' * (size_of_weather_message + len(location) - 12) + '/':^{30 + size_of_weather_message}}")
