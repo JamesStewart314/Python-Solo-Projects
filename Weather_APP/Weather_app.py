@@ -126,7 +126,7 @@ if __name__ == '__main__':
     current_weather_thread.start()
 
     while current_weather_thread.is_alive():
-        print(f"{clr.Fore.GREEN}Getting Details{clr.Style.RESET_ALL}", f"{next(ellipsis_animation):<4}", next(bar_animation), sep='', end='', flush=True)
+        print(f"{clr.Fore.GREEN}• Getting Details{clr.Style.RESET_ALL}", f"{next(ellipsis_animation):<4}", next(bar_animation), sep='', end='', flush=True)
         time.sleep(1)
         print('\r', end='')
     
