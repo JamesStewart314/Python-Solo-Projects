@@ -61,7 +61,7 @@ def get_weather(city_name: str, *, mock: bool = True) -> dict | None:
     
     """
     
-    if mock and os.path.isfile(".\\dummy_data.json"):
+    if mock and os.path.exists(".\\dummy_data.json"):
         with open('dummy_data.json') as json_file:
             return json.load(json_file)
     
