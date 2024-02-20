@@ -43,21 +43,21 @@ class Weather:
         
         match self.main_weather:
             case 'Clear':
-                return_str += f" ({self.main_weather} ☀️ )"
+                return_str += f" ( {self.main_weather} ☀️ )"
             case 'Clouds':
-                return_str += f" ({self.main_weather} ☁️ )"
+                return_str += f" ( {self.main_weather} ☁️ )"
             case 'Tornado':
-                return_str += f" ({self.main_weather} 🌪️ )"
+                return_str += f" ( {self.main_weather} 🌪️ )"
             case 'Squall':
-                return_str += f" ({self.main_weather} 🌩️ )"
+                return_str += f" ( {self.main_weather} 🌩️ )"
             case 'Ash':
-                return_str += f" ({self.main_weather} 🌋 )"
+                return_str += f" ( {self.main_weather} 🌋 )"
             case 'Dust' | 'Sand':
-                return_str += f" ({self.main_weather} ⌛ )"
+                return_str += f" ( {self.main_weather} ⌛ )"
             case 'Fog' | 'Haze' | 'Mist':
-                return_str += f" ({self.main_weather} 🌁 )"
+                return_str += f" ( {self.main_weather} 🌁 )"
             case 'Snow':
-                return_str += f" ({self.main_weather} 🌨️ )"
+                return_str += f" ( {self.main_weather} 🌨️ )"
             case 'Rain' | 'Drizzle':
                 return_str += f" ({self.main_weather} 🌧️ )"
             case 'Thunderstorm':
@@ -81,3 +81,4 @@ class ThreadWithReturnValue(Thread):
     def join(self, *args) -> Any:
         Thread.join(self, *args)
         return self._return
+
