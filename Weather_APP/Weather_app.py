@@ -6,17 +6,21 @@
 # \---------------------------------------------------------------------------------------------------/
 
 
-from models import Coordinates, Weather, dt
+from models import Coordinates, Weather, dt, ThreadWithReturnValue
 
+import itertools
 import json
 import os
+import time
 
 import requests
+import colorama as clr
 from requests import Response
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
 from typing import Final, Generator
+from itertools import cycle
 
 
 API_KEY: Final[str] = '79abab032c366e93d4e9f1ca85f06f19'
@@ -110,19 +114,29 @@ def get_weather_details(weather: dict, /) -> list[Weather]:
 
 if __name__ == '__main__':
 
+    bar_animation: cycle = itertools.cycle(['\\', '|', '/', '-'])
+    ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
+
     # location: str = input("• Insert a Valid Adress / Location :\n>>> ")
     location: str = 'Tokyo'
 
     # Getting the Weather Detais :
     # (To get Real Time Data, just Change "mock" parameter to "False")
-    print("Getting Details...", end='', flush=True)
-    current_weather: dict | None = get_weather(location, mock=True)
-    print('\r' + ' ' * len("Getting Details..."), end='\r')
+    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': True})
+    current_weather_thread.start()
+
+    while current_weather_thread.is_alive():
+        print(f"{clr.Fore.GREEN}Getting Details{clr.Style.RESET_ALL}", f"{next(ellipsis_animation):<4}", next(bar_animation), sep='', end='', flush=True)
+        time.sleep(1)
+        print('\r', end='')
+    
+    print('\r' + ' ' * 20, end='\r')
+    
+    current_weather: dict | None = current_weather_thread.join()
 
     if current_weather:
 
         weather_info: list[Weather] = get_weather_details(current_weather)
-
         days_group: list[str] = sorted(set(f"{wtr.date:%m/%d/%Y}" for wtr in weather_info))
 
         for day in days_group:
