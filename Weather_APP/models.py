@@ -23,7 +23,9 @@ class Weather:
     temperature: str  # In Celsius
     weather: list[dict]
     weather_details: dict
+    main_weather: str
     description: str
+
 
     def __str__(self) -> str:
 
@@ -38,6 +40,31 @@ class Weather:
         else:
             return_str += f"{clr.Fore.BLUE}{self.temperature}{clr.Style.RESET_ALL}°C"
         
+        
+        match self.main_weather:
+            case 'Clear':
+                return_str += f" ({self.main_weather} ☀️ )"
+            case 'Clouds':
+                return_str += f" ({self.main_weather} ☁️ )"
+            case 'Tornado':
+                return_str += f" ({self.main_weather} 🌪️ )"
+            case 'Squall':
+                return_str += f" ({self.main_weather} 🌩️ )"
+            case 'Ash':
+                return_str += f" ({self.main_weather} 🌋 )"
+            case 'Dust' | 'Sand':
+                return_str += f" ({self.main_weather} ⌛ )"
+            case 'Fog' | 'Haze' | 'Mist':
+                return_str += f" ({self.main_weather} 🌁 )"
+            case 'Snow':
+                return_str += f" ({self.main_weather} 🌨️ )"
+            case 'Rain' | 'Drizzle':
+                return_str += f" ({self.main_weather} 🌧️ )"
+            case 'Thunderstorm':
+                return_str += f" ({self.main_weather} ⛈️ )"
+            case _:
+                return_str += f" ({self.main_weather})"
+
         return return_str
 
 
@@ -54,4 +81,3 @@ class ThreadWithReturnValue(Thread):
     def join(self, *args) -> Any:
         Thread.join(self, *args)
         return self._return
-
