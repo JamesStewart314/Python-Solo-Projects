@@ -114,6 +114,11 @@ def get_weather_details(weather: dict, /) -> list[Weather]:
 
 if __name__ == '__main__':
 
+    # I'm using Threads and the cyclical animations below for 
+    # purely aesthetic purposes, none of these resources are 
+    # essential for the code to work, I would just like to test 
+    # my programming skills with this simple artistic detail ;)
+
     bar_animation: cycle = itertools.cycle(['\\', '|', '/', '-'])
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
@@ -122,7 +127,7 @@ if __name__ == '__main__':
 
     # Getting the Weather Detais :
     # (To get Real Time Data, just Change "mock" parameter to "False")
-    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': True})
+    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': False})
     current_weather_thread.start()
 
     while current_weather_thread.is_alive():
@@ -150,4 +155,3 @@ if __name__ == '__main__':
                 print(f"\n{f"{location.title()}: {wtr}":^{50 + len(location)}}", end='')
             
             print(f"\n{'\\' + '-' * (30 + len(location)) + '/':^{30 + len(location)}}")
-            
