@@ -1,14 +1,22 @@
+# /---------------------------------------------------------------------------------------------------\
+#  This code is a Weather App created in Python language - version 3.12 or higher - with dependencies 
+#                         on the "requests", "colorama" and "geopy" libraries.
+#         To run it properly, make sure you have these packages in your virtual environment.
+#                                    Code Created in ~ 02/19/2024 ~
+# \---------------------------------------------------------------------------------------------------/
+
+
 from models import Coordinates, Weather, dt
 
-import requests
 import json
 import os
 
+import requests
+from requests import Response
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
 from typing import Final, Generator
-from requests import Response
 
 
 API_KEY: Final[str] = '79abab032c366e93d4e9f1ca85f06f19'
