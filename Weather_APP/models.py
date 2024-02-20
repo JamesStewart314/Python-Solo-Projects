@@ -59,11 +59,11 @@ class Weather:
             case 'Snow':
                 return_str += f" ( {self.main_weather} 🌨️ )"
             case 'Rain' | 'Drizzle':
-                return_str += f" ({self.main_weather} 🌧️ )"
+                return_str += f" ( {self.main_weather} 🌧️ )"
             case 'Thunderstorm':
-                return_str += f" ({self.main_weather} ⛈️ )"
+                return_str += f" ( {self.main_weather} ⛈️ )"
             case _:
-                return_str += f" ({self.main_weather})"
+                return_str += f" ( {self.main_weather} )"
 
         return return_str
 
