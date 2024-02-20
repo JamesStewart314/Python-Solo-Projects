@@ -127,7 +127,7 @@ if __name__ == '__main__':
 
     # Getting the Weather Detais :
     # (To get Real Time Data, just Change "mock" parameter to "False")
-    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': False})
+    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': True})
     current_weather_thread.start()
 
     while current_weather_thread.is_alive():
