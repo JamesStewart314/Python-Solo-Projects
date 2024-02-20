@@ -16,10 +16,9 @@ import time
 import requests
 import colorama as clr
 from requests import Response
-from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
-from typing import Final, Generator
+from typing import Final
 from itertools import cycle
 
 
@@ -105,6 +104,7 @@ def get_weather_details(weather: dict, /) -> list[Weather]:
                                            weather_details=(details := day.get('main')),
                                            temperature=f"{details.get('temp') - 273.15:.2f}",
                                            weather=(temp_weather := day.get('weather')),
+                                           main_weather=temp_weather[0].get('main'),
                                            description=temp_weather[0].get('description'))
         
         list_of_weather_data.append(current_weather)
@@ -146,12 +146,13 @@ if __name__ == '__main__':
 
         for day in days_group:
 
-            weather_grouped: Generator[Weather, None, None] = (wtr for wtr in weather_info \
-                                                            if f"{wtr.date:%m/%d/%Y}" == day)
+            weather_grouped: list[Weather] = [wtr for wtr in weather_info if f"{wtr.date:%m/%d/%Y}" == day]
 
-            print(f"\n{'/' + f"{day:-^20}" + '\\':^{32 + len(location)}}")
+            size_of_weather_message: int = len(max(weather_grouped, key=lambda x: len(x.__str__())).__str__())
+            print(f"\n{'/' + f"{day:-^20}" + '\\':^{32 + size_of_weather_message}}")
 
             for wtr in weather_grouped:
-                print(f"\n{f"{location.title()}: {wtr}":^{50 + len(location)}}", end='')
+                weather_message: str = f"{location.title()}: {wtr}"
+                print(f"{weather_message:^{50 + size_of_weather_message}}")
             
-            print(f"\n{'\\' + '-' * (30 + len(location)) + '/':^{30 + len(location)}}")
+            print(f"{'\\' + '-' * (size_of_weather_message + len(location) - 13) + '/':^{30 + size_of_weather_message}}")
