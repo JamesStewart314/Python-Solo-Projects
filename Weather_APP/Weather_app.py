@@ -35,6 +35,28 @@ def get_coordinates(adress: str, /) -> Coordinates | None:
     
 
 def get_weather(city_name: str, *, mock: bool = True) -> dict | None:
+
+    """
+    
+     Returns a dictionary containing information 
+    regarding the weather in a location specified 
+    by the "city_name" parameter if the "mock" 
+    parameter is False. Otherwise, it returns a 
+    dictionary with the information present in the 
+    last climate analysis, contained in the 
+    "dummy_data.json" file.
+
+    :param city_name: String containing the name of a 
+     city, region or home address. (e.g.: "Moscow", "New York", etc)
+    :param mock: A Boolean value to determine whether 
+     the information provided should come from stored 
+     data or real-time analytics.
+
+    :return: A dictionary containing information, 
+     whether outdated or not, relating to the 
+     climate in a given location.
+    
+    """
     
     if mock and os.path.isfile(".\\dummy_data.json"):
         with open('dummy_data.json') as json_file:
@@ -54,6 +76,20 @@ def get_weather(city_name: str, *, mock: bool = True) -> dict | None:
 
 
 def get_weather_details(weather: dict, /) -> list[Weather]:
+
+    """
+    
+     Processes weather information provided 
+    by the "get_weather()" function.
+
+    :param weather: A dictionary containing 
+     climate information.
+    
+    :return: A list of Weather class objects 
+     with all the weather data for the next 
+     few days in a given location.
+    
+    """
 
     if not (days := weather.get('list')):
         raise Exception(f'Error: Problem with Json: {weather}')
