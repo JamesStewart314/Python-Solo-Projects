@@ -135,7 +135,7 @@ if __name__ == '__main__':
         time.sleep(1)
         print('\r', end='')
     
-    print('\r' + ' ' * 20, end='\r')
+    print('\r' + ' ' * 22, end='\r')
     
     current_weather: dict | None = current_weather_thread.join()
 
