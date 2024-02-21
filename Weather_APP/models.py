@@ -31,16 +31,17 @@ class Weather:
 
         return_str: str = f"{clr.Fore.LIGHTMAGENTA_EX}[{self.date:%m/%d/%Y} - {self.date:%H:%M}]{clr.Style.RESET_ALL} "
 
-        if float(self.temperature) >= 30:
+
+        if (current_temp := float(self.temperature)) >= 30:
             return_str += f"{clr.Fore.RED}{self.temperature}{clr.Style.RESET_ALL}°C"
-        elif float(self.temperature) >= 20:
+        elif current_temp >= 20:
             return_str += f"{clr.Fore.YELLOW}{self.temperature}{clr.Style.RESET_ALL}°C"
-        elif float(self.temperature) >= 10:
+        elif current_temp >= 10:
             return_str += f"{clr.Fore.GREEN}{self.temperature}{clr.Style.RESET_ALL}°C"
         else:
             return_str += f"{clr.Fore.BLUE}{self.temperature}{clr.Style.RESET_ALL}°C"
         
-        
+
         match self.main_weather:
             case 'Clear':
                 return_str += f" ( {self.main_weather} ☀️ )"
@@ -65,6 +66,7 @@ class Weather:
             case _:
                 return_str += f" ( {self.main_weather} )"
 
+
         return return_str
 
 
@@ -81,4 +83,3 @@ class ThreadWithReturnValue(Thread):
     def join(self, *args) -> Any:
         Thread.join(self, *args)
         return self._return
-
