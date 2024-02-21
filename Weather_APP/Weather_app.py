@@ -139,7 +139,7 @@ def _main(args: Any = None) -> None:
     
     current_weather: dict | None = current_weather_thread.join()
 
-    if current_weather:
+    if current_weather is not None:
 
         weather_info: list[Weather] = get_weather_details(current_weather)
         days_group: list[str] = sorted(set(f"{wtr.date:%m/%d/%Y}" for wtr in weather_info))
