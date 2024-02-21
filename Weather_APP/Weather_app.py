@@ -18,7 +18,7 @@ import colorama as clr
 from requests import Response
 from geopy.geocoders import Nominatim
 
-from typing import Final
+from typing import Final, Any
 from itertools import cycle
 
 
@@ -112,8 +112,8 @@ def get_weather_details(weather: dict, /) -> list[Weather]:
     return list_of_weather_data
 
 
-if __name__ == '__main__':
-
+def _main(args: Any = None) -> None:
+    
     # I'm using Threads and the cyclical animations below for 
     # purely aesthetic purposes, none of these resources are 
     # essential for the code to work, I would just like to test 
@@ -156,3 +156,7 @@ if __name__ == '__main__':
                 print(f"{weather_message:^{50 + size_of_weather_message}}")
             
             print(f"{' \\' + '-' * (size_of_weather_message + len(location) - 12) + '/':^{30 + size_of_weather_message}}")
+
+
+if __name__ == '__main__':
+    _main()
