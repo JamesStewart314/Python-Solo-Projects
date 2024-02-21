@@ -31,7 +31,6 @@ class Weather:
 
         return_str: str = f"{clr.Fore.LIGHTMAGENTA_EX}[{self.date:%m/%d/%Y} - {self.date:%H:%M}]{clr.Style.RESET_ALL} "
 
-
         if (current_temp := float(self.temperature)) >= 30:
             return_str += f"{clr.Fore.RED}{self.temperature}{clr.Style.RESET_ALL}°C"
         elif current_temp >= 20:
@@ -65,7 +64,6 @@ class Weather:
                 return_str += f" ( {self.main_weather} ⛈️ )"
             case _:
                 return_str += f" ( {self.main_weather} )"
-
 
         return return_str
 
