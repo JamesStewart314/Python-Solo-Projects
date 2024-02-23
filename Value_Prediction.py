@@ -77,7 +77,7 @@ def make_linear_prediction(input_data: DataValues, output_data: DataValues,
 
     :param show_plot: A Flag indicating if a graph should be displayed 
     based on the data provided. (default is 'False')
-    :type show_plot: bool
+    :type show_plot: bool.
 
     :returns: An instance of the 'Prediction' class containing the prediction results.
     :rtype: Predciction.
