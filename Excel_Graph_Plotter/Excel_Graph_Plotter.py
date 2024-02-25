@@ -259,6 +259,9 @@ class GraphPlotCTK:
 
 
 def _main(agrs: Any = None) -> None:
+    print("\nFor testing purposes, use this file path: \n>>> \'\033[33m",\
+          FILE_PATH, '\033[0m\'')
+    print("(a new tab will open, look for it)")
     mygraph: GraphPlotCTK = GraphPlotCTK("Graph Plot +", 450, 300)
     mygraph.run()
 
