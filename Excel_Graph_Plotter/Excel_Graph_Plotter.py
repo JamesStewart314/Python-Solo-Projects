@@ -16,6 +16,7 @@ from PIL import Image
 
 from typing import Final, Generator, Any
 from customtkinter import CTkFont
+from numpy import ndarray
 
 
 ctk.set_appearance_mode("dark")
@@ -163,9 +164,8 @@ class GraphPlotCTK:
         Inputs_and_Outputs.sort(key=lambda x: dt.datetime.strptime(x[0], "%d-%b-%y").date())
 
         # Getting Dates :
-        X_Axis = np.array([dt.datetime.strptime(elem[0], "%d-%b-%y").date() for elem in Inputs_and_Outputs])
-        print(X_Axis)
-        Y_Axis = np.array([float(elem[1]) for elem in Inputs_and_Outputs])
+        X_Axis: ndarray = np.array([dt.datetime.strptime(elem[0], "%d-%b-%y").date() for elem in Inputs_and_Outputs])
+        Y_Axis: ndarray = np.array([float(elem[1]) for elem in Inputs_and_Outputs])
 
         plt.plot(X_Axis, Y_Axis)
         plt.show()
