@@ -122,8 +122,8 @@ def _main(args: Any = None) -> None:
     bar_animation: cycle = itertools.cycle(['\\', '|', '/', '-'])
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
-    # location: str = input("• Insert a Valid Adress / Location :\n>>> ")
-    location: str = 'Tokyo'
+    location: str = input("• Insert a Valid Adress / Location :\n>>> ").strip().lower()
+    # location: str = 'Tokyo'
 
     # Getting the Weather Detais :
     # (To get Real Time Data, just Change "mock" parameter to "False")
