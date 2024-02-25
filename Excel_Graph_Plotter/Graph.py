@@ -1,4 +1,10 @@
-# numpy ; Pillow ; Customtkinter ; matplotlib
+# /---------------------------------------------------------------------------------------------------\
+#        This is a Excel Graph Plotter code created in Python language - version 3.12 or higher
+#             library dependencies: "numpy" ; "matplotlib" ; "customtkinter" ; "pillow"
+#         To run it properly, make sure you have these packages in your virtual environment.
+#                                    Code Created in ~ 02/24/2024 ~
+# \---------------------------------------------------------------------------------------------------/
+
 
 import os
 import datetime as dt
@@ -6,7 +12,6 @@ import datetime as dt
 import customtkinter as ctk
 import numpy as np
 import matplotlib.pyplot as plt
-
 from PIL import Image
 
 from typing import Final, Generator, Any
@@ -38,7 +43,7 @@ def make_gen_from_csv(file_path: str, /) -> Generator[dict[str, Any], None, None
     return file_line_information
 
 
-class GraphPlotterCTK:
+class GraphPlotCTK:
 
     """
      A class used to display Excel plots through matplotlib with the help 
@@ -254,7 +259,7 @@ class GraphPlotterCTK:
 
 
 def _main(agrs: Any = None) -> None:
-    mygraph: GraphPlotterCTK = GraphPlotterCTK("Graph Plotter +", 450, 300)
+    mygraph: GraphPlotCTK = GraphPlotCTK("Graph Plot +", 450, 300)
     mygraph.run()
 
 
