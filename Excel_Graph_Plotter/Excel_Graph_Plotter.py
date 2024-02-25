@@ -159,8 +159,12 @@ class GraphPlotCTK:
         Inputs_and_Outputs: list[tuple[Any, Any]] = [(dct.get('fundedDate'), dct.get('raisedAmt')) 
                                                      for dct in make_gen_from_csv(FILE_PATH) if\
                                                      dct.get('company') == self._options_menu.get()]
+        # Arranges data in ascending order by date :
+        Inputs_and_Outputs.sort(key=lambda x: dt.datetime.strptime(x[0], "%d-%b-%y").date())
+
         # Getting Dates :
         X_Axis = np.array([dt.datetime.strptime(elem[0], "%d-%b-%y").date() for elem in Inputs_and_Outputs])
+        print(X_Axis)
         Y_Axis = np.array([float(elem[1]) for elem in Inputs_and_Outputs])
 
         plt.plot(X_Axis, Y_Axis)
