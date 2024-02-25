@@ -92,7 +92,7 @@ class GraphPlotCTK:
         self._ctkwindow = ctk.CTk()
         # Defining Available Fonts :
         self._fonts: dict[str, CTkFont] = {"Helvetica": ctk.CTkFont(family='Helvetica', size=12),
-                                 "Bauhaus 93": ctk.CTkFont("Bauhaus 93", 16)}
+                                 "Bauhaus 93": ctk.CTkFont(family="Bauhaus 93", size=16)}
         # Setting the Window Title :
         self._ctkwindow.title(self._window_title)
         # Resizing the Window :
