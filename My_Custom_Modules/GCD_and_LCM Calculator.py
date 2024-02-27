@@ -74,7 +74,7 @@ def GCD(number_iterator: tuple[int, ...] | list[int], /) -> int:
     
     """
     
-    assert all((isinstance(number_iterator, Iterable), len(number_iterator) >= 2)),\
+    assert all((isinstance(number_iterator, Iterable) and len(number_iterator) >= 2,)),\
             "To calculate the GCD, we need to have at least two "\
             "positive integers in an iterator."
         
