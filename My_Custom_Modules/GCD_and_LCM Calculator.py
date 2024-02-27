@@ -74,7 +74,7 @@ def GCD(number_iterator: tuple[int, ...] | list[int], /) -> int:
     
     """
     
-    assert all((isinstance(number_iterator, Iterable) and len(number_iterator) >= 2,)),\
+    assert isinstance(number_iterator, Iterable) and len(number_iterator) >= 2,\
             "To calculate the GCD, we need to have at least two "\
             "positive integers in an iterator."
         
@@ -101,7 +101,7 @@ def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
     
     """
     
-    assert all((isinstance(number_iterator, Iterable) and len(number_iterator) >= 2,)),\
+    assert isinstance(number_iterator, Iterable) and len(number_iterator) >= 2,\
             "To calculate the LCM, we need to have at least two "\
             "positive integers in an iterator."
         
@@ -111,3 +111,5 @@ def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
                 f"(exception caught: \'{exc}\')"
 
     return functools.reduce(_LCM_2_numbers, number_iterator)
+
+
