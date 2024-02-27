@@ -74,25 +74,17 @@ def GCD(number_iterator: tuple[int, ...] | list[int], /) -> int:
     
     """
     
-    if isinstance(number_iterator, Iterable) and len(number_iterator) >= 2:
-
-        ######################################################################################
-        #                     Command Block for Preventive Verification :                    #
-        #             (removable if necessary to improve algorithm performance)              #
+    assert all((isinstance(number_iterator, Iterable), len(number_iterator) >= 2)),\
+            "To calculate the GCD, we need to have at least two "\
+            "positive integers in an iterator."
         
-        for element in number_iterator:
-            if isinstance(element, int):
-                if element <= 0:
-                    raise ValueError("Iterable must only contain non-zero positive integers.")
-            else:
-                raise TypeError("Iterable must only contain non-zero positive integers.")
-        #                                                                                    #
-        ######################################################################################
+    assert all((isinstance((exc := elem), (int, float)) and elem > 0) \
+                for elem in number_iterator),\
+                "Iterable must only contain non-zero positive integers. "\
+                f"(exception caught: \'{exc}\')"
 
-        return functools.reduce(_GCD_2_numbers, number_iterator)
+    return functools.reduce(_GCD_2_numbers, number_iterator)
 
-    else:
-        raise TypeError("To calculate GCD, we need to have at least two numbers in an iterator.")
 
 
 def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
@@ -109,22 +101,13 @@ def LCM(number_iterator: tuple[int, ...] | list[int], /) -> int:
     
     """
     
-    if isinstance(number_iterator, Iterable) and len(number_iterator) >= 2:
+    assert all((isinstance(number_iterator, Iterable) and len(number_iterator) >= 2,)),\
+            "To calculate the LCM, we need to have at least two "\
+            "positive integers in an iterator."
         
-        ######################################################################################
-        #                     Command Block for Preventive Verification :                    #
-        #             (removable if necessary to improve algorithm performance)              #
-        
-        for element in number_iterator:
-            if isinstance(element, int):
-                if element <= 0:
-                    raise ValueError("Iterable must only contain non-zero positive integers.")
-            else:
-                raise TypeError("Iterable must only contain non-zero positive integers.")
-        #                                                                                    #
-        ######################################################################################
+    assert all((isinstance((exc := elem), (int, float)) and elem > 0) \
+                for elem in number_iterator),\
+                "Iterable must only contain non-zero positive integers. "\
+                f"(exception caught: \'{exc}\')"
 
-        return functools.reduce(_LCM_2_numbers, number_iterator)
-
-    else:
-        raise TypeError("To calculate LCM, we need to have at least two numbers in an iterator.")
+    return functools.reduce(_LCM_2_numbers, number_iterator)
