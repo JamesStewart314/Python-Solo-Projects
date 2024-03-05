@@ -126,7 +126,7 @@ async def _main(args: Any = None) -> None:
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
     # (To get Real Time Data, just Change "mock_data" parameter to "False")
-    mock_data: bool = False
+    mock_data: bool = True
 
     location: str = input("• Insert a Valid Adress / Location :\n>>> ").strip().lower() \
                       if not mock_data else 'Tokyo'
