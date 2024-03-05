@@ -122,12 +122,15 @@ def _main(args: Any = None) -> None:
     bar_animation: cycle = itertools.cycle(['\\', '|', '/', '-'])
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
-    location: str = input("• Insert a Valid Adress / Location :\n>>> ").strip().lower()
+    # (To get Real Time Data, just Change "mock_data" parameter to "False")
+    mock_data: bool = True
+
+    location: str = input("• Insert a Valid Adress / Location :\n>>> ").strip().lower() \
+                         if not mock_data else 'Tokyo'
     # location: str = 'Tokyo'
 
     # Getting the Weather Detais :
-    # (To get Real Time Data, just Change "mock" parameter to "False")
-    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': True})
+    current_weather_thread: ThreadWithReturnValue = ThreadWithReturnValue(target=get_weather, args=(location,), kwargs={'mock': mock_data})
     current_weather_thread.start()
 
     while current_weather_thread.is_alive():
