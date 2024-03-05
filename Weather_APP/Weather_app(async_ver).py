@@ -1,6 +1,6 @@
 # /---------------------------------------------------------------------------------------------------\
 #  This code is a Weather App created in Python language - version 3.12 or higher - with dependencies 
-#                         on the "requests", "colorama" and "geopy" libraries.
+#                     on the "requests", "colorama", "geopy", "aiohttp" libraries.
 #         To run it properly, make sure you have these packages in your virtual environment.
 #                                    Code Created in ~ 02/19/2024 ~
 # \---------------------------------------------------------------------------------------------------/
@@ -13,9 +13,8 @@ import itertools
 import json
 import os
 
-import requests
+import aiohttp
 import colorama as clr
-from requests import Response
 from geopy.geocoders import Nominatim
 
 from asyncio import Task
@@ -70,8 +69,11 @@ async def get_weather(city_name: str, *, mock: bool = True) -> dict | None:
 
         # Request Live Data :
         payload: dict = {'appid': API_KEY, 'lat': location.latitude, 'lon': location.longitude}
-        request: Response = await asyncio.to_thread(requests.get, url=BASE_URL, params=payload)
-        data = request.json()
+
+        async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
+            async with session.get(BASE_URL, params=payload) as response:
+                response.raise_for_status()
+                data: Any = await response.json()
 
         with open('dummy_data.json', 'w') as json_file:
             json.dump(data, json_file)
@@ -124,7 +126,7 @@ async def _main(args: Any = None) -> None:
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
     # (To get Real Time Data, just Change "mock_data" parameter to "False")
-    mock_data: bool = True
+    mock_data: bool = False
 
     location: str = input("• Insert a Valid Adress / Location :\n>>> ").strip().lower() \
                       if not mock_data else 'Tokyo'
