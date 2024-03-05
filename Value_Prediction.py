@@ -17,10 +17,17 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 
-
 from typing import Final, Any
 from numpy import ndarray
 from pandas import DataFrame
+
+
+type Numeric = int | float
+type DataValues = tuple[Numeric, ...] | list[Numeric]
+
+reset_cr: str = cr.Style.RESET_ALL
+yellow_cr: str = cr.Fore.LIGHTYELLOW_EX
+red_cr: str = cr.Fore.LIGHTRED_EX
 
 
 @dataclasses.dataclass
@@ -33,14 +40,6 @@ class Prediction:
 
     def __str__(self) -> str:
         return f"{self.value:,.2f}"
-    
-
-type Numeric = int | float
-type DataValues = tuple[Numeric, ...] | list[Numeric]
-
-reset_cr: str = cr.Style.RESET_ALL
-yellow_cr: str = cr.Fore.LIGHTYELLOW_EX
-red_cr: str = cr.Fore.LIGHTRED_EX
 
 
 def display_plot(input_values: DataValues, output_values: DataValues, Y_line) -> None:
