@@ -1,8 +1,8 @@
 # /---------------------------------------------------------------------------------------------------\
 #  This code is a Weather App created in Python language - version 3.12 or higher - with dependencies 
-#                  on the "requests", "colorama", "geopy" and "aiohttp" libraries.
+#                     on the "requests", "colorama", "geopy", "aiohttp" libraries.
 #         To run it properly, make sure you have these packages in your virtual environment.
-#                                    Code Created in ~ 03/05/2024 ~
+#                                    Code Created in ~ 02/19/2024 ~
 # \---------------------------------------------------------------------------------------------------/
 
 
@@ -70,10 +70,20 @@ async def get_weather(city_name: str, *, mock: bool = True) -> dict | None:
         # Request Live Data :
         payload: dict = {'appid': API_KEY, 'lat': location.latitude, 'lon': location.longitude}
 
-        async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
-            async with session.get(BASE_URL, params=payload) as response:
-                response.raise_for_status()
-                data: Any = await response.json()
+        try:
+            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
+                async with session.get(BASE_URL, params=payload) as response:
+                    response.raise_for_status()
+                    data: Any = await response.json()
+
+        except (aiohttp.ClientError, aiohttp.http_exceptions.HttpProcessingError) as error:
+            print(f"aiohttp exception: {error}")
+            return None
+        
+        except Exception as error:
+            print(f"A non-aiohttp exception occured: {error}")
+            return None
+
 
         with open('dummy_data.json', 'w') as json_file:
             json.dump(data, json_file)
