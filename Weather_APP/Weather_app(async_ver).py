@@ -125,7 +125,9 @@ async def _main(args: Any = None) -> None:
     bar_animation: cycle = itertools.cycle(['\\', '|', '/', '-'])
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
-    # (To get Real Time Data, just Change "mock_data" parameter to "False")
+    #####################################################################################
+    # !!!!! (To get Real Time Data, just Change "mock_data" parameter to "False") !!!!! #
+    #####################################################################################
     mock_data: bool = True
 
     location: str = input("• Insert a Valid Adress / Location :\n>>> ").strip().lower() \
