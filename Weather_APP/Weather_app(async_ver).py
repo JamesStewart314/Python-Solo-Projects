@@ -1,8 +1,8 @@
 # /---------------------------------------------------------------------------------------------------\
 #  This code is a Weather App created in Python language - version 3.12 or higher - with dependencies 
-#                     on the "requests", "colorama", "geopy", "aiohttp" libraries.
+#                  on the "requests", "colorama", "geopy" and "aiohttp" libraries.
 #         To run it properly, make sure you have these packages in your virtual environment.
-#                                    Code Created in ~ 02/19/2024 ~
+#                                    Code Created in ~ 03/05/2024 ~
 # \---------------------------------------------------------------------------------------------------/
 
 
