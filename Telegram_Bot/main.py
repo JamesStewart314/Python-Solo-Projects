@@ -1,9 +1,11 @@
-# /---------------------------------------------------------------------------------------------------\
-#  This code is a Weather App created in Python language - version 3.12 or higher - with dependencies 
+# /----------------------------------------------------------------------------------------------\
+#          This code is a Responsive Telegram Chatbot with basic learning capabilities 
+#            created in Python language - version 3.12 or higher - with dependencies 
 #                     on the "python-telegram-bot" and "aiohttp" libraries.
+#
 #         To run it properly, make sure you have these packages in your virtual environment.
 #                                    Code Created in ~ 03/09/2024 ~
-# \---------------------------------------------------------------------------------------------------/
+# \----------------------------------------------------------------------------------------------/
 
 
 from confidential_information import CHATBOT_TOKEN
