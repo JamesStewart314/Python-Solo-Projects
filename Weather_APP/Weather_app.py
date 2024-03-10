@@ -14,12 +14,12 @@ import os
 import time
 
 import requests
-import colorama as clr
-from requests import Response
+import colorama as clr
 from geopy.geocoders import Nominatim
 
 from typing import Final, Any
 from itertools import cycle
+from requests import Response
 
 
 API_KEY: Final[str] = '79abab032c366e93d4e9f1ca85f06f19'
