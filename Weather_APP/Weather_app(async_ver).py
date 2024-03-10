@@ -126,11 +126,6 @@ def get_weather_details(weather: dict, /) -> list[Weather]:
 
 
 async def _main(args: Any = None) -> None:
-    
-    # I'm using Threads and the cyclical animations below for 
-    # purely aesthetic purposes, none of these resources are 
-    # essential for the code to work, I would just like to test 
-    # my programming skills with this simple artistic detail ;)
 
     bar_animation: cycle = itertools.cycle(['\\', '|', '/', '-'])
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
