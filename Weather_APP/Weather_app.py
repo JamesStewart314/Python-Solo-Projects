@@ -14,7 +14,8 @@ import os
 import time
 
 import requests
-import colorama as clr
+import colorama as clr
+
 from geopy.geocoders import Nominatim
 
 from typing import Final, Any
@@ -123,7 +124,7 @@ def _main(args: Any = None) -> None:
     ellipsis_animation: cycle = itertools.cycle(['.', '..', '...'])
 
     #####################################################################################
-    # !!!!! (To get Real Time Data, just Change "mock_data" parameter to "False") !!!!! #
+    # ! (To get Real Time Data, Just Change "mock_data" Flag Right Below to "False") !  #
     #####################################################################################
     mock_data: bool = True
 
