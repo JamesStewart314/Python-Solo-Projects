@@ -70,19 +70,19 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
         raise ValueError(f"File extension \'{extension}\' is not supported. "\
                         f"Available extensions: {supported_extensions}")
     
-    image_object: Image = IMG.open(image_path)
+    with IMG.open(image_path) as image_object:
 
-    new_image: Image = image_object.resize(new_dimensions)
-    base_name: str = os.path.basename(image_path)
-    base_name = base_name[:base_name.rindex('.')]
-    aux_counter: count = itertools.count(start=0)
+        new_image: Image = image_object.resize(new_dimensions)
+        base_name: str = os.path.basename(image_path)
+        base_name = base_name[:base_name.rindex('.')]
+        aux_counter: count = itertools.count(start=0)
 
-    while os.path.isfile((new_name := base_name + '_copy-' +\
-                         str(next(aux_counter)).zfill(3) + extension)): pass
-    
-    new_image.save(new_name)
+        while os.path.isfile((new_name := base_name + '_copy-' +\
+                            str(next(aux_counter)).zfill(3) + extension)): pass
+        
+        new_image.save(new_name)
 
-    return new_name
+        return new_name
 
 
 def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) -> None:
