@@ -17,10 +17,8 @@ from PIL import Image as IMG
 from itertools import count
 from PIL.Image import Image
 
-from typing import Any, Callable, Final
+from typing import Any, Final
 
-
-HERE_PATH: Final[str] = os.path.abspath(os.path.dirname(__file__))
 
 # Supported Image File Extensions:
 supported_extensions: Final[set[str]] = {".jpg", ".png", ".jpeg"}
