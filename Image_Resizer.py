@@ -6,9 +6,9 @@
 # \----------------------------------------------------------------------------------------------/
 
 
-import shutil
 import itertools
 import os
+import shutil
 import time
 
 from PIL import Image as IMG
@@ -154,7 +154,8 @@ def _main(args: Any = None) -> None:
                 print(f"\n└> \" {file_base_name} \"")
             else:
                 for file_name in os.listdir(input_path):
-                    print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
+                    if os.path.splitext(file_name)[-1] in supported_extensions:
+                        print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
                 print('\b \n')
             print()
             
