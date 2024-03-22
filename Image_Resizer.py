@@ -1,5 +1,5 @@
 # /----------------------------------------------------------------------------------------------\
-#     This code is a Image Resizer code created in Python language - version 3.12 or higher
+#     This code is a Image Resizer created in Python language - version 3.12 or higher
 #                              library dependencies: "pillow"
 #       To run it properly, make sure you have this package in your virtual environment.
 #                                  Code Created in ~ 03/21/2024 ~
