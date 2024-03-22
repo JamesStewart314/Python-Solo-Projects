@@ -6,6 +6,8 @@
 # \----------------------------------------------------------------------------------------------/
 
 
+
+
 import itertools
 import multiprocessing
 import os
@@ -18,7 +20,6 @@ from itertools import count
 from PIL.Image import Image
 
 from typing import Any, Final
-
 
 # Supported Image File Extensions:
 supported_extensions: Final[set[str]] = {".jpg", ".png", ".jpeg"}
@@ -112,15 +113,16 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
                                                       filter(lambda x: os.path.splitext(x)[-1]\
                                                       in supported_extensions, os.listdir(folder_path))]
     
-    with multiprocessing.Pool() as pool:
-        results: list[str] = pool.starmap(resize_image, image_files)
-    
+
+    # Making sure that the name chosen for the new folder that will 
+    # contain the resized images does not exist:
     aux_counter: count = itertools.count(start=0)
     while os.path.exists((new_folder_name := os.path.join(folder_path, f"resized_images ({new_dimensions[0]}x{new_dimensions[1]}) - {str(next(aux_counter)).zfill(3)}"))): pass
-
+    
     os.mkdir(new_folder_name)
-
+    
     with multiprocessing.Pool() as pool:
+        results: list[str] = pool.starmap(resize_image, image_files)
         pool.starmap(move_image, [(new_image, new_folder_name) for new_image in results])
 
     return None
@@ -196,8 +198,8 @@ def _main(args: Any = None) -> None:
                      os.path.abspath(os.path.dirname(input_path)))
     else:
         resize_multiple_images(input_path, input_dimensions)
-    
-    print("\b \r• Done! Press any key to close...", end='')
+
+    print("\b \r• Done! Press any key to close... ", end='')
 
     os.system('pause > nul')
 
