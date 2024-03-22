@@ -194,7 +194,7 @@ def _main(args: Any = None) -> None:
     print("\nDoing the Process. Please, wait...", end='')
 
     if is_file:
-        shutil.move(resize_image(input_path, input_dimensions),\
+        move_image(resize_image(input_path, input_dimensions),\
                      os.path.abspath(os.path.dirname(input_path)))
     else:
         resize_multiple_images(input_path, input_dimensions)
