@@ -114,7 +114,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
     # Making sure that the name chosen for the new folder that will 
     # contain the resized images does not exist:
     aux_counter: count = itertools.count(start=0)
-    while os.path.exists((new_folder_name := os.path.join(folder_path, 
+    while os.path.exists((new_folder_name := os.path.join(folder_path,
                         f"resized_images ({new_dimensions[0]}x{new_dimensions[1]})"\
                         f" - {str(next(aux_counter)).zfill(3)}"))): pass
     
@@ -167,9 +167,8 @@ def _main(args: Any = None) -> None:
             else:
                 for file_name in os.listdir(input_path):
                     if os.path.splitext(file_name)[-1] in supported_extensions:
-                        print(f"\n└> \" {(base_name := os.path.basename(file_name)):\
-                        <{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
-                        
+                        print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
+
                 print('\b \n')
             print()
             
