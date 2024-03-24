@@ -71,7 +71,7 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
     with IMG.open(image_path) as image_object:
 
         new_image: Image = image_object.resize(new_dimensions)
-        base_name: str = os.path.basename(image_path)[:base_name.rindex('.')]
+        base_name: str = (bs_name := os.path.basename(image_path))[:bs_name.rindex('.')]
         aux_counter: count = itertools.count(start=0)
 
         while os.path.isfile((new_name := base_name + '_copy-' +\
@@ -114,7 +114,9 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
     # Making sure that the name chosen for the new folder that will 
     # contain the resized images does not exist:
     aux_counter: count = itertools.count(start=0)
-    while os.path.exists((new_folder_name := os.path.join(folder_path, f"resized_images ({new_dimensions[0]}x{new_dimensions[1]}) - {str(next(aux_counter)).zfill(3)}"))): pass
+    while os.path.exists((new_folder_name := os.path.join(folder_path, 
+                        f"resized_images ({new_dimensions[0]}x{new_dimensions[1]})"\
+                        f" - {str(next(aux_counter)).zfill(3)}"))): pass
     
     os.mkdir(new_folder_name)
     
@@ -129,10 +131,17 @@ def _main(args: Any = None) -> None:
     
     os.system('cls')
 
-    while not os.path.exists(input_path := input("Provide the Path of a Folder or Image to Resize them:\n>>> ")):
-        print("\n\033[33mInvalid Path! Please, check that the input provided matches a valid path and try again.\033[0m")
-        print("\n\033[32m• e.g.: \"C:\\Users\\myUser\\hypothetical_folder_path\", \"C:\\Users\\myUser\\hypothetical_image.png\", ...\033[0m")
+    while not os.path.exists(input_path := input("Provide the Path of a Folder"\
+                                                 " or Image to Resize them:\n>>> ")):
+        
+        print("\n\033[33mInvalid Path! Please, check that the input provided"\
+              "matches a valid path and try again.\033[0m")
+        
+        print("\n\033[32m• e.g.: \"C:\\Users\\myUser\\hypothetical_folder_path\"," \
+              f"\"C:\\Users\\myUser\\hypothetical_image.png\", ...\033[0m")
+        
         print("(press any key to continue...)", end='')
+
         os.system('pause > nul & cls')
     
     os.system('cls')
@@ -151,12 +160,16 @@ def _main(args: Any = None) -> None:
                         f"in the \"{file_base_name}\" folder.\n"
             
             print("• Images Being Resized:\n│", end='')
+
             if is_file:
                 print(f"\n└> \" {file_base_name} \"")
+
             else:
                 for file_name in os.listdir(input_path):
                     if os.path.splitext(file_name)[-1] in supported_extensions:
-                        print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
+                        print(f"\n└> \" {(base_name := os.path.basename(file_name)):\
+                        <{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
+                        
                 print('\b \n')
             print()
             
