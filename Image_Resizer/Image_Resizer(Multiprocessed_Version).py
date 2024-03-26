@@ -18,6 +18,7 @@ from itertools import count
 from PIL.Image import Image
 
 from typing import Any, Final
+type ImageList = list[tuple[str, tuple[int, int]]]
 
 # Supported Image File Extensions:
 supported_extensions: Final[set[str]] = {".jpg", ".png", ".jpeg"}
@@ -105,7 +106,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
     if not os.path.isdir(folder_path):
         raise ValueError("The given folder path is invalid or does not exist.")
     
-    image_files: list[tuple[str, tuple[int, int]]] = [(os.path.join(folder_path, image_name), new_dimensions) \
+    image_files: ImageList = [(os.path.join(folder_path, image_name), new_dimensions) \
                                                       for image_name in \
                                                       filter(lambda x: os.path.splitext(x)[-1]\
                                                       in supported_extensions, os.listdir(folder_path))]
