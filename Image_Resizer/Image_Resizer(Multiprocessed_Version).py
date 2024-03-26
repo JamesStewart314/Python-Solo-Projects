@@ -106,10 +106,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
     if not os.path.isdir(folder_path):
         raise ValueError("The given folder path is invalid or does not exist.")
     
-    image_files: ImageList = [(os.path.join(folder_path, image_name), new_dimensions) \
-                                                      for image_name in \
-                                                      filter(lambda x: os.path.splitext(x)[-1]\
-                                                      in supported_extensions, os.listdir(folder_path))]
+    image_files: ImageList = [(os.path.join(folder_path, image_name), new_dimensions) for image_name in filter(lambda x: os.path.splitext(x)[-1] in supported_extensions, os.listdir(folder_path))]
     
 
     # Making sure that the name chosen for the new folder that will 
