@@ -17,11 +17,13 @@ from PIL import Image as IMG
 from itertools import count
 from PIL.Image import Image
 
-from typing import Any, Final
-type ImageList = list[tuple[str, tuple[int, int]]]
+from typing import Any, Final, Generator
 
-# Supported Image File Extensions:
-supported_extensions: Final[set[str]] = {".jpg", ".png", ".jpeg"}
+type ImageGen = Generator[tuple[str, tuple[int, int]], None, None]
+
+
+# Supported Image File Extensions :
+supported_extensions: Final[set[str]] = {".jpg", ".jpeg", ".png"}
 
 
 def move_image(image: str, destiny_folder: str, /) -> None:
@@ -106,11 +108,17 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
     if not os.path.isdir(folder_path):
         raise ValueError("The given folder path is invalid or does not exist.")
     
-    image_files: ImageList = [(os.path.join(folder_path, image_name), new_dimensions) for image_name in filter(lambda x: os.path.splitext(x)[-1] in supported_extensions, os.listdir(folder_path))]
+
+    # The use of generators was prioritized over lists to minimize 
+    # excessive memory expenditure at the expense of a small 
+    # portion of performance :
+    image_files: ImageGen = ((os.path.join(folder_path, image_name), new_dimensions) for \
+                             image_name in filter(lambda x: os.path.splitext(x)[-1] in \
+                             supported_extensions, os.listdir(folder_path)))
     
 
     # Making sure that the name chosen for the new folder that will 
-    # contain the resized images does not exist:
+    # contain the resized images does not exist :
     aux_counter: count = itertools.count(start=0)
     while os.path.exists((new_folder_name := os.path.join(folder_path,
                         f"resized_images ({new_dimensions[0]}x{new_dimensions[1]})"\
@@ -119,8 +127,8 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int]) ->
     os.mkdir(new_folder_name)
     
     with multiprocessing.Pool() as pool:
-        results: list[str] = pool.starmap(resize_image, image_files)
-        pool.starmap(move_image, [(new_image, new_folder_name) for new_image in results])
+        results: Generator[str, None, None] = (img_name for img_name in pool.starmap(resize_image, image_files))
+        pool.starmap(move_image, ((new_image, new_folder_name) for new_image in results))
 
     return None
 
