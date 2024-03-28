@@ -44,7 +44,7 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
      in which the image will be resized.
     :type new_dimensions: tuple[int, int]
 
-    :return: A string containing the new name of the new resized image.
+    :return: A string containing the full name of the new resized image.
     :rtype: string
     """
     
