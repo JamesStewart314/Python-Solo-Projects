@@ -234,11 +234,11 @@ def _main(args: Any = None) -> None:
            len(tuple(filter(lambda x: os.path.splitext(x)[-1] in supported_extensions,
                                                                  folder_content))))
 
-    print("\b \r• Done! Press any key to close... ", end='')
+    print("• Done! Press any key to close... ")
 
     os.system('pause > nul')
 
-    print("\n~ Thanks for Using this Program! Closing in... ", end='')
+    print("~ Thanks for Using this Program! Closing in... ", end='')
     for i in range(3, 0, -1):
         print(i, end='', flush=True)
         time.sleep(1)
