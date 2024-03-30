@@ -178,10 +178,10 @@ def _main(args: Any = None) -> None:
 
     if (is_file := os.path.isfile(input_path)):
         message += f"You chose to resize a single image file. "\
-                f"(file name: {file_base_name})\n"
+                   f"(file name: {file_base_name})\n"
     else:
         message += f"You have chosen to resize the multiple images present "\
-                f"in the \"{file_base_name}\" folder.\n"
+                   f"in the \"{file_base_name}\" folder.\n"
         
     message += "Now enter the new dimensions to resize the selected images"\
                " (e.g.: \"200x400\", \"480x480\", ...)\n>>> "
@@ -225,8 +225,6 @@ def _main(args: Any = None) -> None:
             print(f"\nError: {error}")
             print("(press any key to continue...)", end='')
             os.system('pause > nul & cls')
-
-    print("\nDoing the Process. Please, wait...", end='')
 
     if is_file:
         move_image(resize_image(input_path, input_dimensions),\
