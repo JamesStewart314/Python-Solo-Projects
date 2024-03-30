@@ -147,6 +147,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
                                  colour='green'):
             
             move_image(img_file, new_folder_name)
+                                     
     return None
 
 
@@ -187,7 +188,6 @@ def _main(args: Any = None) -> None:
 
     while True:
         try:
-
             print("• Images Being Resized:\n│", end='')
 
             if is_file:
