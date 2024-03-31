@@ -38,17 +38,6 @@ FILE_PATH: Final[str] = os.path.abspath(os.path.join(HERE_PATH, "knowledge_base.
 new_response: str = ""
 
 
-async def save_new_base_knowledge(file_path: str, new_data: list[str]) -> None:
-    
-    #  Saves the New Knowledge Base Provided by 
-    # the User During the Chat to a CSV file.
-
-    async with aiofiles.open(file_path, mode='a', newline="") as file:
-        csv_writer = csv.writer(file, delimiter=";")
-
-        await asyncio.create_task(csv_writer.writerow(new_data))
-
-
 def find_best_match(user_question: str) -> str | None:
 
     #  Search for possible matches of the user's question in a 
@@ -85,6 +74,28 @@ def get_answer_for_question(file_path: str, match: str, /) -> str | None:
             if line[0] == match:
                 return line[1]
 
+def handle_response(text: str, /) -> str | None:
+    
+    processed_text: str = text.lower().strip()
+
+    best_match: str | None = find_best_match(processed_text)
+
+    if best_match is not None:
+        response: str | None = get_answer_for_question(FILE_PATH, best_match)
+
+        return response
+
+
+async def save_new_base_knowledge(file_path: str, new_data: list[str]) -> None:
+    
+    #  Saves the New Knowledge Base Provided by 
+    # the User During the Chat to a CSV file.
+
+    async with aiofiles.open(file_path, mode='a', newline="") as file:
+        csv_writer = csv.writer(file, delimiter=";")
+
+        await asyncio.create_task(csv_writer.writerow(new_data))
+
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE, /) -> None:
     await update.message.reply_text("Hello there! Nice to meet you!!! ~ 🍁✨\n"\
@@ -112,18 +123,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE, /) ->
 
 async def custom_command(update: Update, context: ContextTypes.DEFAULT_TYPE, /) -> None:
     await update.message.reply_text("Nope, no Custom Commands, at least for now.\n\n(˵ •̀ ᴗ - ˵ ) 💻✨")
-
-
-def handle_response(text: str, /) -> str | None:
-    
-    processed_text: str = text.lower().strip()
-
-    best_match: str | None = find_best_match(processed_text)
-
-    if best_match is not None:
-        response: str | None = get_answer_for_question(FILE_PATH, best_match)
-
-        return response
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
