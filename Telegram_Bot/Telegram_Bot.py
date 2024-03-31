@@ -1,10 +1,14 @@
-# /----------------------------------------------------------------------------------------------\
-#          This code is a Responsive Telegram Chatbot with basic learning capabilities 
-#            created in Python language - version 3.12 or higher - with dependencies 
-#                     on the "python-telegram-bot" and "aiofiles" libraries.
+# /----------------------------------------------------------------------------------------------------\
+#            This code is a Responsive Telegram Chatbot with basic learning capabilities 
+#              created in Python language - version 3.12 or higher - with dependencies 
+#                       on the "python-telegram-bot" and "aiofiles" libraries.
 #
-#                                    Code Created in ~ 03/09/2024 ~
-# \----------------------------------------------------------------------------------------------/
+#  For the code to work correctly on your machine, it is essential to provide confidential information,
+#   such as the associated TOKEN. However, due to the sensitive nature of this data, I cannot share it
+#  publicly. Without this crucial information, the code will be unable to run properly on your machine.
+#
+#                                Code Created in ~ 03/09/2024 ~
+# \----------------------------------------------------------------------------------------------------/
 
 
 from confidential_information import CHATBOT_TOKEN
