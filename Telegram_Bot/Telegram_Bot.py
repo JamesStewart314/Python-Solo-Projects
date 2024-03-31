@@ -74,6 +74,7 @@ def get_answer_for_question(file_path: str, match: str, /) -> str | None:
             if line[0] == match:
                 return line[1]
 
+
 def handle_response(text: str, /) -> str | None:
     
     processed_text: str = text.lower().strip()
