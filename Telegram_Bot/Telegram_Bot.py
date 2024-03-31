@@ -3,7 +3,6 @@
 #            created in Python language - version 3.12 or higher - with dependencies 
 #                     on the "python-telegram-bot" and "aiofiles" libraries.
 #
-#         To run it properly, make sure you have these packages in your virtual environment.
 #                                    Code Created in ~ 03/09/2024 ~
 # \----------------------------------------------------------------------------------------------/
 
