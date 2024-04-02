@@ -142,7 +142,8 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
                                        "\033[33m.\033[34m.\033[0m",
                                  ncols=100,
                                  ascii=" ░▒▓",
-                                 bar_format="{desc} ~{percentage:3.0f}% - [{bar}] - {n_fmt}/{total_fmt}",
+                                 bar_format="{desc} ~{percentage:3.0f}% - [{bar}] - {n_fmt}/{total_fmt}"\
+                                            " | Time Elapsed: {elapsed} ~ Time Remaining: {remaining}",
                                  smoothing=0.8,
                                  colour='green'):
             
@@ -238,7 +239,7 @@ def _main(args: Any = None) -> None:
 
     os.system('pause > nul')
 
-    print("~ Thanks for Using this Program! Closing in... ", end='')
+    print("\n~ Thanks for Using this Program! Closing in... ", end='')
     for i in range(3, 0, -1):
         print(i, end='', flush=True)
         time.sleep(1)
