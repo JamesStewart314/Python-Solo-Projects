@@ -29,6 +29,11 @@ type ImageGen = Generator[tuple[str, tuple[int, int]], None, None]
 supported_extensions: Final[set[str]] = {".jpg", ".jpeg", ".png"}
 
 
+def clear_term() -> None:
+    # function to clean the terminal
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def move_image(image: str, destiny_folder: str, /) -> None:
     shutil.move(image, destiny_folder)
 
@@ -154,7 +159,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
 
 def _main(args: Any = None) -> None:
     
-    os.system('cls')
+    clear_term()
 
     while not os.path.exists(input_path := input("Provide the Path of a Folder"\
                                                  " or Image to Resize them:\n>>> ")):
@@ -169,7 +174,7 @@ def _main(args: Any = None) -> None:
 
         os.system('pause > nul & cls')
     
-    os.system('cls')
+    clear_term()
 
     folder_content: list[str] = os.listdir(input_path)
 
@@ -245,7 +250,7 @@ def _main(args: Any = None) -> None:
         time.sleep(1)
         print('\b', end='')
     
-    os.system('cls')
+    clear_term()
 
 
 if __name__ == '__main__':
