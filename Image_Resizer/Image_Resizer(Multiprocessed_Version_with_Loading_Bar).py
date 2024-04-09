@@ -57,7 +57,7 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
 
     """
      As the name of the function suggests, it resizes the width and 
-    height of an image file.
+    height of an image file and saves the new copy of the resized image in the same directory where the code is contained.
 
     :param image_path: The path corresponding to the 
      image file contained on your computer.
