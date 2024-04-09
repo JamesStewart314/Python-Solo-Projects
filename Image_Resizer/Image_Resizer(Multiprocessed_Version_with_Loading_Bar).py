@@ -48,9 +48,9 @@ def clear_term() -> None:
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def move_image(image: str, destiny_folder: str, /) -> None:
+def move_image(image_path: str, destiny_folder: str, /) -> None:
     # function to move an image to a specific directory
-    shutil.move(image, destiny_folder)
+    shutil.move(image_path, destiny_folder)
 
 
 def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
