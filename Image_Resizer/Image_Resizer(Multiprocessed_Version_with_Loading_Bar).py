@@ -237,9 +237,10 @@ def _main(args: Any = None) -> None:
             # All entries are formatted correctly, 
             # the loop can be terminated :
             break
-        
+
         except ValueError as error:
-            print(error)
+            print("Invalid image format! Enter a valid format as "\
+                  "per the examples provided above.")
             print("(press any key to continue...)", end='')
             # Pausing and subsequently cleaning the terminal :
             pause_term() ; clear_term()
