@@ -29,6 +29,21 @@ type ImageGen = Generator[tuple[str, tuple[int, int]], None, None]
 supported_extensions: Final[set[str]] = {".jpg", ".jpeg", ".png"}
 
 
+def pause_term(message: str | None = None, /) -> None:
+    # function to pause the terminal
+    if message:
+        print(message)
+
+    match os.name:
+        case 'nt':
+            os.system('pause > nul')
+        case 'posix':
+            os.system('read -n 1 -s -r -p ""')
+        case _:
+            raise Exception("Unable to identify the operating system to "\
+                            "pause the terminal.")
+
+
 def clear_term() -> None:
     # function to clean the terminal
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -172,7 +187,8 @@ def _main(args: Any = None) -> None:
         
         print("(press any key to continue...)", end='')
 
-        os.system('pause > nul & cls')
+        # Pausing and subsequently cleaning the terminal :
+        pause_term() ; clear_term()
     
     clear_term()
 
@@ -225,12 +241,14 @@ def _main(args: Any = None) -> None:
         except ValueError as error:
             print(error)
             print("(press any key to continue...)", end='')
-            os.system('pause > nul & cls')
+            # Pausing and subsequently cleaning the terminal :
+            pause_term() ; clear_term()
 
         except Exception as error:
             print(f"\nError: {error}")
             print("(press any key to continue...)", end='')
-            os.system('pause > nul & cls')
+            # Pausing and subsequently cleaning the terminal :
+            pause_term() ; clear_term()
 
     if is_file:
         move_image(resize_image(input_path, input_dimensions),\
@@ -240,9 +258,7 @@ def _main(args: Any = None) -> None:
            len(tuple(filter(lambda x: os.path.splitext(x)[-1] in supported_extensions,
                                                                  folder_content))))
 
-    print("• Done! Press any key to close... ")
-
-    os.system('pause > nul')
+    pause_term("\n• Done! Press any key to close... ")
 
     print("\n~ Thanks for Using this Program! Closing in... ", end='')
     for i in range(3, 0, -1):
