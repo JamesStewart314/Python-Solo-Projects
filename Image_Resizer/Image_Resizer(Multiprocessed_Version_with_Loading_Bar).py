@@ -256,8 +256,8 @@ def _main(args: Any = None) -> None:
                      os.path.abspath(os.path.dirname(input_path)))
     else:
         resize_multiple_images(input_path, input_dimensions, 
-           len(tuple(filter(lambda x: os.path.splitext(x)[-1] in supported_extensions,
-                                                                 folder_content))))
+           sum(1 for _ in filter(lambda x: os.path.splitext(x)[-1] in supported_extensions,
+                                                                 folder_content)))
 
     pause_term("\n• Done! Press any key to close... ")
 
