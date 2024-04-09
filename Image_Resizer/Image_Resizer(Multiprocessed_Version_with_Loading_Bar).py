@@ -2,7 +2,7 @@
 #      This code is a Image Resizer created in Python language - version 3.12 or higher
 #                          library dependencies: "pillow" ; "tqdm"
 #       To run it properly, make sure you have this package in your virtual environment.
-#                             Code Created in ~ 03/29/2024 ~
+#                              Code Created in ~ 03/29/2024 ~
 # \----------------------------------------------------------------------------------------------/
 
 
