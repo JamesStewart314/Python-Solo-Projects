@@ -19,7 +19,6 @@ from PIL import Image as IMG
 
 from itertools import count
 from PIL.Image import Image
-
 from typing import Any, Final, Generator
 
 type ImageGen = Generator[tuple[str, tuple[int, int]], None, None]
