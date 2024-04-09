@@ -50,6 +50,7 @@ def clear_term() -> None:
 
 
 def move_image(image: str, destiny_folder: str, /) -> None:
+    # function to move an image to a specific directory
     shutil.move(image, destiny_folder)
 
 
