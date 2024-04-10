@@ -21,7 +21,7 @@ from itertools import count
 from PIL.Image import Image
 from typing import Any, Final, Generator
 
-type ImageGen = Generator[tuple[str, tuple[int, int]], None, None]
+type ImageGen = Generator[tuple[str, tuple[int, int], str], None, None]
 
 
 # Supported Image File Extensions :
@@ -53,11 +53,15 @@ def move_image(image_path: str, destiny_folder: str, /) -> None:
     shutil.move(image_path, destiny_folder)
 
 
-def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
+def resize_image(image_path: str, new_dimensions: tuple[int, int], 
+                 destiny_folder: str | None = None, /) -> str:
 
     """
-     As the name of the function suggests, it resizes the width and 
-    height of an image file and saves the new copy of the resized image in the same directory where the code is contained.
+     As the name of the function suggests, it resizes the width and
+    height of an image file and saves the new copy of the resized image
+    in the same directory where the code is contained if the "destiny_folder" 
+    parameter is not provided. Otherwise, the image will be stored in the path 
+    corresponding to the parameter in question.
 
     :param image_path: The path corresponding to the 
      image file contained on your computer.
@@ -76,12 +80,20 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
     
     if not isinstance(new_dimensions, tuple):
         raise TypeError("\'new_dimensions\' parameter must be of type \'tuple\'")
+
+    if destiny_folder and (not isinstance(destiny_folder, str) and os.path.isdir(destiny_folder)):
+        
+        # Checking that the "destiny_folder" parameter is not None and 
+        # indicates a valid directory path on the computer.
+
+        raise ValueError("The \'destiny_folder\' variable must be of type str "\
+                         "and must reference a valid directory path on your computer.")
     
     if not (len(new_dimensions) == 2 and\
            all((isinstance(number, int) and number > 0)\
            for number in new_dimensions)):
         
-        # checking if the 'new_dimensions' parameter corresponds 
+        # Checking if the 'new_dimensions' parameter corresponds 
         # to a tuple containing two non-zero positive integers.
 
         raise ValueError("\'new_dimensions\' parameter must be a tuple that "\
@@ -90,28 +102,31 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int], /) -> str:
     if not os.path.isfile(image_path):
         raise FileNotFoundError("The image path provided is invalid or does not exist.")
 
-    if not (extension := os.path.splitext(image_path)[-1]) in supported_extensions:
+    image_base_info: tuple[str, str] = os.path.splitext(image_path)
+
+    if not (extension := image_base_info[-1]) in supported_extensions:
         raise ValueError(f"File extension \'{extension}\' is not supported. "\
                         f"Available extensions: {supported_extensions}")
     
     with IMG.open(image_path) as image_object:
 
         new_image: Image = image_object.resize(new_dimensions)
-        base_name: str = (bs_name := os.path.basename(image_path))[:bs_name.rindex('.')]
-        aux_counter: count = itertools.count(start=0)
-
-        while os.path.isfile((new_name := base_name + '_copy-' +\
-                            str(next(aux_counter)).zfill(3) + extension)): pass
+        new_name = image_base_info[0] + '-new_copy' + extension
         
-        new_image.save(new_name)
+        # Saving the Image :
+        new_image.save(os.path.join(destiny_folder, os.path.basename(new_name)) \
+                       if destiny_folder else new_name)
 
         return new_name
 
 
-def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], number_of_images: int, /) -> None:
+def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], 
+                           number_of_images: int, /) -> None:
 
     """
-     Function used to resize multiple images present in the same directory.
+     The purpose of this function is to create resized copies of multiple 
+    images present in the same directory, grouping them in a new subfolder 
+    whose nomenclature is derived from the dimensions of the resized images.
     
     :param folder_path: The path corresponding to the directory whose 
      images should be resized.
@@ -130,15 +145,6 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
 
     if not os.path.isdir(folder_path):
         raise ValueError("The given folder path is invalid or does not exist.")
-    
-
-    # The use of generators was prioritized over lists to minimize 
-    # excessive memory expenditure at the expense of a small 
-    # portion of performance :
-    image_files: ImageGen = ((os.path.join(folder_path, image_name), new_dimensions) for \
-                             image_name in filter(lambda x: os.path.splitext(x)[-1] in \
-                             supported_extensions, os.listdir(folder_path)))
-    
 
     # Making sure that the name chosen for the new folder that will 
     # contain the resized images does not exist :
@@ -148,6 +154,13 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
                         f" - {str(next(aux_counter)).zfill(3)}"))): pass
     
     os.mkdir(new_folder_name)
+
+    # The use of generators was prioritized over lists to minimize 
+    # excessive memory expenditure at the expense of a small 
+    # portion of performance :
+    image_files: ImageGen = ((os.path.join(folder_path, image_name), new_dimensions, new_folder_name) for \
+                             image_name in filter(lambda x: os.path.splitext(x)[-1] in \
+                             supported_extensions, os.listdir(folder_path)))
     
     with multiprocessing.Pool() as pool:
         
@@ -156,7 +169,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
         # 2°: " >═"
         # 3°: " ░▒▓"
 
-        for img_file in tqdm.tqdm(pool.istarmap(resize_image, image_files), 
+        for _ in tqdm.tqdm(pool.istarmap(resize_image, image_files), 
                                   total=number_of_images,
                                   desc=f"\033[3m\033[1m• Loading\033[0m\033[31m."\
                                        "\033[33m.\033[34m.\033[0m",
@@ -165,9 +178,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int], nu
                                  bar_format="{desc} ~{percentage:3.0f}% - [{bar}] - {n_fmt}/{total_fmt}"\
                                             " | Time Elapsed: {elapsed} ~ Time Remaining: {remaining}",
                                  smoothing=0.8,
-                                 colour='green'):
-            
-            move_image(img_file, new_folder_name)
+                                 colour='green'): pass
                                      
     return None
 
@@ -252,12 +263,11 @@ def _main(args: Any = None) -> None:
             pause_term() ; clear_term()
 
     if is_file:
-        move_image(resize_image(input_path, input_dimensions),\
-                     os.path.abspath(os.path.dirname(input_path)))
+        resize_image(input_path, input_dimensions, os.path.abspath(os.path.dirname(input_path)))
     else:
         resize_multiple_images(input_path, input_dimensions, 
-           sum(1 for _ in filter(lambda x: os.path.splitext(x)[-1] in supported_extensions,
-                                                                 folder_content)))
+           sum(1 for _ in filter(lambda x: os.path.splitext(x)[-1] in \
+                                 supported_extensions, folder_content)))
 
     pause_term("\n• Done! Press any key to close... ")
 
@@ -272,3 +282,4 @@ def _main(args: Any = None) -> None:
 
 if __name__ == '__main__':
     _main()
+    
