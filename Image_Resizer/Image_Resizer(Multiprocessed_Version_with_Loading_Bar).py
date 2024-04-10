@@ -203,8 +203,6 @@ def _main(args: Any = None) -> None:
     
     clear_term()
 
-    folder_content: list[str] = os.listdir(input_path)
-
     message: str = "Great! "
 
     file_base_name: str = os.path.basename(input_path)
@@ -227,7 +225,7 @@ def _main(args: Any = None) -> None:
                 print(f"\n└> \" {file_base_name} \"")
 
             else:
-                for file_name in folder_content:
+                for file_name in os.listdir(input_path):
                     if os.path.splitext(file_name)[-1] in supported_extensions:
                         print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
 
