@@ -239,7 +239,7 @@ def _main(args: Any = None) -> None:
             if len(input_dimensions) != 2:
                 raise Exception("Invalid resize format. Please try to enter two "\
                                 "non-zero positive integer values as guided in "\
-                                "the examples provided.")
+                                "the examples provided above.")
             
             if not all(number > 0 for number in input_dimensions):
                 raise ValueError(f"\nValue Error: Please, try to enter two non-zero "\
@@ -250,7 +250,7 @@ def _main(args: Any = None) -> None:
             break
 
         except ValueError as error:
-            print("Invalid image format! Enter a valid format as "\
+            print("\nInvalid image format! Enter a valid format as "\
                   "per the examples provided above.")
             print("(press any key to continue...)", end='')
             # Pausing and subsequently cleaning the terminal :
@@ -282,4 +282,3 @@ def _main(args: Any = None) -> None:
 
 if __name__ == '__main__':
     _main()
-    
