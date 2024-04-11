@@ -203,8 +203,6 @@ def _main(args: Any = None) -> None:
     
     clear_term()
 
-    folder_content: list[str] = os.listdir(input_path)
-
     message: str = "Great! "
 
     file_base_name: str = os.path.basename(input_path)
@@ -212,7 +210,10 @@ def _main(args: Any = None) -> None:
     if (is_file := os.path.isfile(input_path)):
         message += f"You chose to resize a single image file. "\
                    f"(file name: {file_base_name})\n"
+
     else:
+        folder_content: list[str] = os.listdir(input_path)
+
         message += f"You have chosen to resize the multiple images present "\
                    f"in the \"{file_base_name}\" folder.\n"
         
