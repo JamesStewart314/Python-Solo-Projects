@@ -1,14 +1,17 @@
 # /----------------------------------------------------------------------------------------------------\
 #            This code is a Responsive Telegram Chatbot with basic learning capabilities 
 #              created in Python language - version 3.12 or higher - with dependencies 
-#                       on the "python-telegram-bot" and "aiofiles" libraries.
+#                  on the "python-telegram-bot", "aiofiles" and "uvloop" libraries.
+#              
+#              note: uvloop is not available in Windows systems. Download this library  
+#                      only if you are running the code on a Linux distribution!
 #
 #          For the code to work correctly, it is essential to provide confidential information,
 #   such as the associated TOKEN. However, due to the sensitive nature of this data, I cannot share it
-#                    publicly. Unfortunately, without this crucial information, 
-#                     the code will be unable to run properly on your machine.
+#                      publicly. Unfortunately, without this crucial information, 
+#                       the code will be unable to run properly on your machine.
 #
-#                                 Code Created in ~ 03/09/2024 ~
+#                                   Code Created in ~ 03/09/2024 ~
 # \----------------------------------------------------------------------------------------------------/
 
 
@@ -20,6 +23,13 @@ import asyncio
 from difflib import get_close_matches
 
 import aiofiles
+
+if os.name == 'posix':
+    # Changing the Event loop Policy in Asyncio 
+    # if Running on a Linux Distribution :
+    import uvloop
+    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy)
+
 from telegram import Update
 from telegram.ext import Application, CommandHandler
 from telegram.ext import MessageHandler, filters, ContextTypes
