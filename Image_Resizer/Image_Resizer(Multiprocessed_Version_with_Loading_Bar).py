@@ -72,6 +72,17 @@ def _custom_clear() -> None:
     print('\r\033[K\033[1A\033[K\033[2A\033[K\033[3A', flush=True)
 
 
+def display_ending_message(message: str = "", /) -> None:
+    print(message, end='')
+    
+    for i in range(3, 0, -1):
+        print(i, end='', flush=True)
+        time.sleep(1)
+        print('\b', end='')
+
+    print('\r\033[K')
+
+
 def move_image(image_path: str, destiny_folder: str, /) -> None:
     # function to move an image to a specific directory
     shutil.move(image_path, destiny_folder)
@@ -297,12 +308,7 @@ def _main(args: Any = None) -> None:
 
     pause_term("\n• Done! Press any key to close... ")
 
-    print("\n~ Thanks for Using this Program! Closing in... ", end='')
-    for i in range(3, 0, -1):
-        print(i, end='', flush=True)
-        time.sleep(1)
-        print('\b', end='')
-    
+    display_ending_message("\n~ Thanks for Using this Program! Closing in... ")
     clear_term()
 
 
