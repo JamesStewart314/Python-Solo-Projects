@@ -51,7 +51,7 @@ def clear_term() -> None:
 def _custom_clear() -> None:
 
     #
-    #      Using ANSI codes to do, respectively :
+    #      Using ANSI codes to do respectively :
     #
     #  • return the cursor to beginning of line ;
     #  • clear everything in front of the cursor on the same line ;
