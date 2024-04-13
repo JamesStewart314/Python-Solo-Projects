@@ -48,6 +48,30 @@ def clear_term() -> None:
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def _custom_clear() -> None:
+
+    #
+    #      Using ANSI codes to do, respectively :
+    #
+    #  • return the cursor to beginning of line ;
+    #  • clear everything in front of the cursor on the same line ;
+    #  • move the cursor one line up ;
+    #  • clear everything in front of the cursor on the same line ;
+    #  • move the cursor two lines up ;
+    #  • clear everything in front of the cursor on the same line ;
+    #  • move the cursor three lines up.
+    #
+    # 
+    # Although I recognize that this approach is unconventional and 
+    # may make future maintenance difficult, I chose to apply it on this 
+    # occasion to explore the practical use of ANSI codes. It is important 
+    # to highlight that this practice is strongly discouraged in production 
+    # and enterprise collaboration environments.
+    #
+
+    print('\r\033[K\033[1A\033[K\033[2A\033[K\033[3A')
+
+
 def move_image(image_path: str, destiny_folder: str, /) -> None:
     # function to move an image to a specific directory
     shutil.move(image_path, destiny_folder)
@@ -219,22 +243,23 @@ def _main(args: Any = None) -> None:
         
     message += "Now enter the new dimensions to resize the selected images"\
                " (e.g.: \"200x400\", \"480x480\", ...)\n>>> "
+    
+    print("• Images Being Resized:\n│", end='')
+
+    if is_file:
+        print(f"\n└> \" {file_base_name} \"")
+
+    else:
+        for file_name in folder_content:
+            if os.path.splitext(file_name)[-1] in supported_extensions:
+                print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
+
+        print('\b \n')
+    print()
 
     while True:
+
         try:
-            print("• Images Being Resized:\n│", end='')
-
-            if is_file:
-                print(f"\n└> \" {file_base_name} \"")
-
-            else:
-                for file_name in folder_content:
-                    if os.path.splitext(file_name)[-1] in supported_extensions:
-                        print(f"\n└> \" {(base_name := os.path.basename(file_name)):<{(size := min(len(base_name), 80))}.{size}} \" ;", end='', flush=True)
-
-                print('\b \n')
-            print()
-                
             input_dimensions: tuple[int, ...] = tuple(map(int, input(message).split('x')))
 
             if len(input_dimensions) != 2:
@@ -254,14 +279,14 @@ def _main(args: Any = None) -> None:
             print("\nInvalid image format! Enter a valid format as "\
                   "per the examples provided above.")
             print("(press any key to continue...)", end='')
-            # Pausing and subsequently cleaning the terminal :
-            pause_term() ; clear_term()
+            # Pausing and subsequently cleaning the last two lines :
+            pause_term() ; _custom_clear()
 
         except Exception as error:
             print(f"\nError: {error}")
             print("(press any key to continue...)", end='')
-            # Pausing and subsequently cleaning the terminal :
-            pause_term() ; clear_term()
+            # Pausing and subsequently cleaning the last two lines :
+            pause_term() ; _custom_clear()
 
     if is_file:
         resize_image(input_path, input_dimensions, os.path.abspath(os.path.dirname(input_path)))
