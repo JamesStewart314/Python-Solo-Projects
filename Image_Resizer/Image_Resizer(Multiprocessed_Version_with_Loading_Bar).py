@@ -69,7 +69,7 @@ def _custom_clear() -> None:
     # and enterprise collaboration environments.
     #
 
-    print('\r\033[K\033[1A\033[K\033[2A\033[K\033[3A')
+    print('\r\033[K\033[1A\033[K\033[2A\033[K\033[3A', flush=True)
 
 
 def move_image(image_path: str, destiny_folder: str, /) -> None:
