@@ -116,7 +116,7 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int],
     if not isinstance(new_dimensions, tuple):
         raise TypeError("\'new_dimensions\' parameter must be of type \'tuple\'")
 
-    if destiny_folder and (not isinstance(destiny_folder, str) and os.path.isdir(destiny_folder)):
+    if destiny_folder and not (isinstance(destiny_folder, str) and os.path.isdir(destiny_folder)):
         
         # Checking that the "destiny_folder" parameter is not None and 
         # indicates a valid directory path on the computer.
