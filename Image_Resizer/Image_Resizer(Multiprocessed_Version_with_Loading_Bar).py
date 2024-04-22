@@ -211,7 +211,7 @@ def resize_multiple_images(folder_path: str, new_dimensions: tuple[int, int],
                                  ncols=100,
                                  ascii=" ░▒▓",
                                  bar_format="{desc} ~{percentage:3.0f}% - [{bar}] - {n_fmt}/{total_fmt}"\
-                                            " | Time Elapsed: {elapsed} ~ Time Remaining: {remaining}",
+                                            " | Time Elapsed: {elapsed} ~ ETA: {remaining}",
                                  smoothing=0.8,
                                  colour='green'): pass
                                      
