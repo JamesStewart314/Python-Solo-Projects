@@ -106,6 +106,13 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int],
      in which the image will be resized.
     :type new_dimensions: tuple[int, int]
 
+    :param destiny_folder: This parameter refers to the final directory 
+     path that should contain the duplicate of the resized image. 
+     If a path is not explicitly specified, the folder that will contain 
+     the copy of the resized image will be the one where this 
+     code file is located. 
+    :type destiny_folder: string | None
+
     :return: A string containing the full name of the new resized image.
     :rtype: string
     """
