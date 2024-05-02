@@ -33,14 +33,7 @@ def pause_term(message: str | None = None, /) -> None:
     if message:
         print(message)
 
-    match os.name:
-        case 'nt':
-            os.system('pause > nul')
-        case 'posix':
-            os.system('read -n 1 -s -r -p ""')
-        case _:
-            raise Exception("Unable to identify the operating system to "\
-                            "pause the terminal.")
+    os.system('pause > nul' if os.name == 'nt' else 'read -n 1 -s -r -p ""')
 
 
 def clear_term() -> None:
