@@ -146,7 +146,7 @@ def resize_image(image_path: str, new_dimensions: tuple[int, int],
     with IMG.open(image_path) as image_object:
 
         new_image: Image = image_object.resize(new_dimensions)
-        new_name = image_base_info[0] + '-new_copy' + extension
+        new_name: str = image_base_info[0] + '-new_copy' + extension
         
         # Saving the Image :
         new_image.save(os.path.join(destiny_folder, os.path.basename(new_name)) \
